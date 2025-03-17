@@ -16,7 +16,7 @@ repository.
 ## Tooling & Frameworks
 
 ### Frontend
-//TODO add backend tooling Yura
+//TODO add frontend tooling Yura
 - Angular 19
 - Node latest LTS v22
 
