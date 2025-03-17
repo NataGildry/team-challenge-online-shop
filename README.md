@@ -1,3 +1,3 @@
 # team-challenge-online-shop
 
-We need to update repository 
+We need to update repository now
