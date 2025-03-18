@@ -12,10 +12,10 @@ import { MatButtonModule } from '@angular/material/button';
      Delete this file and get started with your project!
      * * * * * * * * * * * * * * * * * * * * * * * * * * * *
      -->
-    <h1 class="bg-blue-500">Hello world</h1>
+    <h1 class="text-3xl text-center">Hello world</h1>
     <div class="flex items-center"><button mat-flat-button>Basic</button></div>
   `,
-  styles: ['h1, div, button {border: 1px solid red;}'],
+  styles: [''],
   encapsulation: ViewEncapsulation.None,
 })
 export class NxWelcomeComponent {}
