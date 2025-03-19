@@ -19,6 +19,7 @@ repository.
 //TODO add frontend tooling Yura
 - Angular 19
 - Node latest LTS v22
+- Run the application locally: `...team-challenge-online-shop\apps\frontend> npx nx serve anx-store`
 
 ### Backend
 
