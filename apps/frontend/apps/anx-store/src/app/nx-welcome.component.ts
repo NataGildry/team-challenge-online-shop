@@ -12,7 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
      Delete this file and get started with your project!
      * * * * * * * * * * * * * * * * * * * * * * * * * * * *
      -->
-    <h1 class="text-3xl text-center">Hello world</h1>
+    <h1 class="text-3xl text-center">Welcome anx-store</h1>
     <div class="flex items-center"><button mat-flat-button>Basic</button></div>
   `,
   styles: [''],
