@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "prepare": "cd ../.. && husky apps/frontend/.husky",
+    "prepare": "cd ../../ && husky install apps/frontend/.husky",
     "lint": "npx nx lint anx-store"
   },
   "private": true,
