@@ -1,0 +1,6 @@
+# Print every command for better understanding of output
+set -o xtrace
+
+cd apps/frontend
+
+npx lint-staged --concurrent false --relative
