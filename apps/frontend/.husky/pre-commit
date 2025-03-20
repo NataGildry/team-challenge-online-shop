@@ -2,4 +2,4 @@ set -o xtrace
 
 cd apps/frontend
 
-npm run lint
+npx lint-staged --concurrent false --relative
