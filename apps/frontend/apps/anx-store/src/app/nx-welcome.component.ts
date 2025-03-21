@@ -18,4 +18,9 @@ import { MatButtonModule } from '@angular/material/button';
   styles: [''],
   encapsulation: ViewEncapsulation.None,
 })
-export class NxWelcomeComponent {}
+export class NxWelcomeComponent {
+  c(){
+
+    l c =9;
+  }
+}
