@@ -1,0 +1,11 @@
+{
+  "eslint.workingDirectories": [
+    ".apps/frontend"
+  ],
+  "typescript.tsdk": ".apps/frontend/node_modules/typescript/lib",
+  "cSpell.words": [
+    "Nataliia",
+    "openapi",
+    "Podpriatova"
+  ]
+}
