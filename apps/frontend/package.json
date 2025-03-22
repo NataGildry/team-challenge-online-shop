@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "lint-staged": {
-    "*.ts": ["nx run anx-store:lint"]
+    "*.ts": [
+      "nx run anx-store:lint"
+    ]
   },
   "scripts": {
     "prepare": "cd ../../ && husky apps/frontend/.husky",
@@ -49,6 +51,8 @@
     "@types/express": "^4.17.21",
     "@types/jest": "^29.5.12",
     "@types/node": "18.16.9",
+    "@typescript-eslint/eslint-plugin": "^8.27.0",
+    "@typescript-eslint/parser": "^8.27.0",
     "@typescript-eslint/utils": "^8.19.0",
     "angular-eslint": "^19.2.0",
     "autoprefixer": "^10.4.0",

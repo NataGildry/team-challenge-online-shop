@@ -21,6 +21,7 @@ import { MatButtonModule } from '@angular/material/button';
 export class NxWelcomeComponent {
   c(){
 
-    l c =9;
+    const c ;
+    // return c;
   }
 }
