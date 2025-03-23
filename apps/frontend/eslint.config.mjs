@@ -10,8 +10,29 @@ export default [
   },
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
+    // Override or add rules here
+    rules: {
+      '@nx/enforce-module-boundaries': [
+        'error',
+        {
+          enforceBuildableLibDependency: true,
+          allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?js$'],
+          depConstraints: [
+            {
+              sourceTag: '*',
+              onlyDependOnLibsWithTags: ['*'],
+            },
+          ],
+        },
+      ],
+      'no-console': ['warn'],
+      eqeqeq: ['error', 'smart'],
+    },
+  },
+  {
+    files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
-      parser: ts,  // ✅ Correct placement inside `languageOptions`
+      parser: ts,
       parserOptions: {
         project: 'tsconfig.base.json',
         sourceType: 'module',
@@ -31,10 +52,40 @@ export default [
           ],
         },
       ],
-      '@typescript-eslint/no-explicit-any': ['error'], // ❌ Disallow `any`
-      '@typescript-eslint/no-unused-vars': ['error'], // ✅ No unused variables
-      // '@typescript-eslint/explicit-module-boundary-types': ['error']
-      // '@typescript-eslint/explicit-function-return-type': 'error',
+      '@typescript-eslint/consistent-type-assertions': [
+        'error',
+        {
+          assertionStyle: 'never',
+        },
+      ],
+      '@typescript-eslint/no-explicit-any': ['error'],
+      '@typescript-eslint/no-unused-vars': ['error'],
+      '@typescript-eslint/explicit-module-boundary-types': ['error'],
+      '@typescript-eslint/explicit-function-return-type': 'error',
+      '@typescript-eslint/explicit-member-accessibility': 'error',
+      '@typescript-eslint/member-ordering': [
+        'error',
+        {
+          default: [
+            'signature',
+            ['decorated-field', 'get', 'set'],
+            'field',
+            'constructor',
+            'decorated-method',
+            'method',
+          ],
+        },
+      ],
+      '@typescript-eslint/no-empty-interface': 'error',
+      '@typescript-eslint/no-inferrable-types': [
+        'warn',
+        { ignoreParameters: true },
+      ],
+      '@typescript-eslint/no-unsafe-member-access': ['error'],
+      '@typescript-eslint/no-unused-expressions': [
+        'error',
+        { allowTernary: true },
+      ],
     },
   },
   {
@@ -49,8 +100,6 @@ export default [
       '**/*.mjs',
     ],
     // Override or add rules here
-    rules: {
-     
-    },
+    rules: {},
   },
 ];
