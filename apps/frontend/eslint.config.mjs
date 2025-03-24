@@ -27,6 +27,9 @@ export default [
       ],
       'no-console': ['warn'],
       eqeqeq: ['error', 'smart'],
+      semi: ['error', 'always'],
+      quotes: ['error', 'single'],
+      indent: ['error', 2],
     },
   },
   {
