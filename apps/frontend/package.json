@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "lint-staged": {
-    "*.{ts,html,css,scss,json,md}": "nx format:write && nx affected:lint --uncommitted"
+    "*.{ts,js,html,css,json,md}": "nx format:write && nx affected:lint --uncommitted"
   },
   "scripts": {
     "prepare": "cd ../../ && husky apps/frontend/.husky",
