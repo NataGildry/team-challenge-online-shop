@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Application.DTOs;
 
-
 namespace FakedOutShop.API.Controllers
 {
   [ApiController]
