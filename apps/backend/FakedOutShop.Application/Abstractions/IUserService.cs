@@ -1,6 +1,6 @@
-using Application.DTOs;
+using FakedOutShop.Application.DTOs;
 
-namespace Application.Abstractions
+namespace FakedOutShop.Application.Abstractions
 {
   public interface IUserService
   {

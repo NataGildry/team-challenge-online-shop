@@ -1,8 +1,8 @@
-using Application.Abstractions;
-using Application.Models.Services;
+using FakedOutShop.Application.Abstractions;
+using FakedOutShop.Application.Models.Services;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Infrastructure.Data
+namespace FakedOutShop.Infrastructure.Data
 {
   public static class DependencyInjection
   {

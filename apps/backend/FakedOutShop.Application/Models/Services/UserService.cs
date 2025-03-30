@@ -1,7 +1,7 @@
-using Application.Abstractions;
-using Application.DTOs;
+using FakedOutShop.Application.Abstractions;
+using FakedOutShop.Application.DTOs;
 
-namespace Application.Models.Services
+namespace FakedOutShop.Application.Models.Services
 {
   public class UserService : IUserService
   {

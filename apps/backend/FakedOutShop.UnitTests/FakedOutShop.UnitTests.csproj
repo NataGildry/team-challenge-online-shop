@@ -7,6 +7,7 @@
 
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
+        <RootNamespace>UnitTests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -22,8 +23,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Application\Application.csproj" />
-      <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+      <ProjectReference Include="..\FakedOutShop.Application\FakedOutShop.Application.csproj" />
+      <ProjectReference Include="..\FakedOutShop.Infrastructure\FakedOutShop.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

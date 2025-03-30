@@ -5,13 +5,13 @@ VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakedOutShop.API", "FakedOutShop.API\FakedOutShop.API.csproj", "{87E7C390-8C51-4D6C-8236-01ADE106A023}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{20B7A039-849D-4FCE-B1BA-25D5F9C845E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakedOutShop.Application", "FakedOutShop.Application\FakedOutShop.Application.csproj", "{20B7A039-849D-4FCE-B1BA-25D5F9C845E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{7327EA67-7B84-4DA2-9DDE-CDB500431A84}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakedOutShop.Domain", "FakedOutShop.Domain\FakedOutShop.Domain.csproj", "{7327EA67-7B84-4DA2-9DDE-CDB500431A84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{55F587F9-221B-44C2-8AE5-900F6138FC8C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakedOutShop.Infrastructure", "FakedOutShop.Infrastructure\FakedOutShop.Infrastructure.csproj", "{55F587F9-221B-44C2-8AE5-900F6138FC8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{EAB94515-A22B-47A0-A498-14202F09BBA3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakedOutShop.UnitTests", "FakedOutShop.UnitTests\FakedOutShop.UnitTests.csproj", "{EAB94515-A22B-47A0-A498-14202F09BBA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

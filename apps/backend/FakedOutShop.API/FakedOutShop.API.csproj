@@ -12,10 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Application\Application.csproj" />
-    <ProjectReference Include="..\Domain\Domain.csproj" />
-    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
-    <ProjectReference Include="..\UnitTests\UnitTests.csproj" />
+    <ProjectReference Include="..\FakedOutShop.Application\FakedOutShop.Application.csproj" />
+    <ProjectReference Include="..\FakedOutShop.Domain\FakedOutShop.Domain.csproj" />
+    <ProjectReference Include="..\FakedOutShop.Infrastructure\FakedOutShop.Infrastructure.csproj" />
+    <ProjectReference Include="..\FakedOutShop.UnitTests\FakedOutShop.UnitTests.csproj" />
   </ItemGroup>
 
 </Project>
