@@ -1,6 +1,6 @@
 import { APP_BASE_HREF } from '@angular/common';
 import { CommonEngine, isMainModule } from '@angular/ssr/node';
-import express from 'express';
+import express, { Application } from 'express';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import bootstrap from './main.server';
@@ -9,8 +9,8 @@ const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
 const indexHtml = join(serverDistFolder, 'index.server.html');
 
-const app = express();
-const commonEngine = new CommonEngine();
+const app: Application = express();
+const commonEngine: CommonEngine = new CommonEngine();
 
 /**
  * Example Express Rest API endpoints can be defined here.
@@ -29,7 +29,7 @@ const commonEngine = new CommonEngine();
  */
 app.get(
   '**',
-  express.static(browserDistFolder, {
+  express.static(browserDistFolder, { // eslint-disable-line
     maxAge: '1y',
     index: 'index.html',
   })
