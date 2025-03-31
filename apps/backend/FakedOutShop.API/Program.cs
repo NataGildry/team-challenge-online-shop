@@ -9,7 +9,7 @@ builder.Services.AddControllers()
     options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
   });
 
-builder.Services.AddInfrastructureServices();
+builder.Services.AddInfrastructureServices(builder.Configuration);
 
 builder.Services.AddCors(options =>
 {
