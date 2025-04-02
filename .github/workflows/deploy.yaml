@@ -39,7 +39,6 @@ jobs:
         run: |
          cd apps/frontend
          npx angular-cli-ghpages --dir=dist/apps/anx-store/browser --no-silent
-                 uses: JamesIves/github-pages-deploy-action@v4
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
