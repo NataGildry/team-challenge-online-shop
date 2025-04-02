@@ -32,6 +32,8 @@ jobs:
         run: |
          cd apps/frontend
          npx nx build anx-store --configuration=production --base-href="/team-challenge-online-shop/"
+          # Check if the build output exists after the build process
+         ls -R dist/apps/anx-store
 
        # Check if the build folder exists
       - name: List build directory contents
