@@ -28,6 +28,11 @@ jobs:
          cd apps/frontend
          npm ci
 
+      - name: Clean Nx cache
+        run: |
+          cd apps/frontend
+          npx nx clean
+
       - name: Build Angular app 🔧
         run: |
          cd apps/frontend
