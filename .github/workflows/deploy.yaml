@@ -29,4 +29,6 @@ jobs:
          npx nx build anx-store --configuration=production --base-href="/team-challenge-online-shop/"
 
       - name: Deploy to GitHub Pages
-        run: npx angular-cli-ghpages --dir=dist/apps/anx-store/browser
+        run: |
+         cd apps/frontend
+         npx angular-cli-ghpages --dir=dist/apps/anx-store/browser
