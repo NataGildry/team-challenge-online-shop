@@ -23,6 +23,9 @@ jobs:
          cd apps/frontend 
          npm ci
 
+      - name: Check Current Directory
+        run: pwd && ls -la
+
       - name: Build Angular app
         run: npx nx build anx-store --configuration=production --base-href="/team-challenge-online-shop/"
 
