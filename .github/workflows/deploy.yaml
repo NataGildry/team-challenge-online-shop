@@ -8,19 +8,29 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Setup Node.js
+      - name: Cache Node modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 22
+          node-version: '22.x'
 
       - name: Install dependencies
         run: |
-         cd apps/frontend 
+         cd apps/frontend
          npm ci
 
       - name: Build Angular app
@@ -32,3 +42,5 @@ jobs:
         run: |
          cd apps/frontend
          npx angular-cli-ghpages --dir=dist/apps/anx-store/browser --no-silent
+        env:
+         GH_TOKEN: ${{ secrets.GH_TOKEN }}
