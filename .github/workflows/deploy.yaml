@@ -38,6 +38,11 @@ jobs:
          cd apps/frontend
          npx nx build anx-store --configuration=production --base-href="/team-challenge-online-shop/"
 
+      - name: Set Git configuration
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
       - name: Deploy to GitHub Pages
         run: |
          cd apps/frontend
