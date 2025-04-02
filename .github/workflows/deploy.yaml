@@ -34,18 +34,7 @@ jobs:
          npx nx build anx-store --configuration=production --base-href="/team-challenge-online-shop/"
           # Debug: Check if build output exists
           echo "Listing the build output directory (dist)"
-          ls -R dist/
-          ls -R dist/apps/anx-store || echo "Build folder not found"
-
-          # Step 2: List build directory contents
-      - name: List build directory contents
-        run: |
-          # Debug: Check current working directory
-          echo "Current directory: $(pwd)"
-
-          # List the contents of the current directory
-          echo "Listing contents of current directory:"
-          ls -R .
+          ls -R apps/frontend/dist/apps/anx-store || echo "Build folder not found"
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
@@ -55,4 +44,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: dist/apps/anx-store/browser
+          FOLDER: apps/frontend/dist/apps/anx-store/browser
