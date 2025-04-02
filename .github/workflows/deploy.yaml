@@ -43,17 +43,9 @@ jobs:
           # Debug: Check current working directory
           echo "Current directory: $(pwd)"
 
-          # List the dist folder contents
-          echo "Listing contents of dist"
-          ls dist/
-
-           # List the apps folder
-          echo "Listing contents of dist/apps"
-          ls dist/apps/
-
-          # List the anx-store folder (if it exists)
-          echo "Listing contents of dist/apps/anx-store"
-          ls -R dist/apps/anx-store || echo "No contents found in dist/apps/anx-store"
+          # List the contents of the current directory
+          echo "Listing contents of current directory:"
+          ls -R .
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
