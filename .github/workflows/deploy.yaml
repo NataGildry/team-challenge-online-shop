@@ -33,6 +33,11 @@ jobs:
          cd apps/frontend
          npx nx build anx-store --configuration=production --base-href="/team-challenge-online-shop/"
 
+       # Check if the build folder exists
+      - name: List build directory contents
+        run: |
+          ls -R dist/apps/anx-store
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         # run: |
