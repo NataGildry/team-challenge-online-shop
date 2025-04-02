@@ -24,11 +24,7 @@ jobs:
          npm ci
 
       - name: Build Angular app
-        run: |
-         cd apps/frontend 
-         npx nx build anx-store --configuration=production --base-href="/team-challenge-online-shop/"
+        run: npx nx build anx-store --configuration=production --base-href="/team-challenge-online-shop/"
 
       - name: Deploy to GitHub Pages
-        run: |
-         cd apps/frontend 
-         npx angular-cli-ghpages --dir=dist/apps/anx-store/browser
+        run: npx angular-cli-ghpages --dir=dist/apps/anx-store/browser
