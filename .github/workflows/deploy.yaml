@@ -1,12 +1,10 @@
-name: Build and Deploy
+name: Build and Deploy Angular app
 
 on:
   push:
-    branches:
-      - deploy
+    branches: [deploy]
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   build:
@@ -23,24 +21,18 @@ jobs:
         with:
           node-version: '22.x'
 
-      - name: Install dependencies
+      - name: Install dependencies 📦
         run: |
          cd apps/frontend
          npm ci
 
-      - name: Build Angular app 🔧
+      - name: Build Angular app 🔧🛠️
         run: |
          cd apps/frontend
          npx nx build anx-store --configuration=production --base-href="/team-challenge-online-shop/"
-          # Debug: Check if build output exists
-          echo "Listing the build output directory (dist)"
-          ls -R apps/frontend/dist/apps/anx-store || echo "Build folder not found"
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
-        # run: |
-        #  cd apps/frontend
-        #  npx angular-cli-ghpages --dir=dist/apps/anx-store/browser --no-silent
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
