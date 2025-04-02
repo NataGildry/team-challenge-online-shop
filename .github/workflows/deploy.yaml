@@ -23,11 +23,6 @@ jobs:
          cd apps/frontend 
          npm ci
 
-      - name: Check Current Directory
-        run: |
-         cd apps/frontend
-         pwd && ls -la
-
       - name: Build Angular app
         run: |
          cd apps/frontend
