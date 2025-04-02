@@ -36,9 +36,9 @@ jobs:
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
-        run: |
-         cd apps/frontend
-         npx angular-cli-ghpages --dir=dist/apps/anx-store/browser --no-silent
+        # run: |
+        #  cd apps/frontend
+        #  npx angular-cli-ghpages --dir=dist/apps/anx-store/browser --no-silent
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
