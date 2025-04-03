@@ -26,6 +26,11 @@ jobs:
          cd apps/frontend
          npm ci
 
+      - name: Run lint
+        run: |
+         cd apps/frontend
+         npm run lint
+
       - name: Build Angular app 🔧🛠️
         run: |
          cd apps/frontend
