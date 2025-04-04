@@ -1,9 +1,9 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
+
 @Component({
   selector: 'app-nx-welcome',
-  imports: [CommonModule, MatButtonModule],
+  imports: [MatButtonModule],
   template: `
     <!--
      * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -13,9 +13,11 @@ import { MatButtonModule } from '@angular/material/button';
      * * * * * * * * * * * * * * * * * * * * * * * * * * * *
      -->
     <h1 class="text-3xl text-center">Welcome anx-store</h1>
-    <div class="flex items-center"><button mat-flat-button>Basic</button></div>
+    <div class="flex items-center">
+      <button mat-flat-button>Basic</button>
+    </div>
   `,
-  styles: [''],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
 })
 export class NxWelcomeComponent {}

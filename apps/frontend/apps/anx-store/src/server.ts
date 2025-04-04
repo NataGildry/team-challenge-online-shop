@@ -29,7 +29,8 @@ const commonEngine: CommonEngine = new CommonEngine();
  */
 app.get(
   '**',
-  express.static(browserDistFolder, { // eslint-disable-line
+  // eslint-disable-next-line
+  express.static(browserDistFolder, {
     maxAge: '1y',
     index: 'index.html',
   })
