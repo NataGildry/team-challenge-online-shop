@@ -1,0 +1,44 @@
+name: Build and Deploy Angular app
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+
+      - name: Install dependencies 
+        run: |
+         cd apps/frontend
+         npm ci
+
+      - name: Code style check
+        run: |
+         cd apps/frontend
+         npm run lint
+
+      - name: Build Angular app
+        run: |
+         cd apps/frontend
+         npx nx build anx-store --configuration=production --base-href="/team-challenge-online-shop/"
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: apps/frontend/dist/apps/anx-store/browser
