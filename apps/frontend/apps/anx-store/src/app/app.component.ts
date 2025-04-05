@@ -7,7 +7,7 @@ import { AppHeaderComponent } from './components/app-header/app-header.component
   imports: [NxWelcomeComponent, RouterModule, AppHeaderComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   protected readonly title = 'anx-store';
