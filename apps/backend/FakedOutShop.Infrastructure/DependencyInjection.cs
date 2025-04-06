@@ -4,7 +4,7 @@ using FakedOutShop.Infrastructure.Cosmos;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace FakedOutShop.Infrastructure.Data
+namespace FakedOutShop.Infrastructure
 {
   public static class DependencyInjection
   {

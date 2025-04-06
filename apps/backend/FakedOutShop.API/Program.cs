@@ -1,5 +1,5 @@
 using System.Text.Json;
-using FakedOutShop.Infrastructure.Data;
+using FakedOutShop.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
