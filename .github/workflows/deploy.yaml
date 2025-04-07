@@ -2,7 +2,7 @@ name: Build and Deploy Angular app
 
 on:
   push:
-    branches: [main]
+    branches: [connect-tg-bot-NP]
   pull_request:
     branches: [main]
 
@@ -43,12 +43,23 @@ jobs:
           BRANCH: gh-pages
           FOLDER: apps/frontend/dist/apps/anx-store/browser
 
-      - name: 📬 Send Telegram notification
-        if: success()
+      - name: 📬 Send Telegram notification (push)
+        if: github.event_name == 'push' && success()
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID_NG }}
+          MESSAGE: "✅ Deployment completed successfully!"
+        run: |
+          curl -s -X POST https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage \
+          -d chat_id=$TELEGRAM_CHAT_ID \
+          -d text="$MESSAGE"
+
+      - name: 📝 Send Telegram notification (PR)
+        if: github.event_name == 'pull_request' && success()
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          MESSAGE: "✅ Deployment completed successfully!"
+          MESSAGE: "📝 Pull request is ready for review!"
         run: |
           curl -s -X POST https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage \
           -d chat_id=$TELEGRAM_CHAT_ID \
