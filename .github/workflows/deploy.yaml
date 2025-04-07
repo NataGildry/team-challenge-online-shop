@@ -2,7 +2,7 @@ name: Build and Deploy Angular app
 
 on:
   push:
-    branches: [connect-tg-bot-NP]
+    branches: [main]
   pull_request:
     branches: [main]
 
