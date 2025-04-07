@@ -1,16 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NxWelcomeComponent } from './nx-welcome.component';
-import { AppHeaderComponent } from './components/app-header/app-header.component';
-import { ShellComponent } from 'libs/shell/src/lib/shell/shell.component';
-
+import { HeaderComponent } from '@anx-store/shell';
 @Component({
-  imports: [
-    NxWelcomeComponent,
-    RouterModule,
-    AppHeaderComponent,
-    ShellComponent,
-  ],
+  imports: [NxWelcomeComponent, RouterModule, HeaderComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

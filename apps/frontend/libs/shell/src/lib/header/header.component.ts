@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-app-header',
+  selector: 'lib-header',
+  standalone: true,
   imports: [MatIconModule],
-  templateUrl: './app-header.component.html',
+  templateUrl: './header.component.html',
 })
-export class AppHeaderComponent {}
+export class HeaderComponent {}
