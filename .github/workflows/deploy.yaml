@@ -47,7 +47,7 @@ jobs:
         if: success()
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID_NG }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           MESSAGE: "✅ Deployment completed successfully!"
         run: |
           curl -s -X POST https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage \
