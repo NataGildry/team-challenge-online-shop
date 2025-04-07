@@ -3,9 +3,12 @@
     <span class="font-bold">comfortwave</span>
   </div>
   <div class="basis-1/3 flex flex-row justify-around items-center">
-    <span>home</span>
-    <span>catalog</span>
-    <span>about us</span>
+    @for (item of routes; track $index) {
+    <lib-navigation-item
+      [name]="item.name"
+      [link]="item.link"
+    ></lib-navigation-item>
+    }
   </div>
   <div class="basis-1/3 flex justify-end items-center gap-5">
     <span class="material-symbols-outlined text-4xl"> search </span>
