@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@anx-store/feature-about": ["libs/feature-about/src/index.ts"],
+      "@anx-store/feature-catalog": ["libs/feature-catalog/src/index.ts"],
+      "@anx-store/feature-home": ["libs/feature-home/src/index.ts"],
       "@anx-store/shell": ["libs/shell/src/index.ts"]
     }
   },

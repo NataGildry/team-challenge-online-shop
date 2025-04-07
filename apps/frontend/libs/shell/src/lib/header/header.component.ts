@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { NavigationItemComponent } from '../navigation-item/navigation-item.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'lib-header',
   standalone: true,
-  imports: [MatIconModule, NavigationItemComponent],
+  imports: [MatIconModule, NavigationItemComponent, RouterOutlet],
   templateUrl: './header.component.html',
 })
 export class HeaderComponent {
-  routes: { name: string; link: string }[] = [
-    { name: 'home', link: '#' },
-    { name: 'catalog', link: '#' },
-    { name: 'about us', link: '#' },
+  protected readonly routes: { name: string; link: string }[] = [
+    { name: 'home', link: '/home' },
+    { name: 'catalog', link: '/catalog' },
+    { name: 'about us', link: '/about-us' },
   ];
 }
