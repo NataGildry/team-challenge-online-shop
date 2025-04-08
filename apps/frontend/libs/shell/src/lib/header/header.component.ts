@@ -6,6 +6,7 @@ import {
   PersonIconComponent,
   SearchIconComponent,
   BasketIconComponent,
+  SelectComponent,
 } from '@anx-store/ui';
 
 @Component({
@@ -18,6 +19,7 @@ import {
     PersonIconComponent,
     SearchIconComponent,
     BasketIconComponent,
+    SelectComponent,
   ],
   templateUrl: './header.component.html',
 })
