@@ -26,5 +26,5 @@ export class HeaderComponent {
     { name: 'catalog', link: '/catalog' },
     { name: 'about us', link: '/about-us' },
   ];
-  iconsE = SharedIcons;
+  sharedIcons = SharedIcons;
 }
