@@ -3,10 +3,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { NavigationItemComponent } from '../navigation-item/navigation-item.component';
 import { RouterOutlet } from '@angular/router';
 import {
-  PersonIconComponent,
-  SearchIconComponent,
-  BasketIconComponent,
   SelectComponent,
+  SharedIconComponent,
+  SharedIcons,
 } from '@anx-store/ui';
 
 @Component({
@@ -16,10 +15,8 @@ import {
     MatIconModule,
     NavigationItemComponent,
     RouterOutlet,
-    PersonIconComponent,
-    SearchIconComponent,
-    BasketIconComponent,
     SelectComponent,
+    SharedIconComponent,
   ],
   templateUrl: './header.component.html',
 })
@@ -29,4 +26,5 @@ export class HeaderComponent {
     { name: 'catalog', link: '/catalog' },
     { name: 'about us', link: '/about-us' },
   ];
+  iconsE = SharedIcons;
 }
