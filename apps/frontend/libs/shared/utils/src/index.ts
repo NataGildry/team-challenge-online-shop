@@ -1,1 +1,1 @@
-export * from './lib/utils/utils.component';
+export * from './lib/clickOutside/clickOutside.directive';

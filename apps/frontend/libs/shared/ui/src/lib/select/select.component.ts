@@ -1,14 +1,14 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ClickOutsideDirective } from '@anx-store/utils';
 
 @Component({
   selector: 'lib-select',
-  imports: [CommonModule],
+  imports: [CommonModule, ClickOutsideDirective],
   templateUrl: './select.component.html',
   styleUrl: './select.component.css',
 })
 export class SelectComponent {
-  @ViewChild('selectRef') dropdownRef!: ElementRef;
   isOpen = false;
   readonly options = ['eng', 'ukr'];
   selectedOption = 'eng';
@@ -18,12 +18,7 @@ export class SelectComponent {
     this.isOpen = false;
   }
 
-  @HostListener('document:click', ['$event.target'])
-  onClickOutside(targetElement: HTMLElement) {
-    const clickedInside =
-      this.dropdownRef.nativeElement.contains(targetElement);
-    if (!clickedInside) {
-      this.isOpen = false;
-    }
+  close() {
+    this.isOpen = false;
   }
 }
