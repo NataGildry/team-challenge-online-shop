@@ -6,9 +6,9 @@
       id="menu-button"
       aria-expanded="true"
       aria-haspopup="true"
-      (click)="isOpen = !isOpen"
+      (click)="toggleOpen()"
     >
-      {{ selectedOption }}
+      {{ selectedOption() }}
       <svg
         class="-mr-1 size-5 text-gray-400"
         viewBox="0 0 20 20"
@@ -24,7 +24,7 @@
       </svg>
     </button>
   </div>
-  @if (isOpen) {
+  @if (isOpen()) {
   <div
     class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white ring-1 shadow-lg ring-black/5 focus:outline-hidden"
     role="menu"
