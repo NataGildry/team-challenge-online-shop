@@ -5,7 +5,9 @@ import { RouterOutlet } from '@angular/router';
 import {
   SelectComponent,
   SharedIconComponent,
-  SharedIcons,
+  iconBasket,
+  iconPerson,
+  iconSearch,
 } from '@anx-store/ui';
 
 @Component({
@@ -26,5 +28,7 @@ export class HeaderComponent {
     { name: 'catalog', link: '/catalog' },
     { name: 'about us', link: '/about-us' },
   ];
-  sharedIcons = SharedIcons;
+  iconBasket = iconBasket;
+  iconPerson = iconPerson;
+  iconSearch = iconSearch;
 }
