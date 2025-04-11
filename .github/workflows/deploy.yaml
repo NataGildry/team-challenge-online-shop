@@ -1,4 +1,4 @@
-name: Build and Deploy Angular app
+name: Build and deploy Angular app to GitHub Pages
 
 on:
   push:

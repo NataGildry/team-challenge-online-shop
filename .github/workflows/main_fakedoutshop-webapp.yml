@@ -5,9 +5,7 @@ name: Build and deploy ASP.Net Core app to Azure Web App - fakedoutshop-webapp
 
 on:
   push:
-    branches:
-      - main
-      - deploy-be-np
+    branches: [main]
   workflow_dispatch:
 
 jobs:
