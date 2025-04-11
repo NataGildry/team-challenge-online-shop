@@ -33,14 +33,14 @@
     tabindex="-1"
   >
     <div class="py-1" role="none" (libClickOutside)="close()">
-      @for (item of options; track $index) {
-      <a
+      @for (item of options(); track $index) {
+      <span
         class="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-50"
         role="menuitem"
         tabindex="-1"
         id="menu-item-1"
         (click)="selectOption(item)"
-        >{{ item }}</a
+        >{{ item }}</span
       >
       }
     </div>

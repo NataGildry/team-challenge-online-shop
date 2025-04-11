@@ -28,7 +28,9 @@ export class HeaderComponent {
     { name: 'catalog', link: '/catalog' },
     { name: 'about us', link: '/about-us' },
   ];
-  iconBasket = iconBasket;
-  iconPerson = iconPerson;
-  iconSearch = iconSearch;
+  protected readonly iconBasket = iconBasket;
+  protected readonly iconPerson = iconPerson;
+  protected readonly iconSearch = iconSearch;
+
+  protected readonly languageOptions = ['eng', 'укр'];
 }

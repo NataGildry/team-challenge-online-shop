@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
+import { Component, input, OnInit, output, signal } from '@angular/core';
 import { ClickOutsideDirective } from '@anx-store/utils';
 
 @Component({
@@ -7,12 +7,16 @@ import { ClickOutsideDirective } from '@anx-store/utils';
   templateUrl: './select.component.html',
   styleUrl: './select.component.css',
 })
-export class SelectComponent {
-  @Input() options: string[] = ['eng', 'ukr'];
-  @Output() optionSelected = new EventEmitter<string>();
+export class SelectComponent implements OnInit {
+  options = input<string[]>(['option']);
+  optionSelected = output<string>();
 
-  isOpen = signal(false);
-  selectedOption = signal('eng');
+  protected readonly isOpen = signal(false);
+  protected readonly selectedOption = signal('');
+
+  ngOnInit(): void {
+    this.selectedOption.set(this.options()[0]);
+  }
 
   selectOption(item: string): void {
     this.selectedOption.set(item);
