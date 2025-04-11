@@ -28,15 +28,20 @@ jobs:
 
       - name: Code style check
         run: |
-         cd apps/frontend
-         npm run lint
+          cd apps/frontend
+          npx nx affected lint
+
+      - name: Code format check
+        run: |
+          cd apps/frontend
+          npx nx format:check
 
       - name: Build Angular app
         run: |
          cd apps/frontend
          npx nx build anx-store --configuration=production --base-href="/team-challenge-online-shop/"
 
-      - name: Deploy
+      - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -2,9 +2,6 @@
   "name": "@anx-store/source",
   "version": "0.0.0",
   "license": "MIT",
-  "lint-staged": {
-    "*.{ts,js,html,css,json,md}": "nx format:write && nx affected:lint --uncommitted"
-  },
   "scripts": {
     "prepare": "cd ../../ && husky apps/frontend/.husky",
     "lint": "nx lint anx-store"
