@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -6,6 +6,7 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink],
   templateUrl: './navigation-item.component.html',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavigationItemComponent {
   public readonly name = input<string>('/');
