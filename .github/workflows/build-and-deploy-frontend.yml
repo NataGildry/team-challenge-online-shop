@@ -1,4 +1,4 @@
-name: Build and Deploy Angular app
+name: Build and deploy Angular app to GitHub Pages
 
 on:
   push:
@@ -12,9 +12,14 @@ jobs:
     permissions:
       contents: write
 
+    env:
+      FRONTEND_FOLDER_PATH: apps/frontend
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # ensure full history is available
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -23,20 +28,30 @@ jobs:
 
       - name: Install dependencies
         run: |
-         cd apps/frontend
-         npm ci
+          cd $FRONTEND_FOLDER_PATH
+          npm ci
 
-      - name: Code style check
+      - name: Determine base and head SHAs
         run: |
-         cd apps/frontend
-         npm run lint
+          echo "BASE_SHA=${{ github.event.pull_request.base.sha || github.event.before }}" >> $GITHUB_ENV
+          echo "HEAD_SHA=${{ github.event.pull_request.head.sha || github.sha }}" >> $GITHUB_ENV
+
+      - name: Check Linting (affected only)
+        run: |
+          cd $FRONTEND_FOLDER_PATH
+          npx nx affected --base=$BASE_SHA --head=$HEAD_SHA --target=lint
+
+      - name: Check Formatting (affected only)
+        run: |
+          cd $FRONTEND_FOLDER_PATH
+          npx nx format:check --base=$BASE_SHA --head=$HEAD_SHA
 
       - name: Build Angular app
         run: |
-         cd apps/frontend
-         npx nx build anx-store --configuration=production --base-href="/team-challenge-online-shop/"
+          cd $FRONTEND_FOLDER_PATH
+          npx nx build anx-store --configuration=production --base-href="/team-challenge-online-shop/"
 
-      - name: Deploy
+      - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -48,8 +63,9 @@ jobs:
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          MESSAGE: "✅ Deployment completed successfully!"
+          MESSAGE: "✅ FE deployment completed successfully!"
         run: |
           curl -s -X POST https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage \
           -d chat_id=$TELEGRAM_CHAT_ID \
           -d text="$MESSAGE"
+

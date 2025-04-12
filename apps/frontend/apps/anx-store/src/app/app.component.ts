@@ -7,7 +7,6 @@ import { AppHeaderComponent } from './components/app-header/app-header.component
   imports: [NxWelcomeComponent, RouterModule, AppHeaderComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
