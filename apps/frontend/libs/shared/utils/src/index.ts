@@ -1,1 +1,1 @@
-export * from './lib/clickOutside/clickOutside.directive';
+//export * from './lib/clickOutside/clickOutside.directive';

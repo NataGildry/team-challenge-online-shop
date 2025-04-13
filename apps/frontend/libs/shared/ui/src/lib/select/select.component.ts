@@ -6,7 +6,7 @@ import {
   output,
   signal,
 } from '@angular/core';
-import { ClickOutsideDirective } from '@anx-store/utils';
+import { ClickOutsideDirective } from '../click-outside.directive';
 
 @Component({
   selector: 'lib-select',
