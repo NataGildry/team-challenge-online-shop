@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+
 @Component({
   selector: 'lib-shared-icon',
   imports: [CommonModule],
