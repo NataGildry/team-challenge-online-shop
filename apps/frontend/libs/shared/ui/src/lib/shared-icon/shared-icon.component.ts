@@ -14,7 +14,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SharedIconComponent {
-  @Input({ required: true }) set svg(value: string) {
+  @Input({ required: true }) public set svg(value: string) {
     this.sanitizedSvg = this.sanitizer.bypassSecurityTrustHtml(value);
   }
 

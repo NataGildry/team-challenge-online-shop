@@ -39,6 +39,7 @@
         tabindex="-1"
         id="$index"
         (click)="selectOption(item)"
+        (keydown.enter)="selectOption(item)"
       >
         {{ item }}
       </li>

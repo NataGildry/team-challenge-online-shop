@@ -22,7 +22,7 @@ export class SelectComponent implements OnInit {
   protected readonly isOpen = signal(false);
   protected readonly selectedOption = signal('');
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.selectedOption.set(this.options()[0]);
   }
 

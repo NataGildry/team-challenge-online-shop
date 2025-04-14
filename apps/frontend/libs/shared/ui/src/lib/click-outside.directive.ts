@@ -11,11 +11,12 @@ import {
 })
 export class ClickOutsideDirective {
   public readonly libClickOutside = output();
-  private readonly elementRef = inject(ElementRef);
+  private readonly elementRef: ElementRef = inject(ElementRef);
 
   @HostListener('document:click', ['$event.target'])
   public onClick(target: HTMLElement): void {
-    const clickedInside = this.elementRef.nativeElement.contains(target);
+    const element: HTMLElement = this.elementRef.nativeElement;
+    const clickedInside = element.contains(target);
     if (!clickedInside) {
       this.libClickOutside.emit();
     }
