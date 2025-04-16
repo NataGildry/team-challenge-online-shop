@@ -19,7 +19,7 @@
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/anx-store/assets",
+            "input": "apps/anx-store/src/assets",
             "output": "assets"
           }
         ],
