@@ -19,8 +19,8 @@
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/anx-store/public",
-            "output": "i18n"
+            "input": "apps/anx-store/assets",
+            "output": "assets"
           }
         ],
         "styles": [
