@@ -20,7 +20,7 @@
           {
             "glob": "**/*",
             "input": "apps/anx-store/public",
-            "output": "public/i18n"
+            "output": "i18n"
           }
         ],
         "styles": [
