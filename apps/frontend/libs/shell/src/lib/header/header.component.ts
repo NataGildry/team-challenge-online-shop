@@ -9,6 +9,7 @@ import {
   iconPerson,
   iconSearch,
 } from '@anx-store/ui';
+import { TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
   selector: 'lib-header',
@@ -19,6 +20,7 @@ import {
     RouterOutlet,
     SelectComponent,
     SharedIconComponent,
+    TranslocoDirective,
   ],
   templateUrl: './header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
