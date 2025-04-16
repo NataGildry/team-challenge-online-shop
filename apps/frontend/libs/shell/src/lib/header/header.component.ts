@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { NavigationItemComponent } from '../navigation-item/navigation-item.component';
 import { RouterOutlet } from '@angular/router';
@@ -9,7 +9,7 @@ import {
   iconPerson,
   iconSearch,
 } from '@anx-store/ui';
-import { TranslocoDirective } from '@jsverse/transloco';
+import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 
 @Component({
   selector: 'lib-header',
@@ -29,11 +29,21 @@ export class HeaderComponent {
   protected readonly routes: { name: string; link: string }[] = [
     { name: 'home', link: '/home' },
     { name: 'catalog', link: '/catalog' },
-    { name: 'about us', link: '/about-us' },
+    { name: 'about', link: '/about-us' },
   ];
   protected readonly iconBasket = iconBasket;
   protected readonly iconPerson = iconPerson;
   protected readonly iconSearch = iconSearch;
 
   protected readonly languageOptions = ['eng', 'укр'];
+
+  private transloco: TranslocoService = inject(TranslocoService);
+
+  protected swithcLanguage(ev: string): void {
+    if (ev === 'укр') {
+      this.transloco.setActiveLang('uk');
+    } else {
+      this.transloco.setActiveLang('en');
+    }
+  }
 }
