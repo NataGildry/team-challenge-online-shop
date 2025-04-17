@@ -31,7 +31,12 @@
     aria-labelledby="menu-button"
     tabindex="-1"
   >
-    <ul class="py-1" role="none" (libClickOutside)="isOpen.set(false)">
+    <ul
+      class="py-1"
+      role="none"
+      sharedClickOutside
+      (clickOutside)="isOpen.set(false)"
+    >
       @for (item of options(); track $index) {
       <li
         class="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-50"

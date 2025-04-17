@@ -6,24 +6,26 @@ import {
   output,
   signal,
 } from '@angular/core';
-import { ClickOutsideDirective } from '../click-outside.directive';
-import { SelectOption } from '../select-option';
+import { ClickOutsideDirective } from '../directives';
+
+export interface SelectOption {
+  name: string;
+  value: string;
+}
 
 @Component({
-  selector: 'lib-select',
+  selector: 'shared-select',
   imports: [ClickOutsideDirective],
   templateUrl: './select.component.html',
-  styleUrl: './select.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class SelectComponent implements OnInit {
-  public readonly options = input<SelectOption[]>([
-    { name: 'option', value: 'option' },
-  ]);
-  public readonly optionSelected = output<string>();
-
   protected readonly isOpen = signal(false);
   protected readonly selectedOption = signal('');
+
+  public readonly options = input.required<SelectOption[]>();
+  public readonly optionSelected = output<string>();
 
   public ngOnInit(): void {
     this.selectedOption.set(this.options()[0].name);

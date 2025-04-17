@@ -7,10 +7,11 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[libClickOutside]',
+  selector: '[sharedClickOutside]',
+  standalone: true,
 })
 export class ClickOutsideDirective {
-  public readonly libClickOutside = output();
+  public readonly clickOutside = output();
   private readonly elementRef: ElementRef = inject(ElementRef);
 
   @HostListener('document:click', ['$event.target'])
@@ -18,7 +19,7 @@ export class ClickOutsideDirective {
     const element: HTMLElement = this.elementRef.nativeElement;
     const clickedInside = element.contains(target);
     if (!clickedInside) {
-      this.libClickOutside.emit();
+      this.clickOutside.emit();
     }
   }
 }

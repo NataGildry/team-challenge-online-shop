@@ -8,10 +8,5 @@
     "types": []
   },
   "exclude": ["src/**/*.spec.ts", "jest.config.ts", "src/**/*.test.ts"],
-  "include": [
-    "src/**/*.ts",
-    "../shared/utils/src/lib/languages.ts",
-    "../shared/utils/src/lib/transloco-loader.ts",
-    "../shared/utils/src/lib/transloco-config.ts"
-  ]
+  "include": ["src/**/*.ts"]
 }

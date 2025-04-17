@@ -6,17 +6,22 @@ import {
   withEventReplay,
 } from '@angular/platform-browser';
 import { provideTransloco } from '@jsverse/transloco';
-import { provideHttpClient } from '@angular/common/http';
-import { translocoCustomConfig , TranslocoHttpLoader } from '@anx-store/utils';
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import {
+  translocoBaseConfig,
+  TranslocoHttpLoader,
+} from '@anx-store/shared/utils';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideClientHydration(withEventReplay()),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(appRoutes),
-    provideHttpClient(),
+    provideHttpClient(withFetch()),
     provideTransloco({
-      config: translocoCustomConfig,
+      config: {
+        ...translocoBaseConfig,
+      },
       loader: TranslocoHttpLoader,
     }),
   ],
