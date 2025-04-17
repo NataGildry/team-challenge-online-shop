@@ -35,15 +35,14 @@ export class HeaderComponent {
   protected readonly iconPerson = iconPerson;
   protected readonly iconSearch = iconSearch;
 
-  protected readonly languageOptions = ['eng', 'укр'];
+  protected readonly languageOptions = [
+    { name: 'eng', value: 'en' },
+    { name: 'укр', value: 'uk' },
+  ];
 
   private transloco: TranslocoService = inject(TranslocoService);
 
-  protected swithcLanguage(ev: string): void {
-    if (ev === 'укр') {
-      this.transloco.setActiveLang('uk');
-    } else {
-      this.transloco.setActiveLang('en');
-    }
+  protected swithcLanguage(lang: string): void {
+    this.transloco.setActiveLang(lang);
   }
 }

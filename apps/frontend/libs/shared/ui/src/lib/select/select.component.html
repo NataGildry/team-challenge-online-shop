@@ -38,10 +38,10 @@
         role="menuitem"
         tabindex="-1"
         id="$index"
-        (click)="selectOption(item)"
-        (keydown.enter)="selectOption(item)"
+        (click)="selectOption(item.value)"
+        (keydown.enter)="selectOption(item.value)"
       >
-        {{ item }}
+        {{ item.name }}
       </li>
       }
     </ul>
