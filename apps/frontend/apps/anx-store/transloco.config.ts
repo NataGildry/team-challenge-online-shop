@@ -1,8 +1,9 @@
+import { Langs } from '@anx-store/utils';
 import { TranslocoGlobalConfig } from '@jsverse/transloco-utils';
 
 const config: TranslocoGlobalConfig = {
-  rootTranslationsPath: 'src/public/i18n/',
-  langs: ['en', 'ua'],
+  rootTranslationsPath: 'src/assets/i18n/',
+  langs: [Langs.ENG, Langs.UKR],
   keysManager: {},
 };
 

@@ -1,8 +1,4 @@
-import {
-  ApplicationConfig,
-  isDevMode,
-  provideZoneChangeDetection,
-} from '@angular/core';
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { appRoutes } from './app.routes';
 import {
@@ -11,7 +7,7 @@ import {
 } from '@angular/platform-browser';
 import { provideTransloco } from '@jsverse/transloco';
 import { provideHttpClient } from '@angular/common/http';
-import { TranslocoHttpLoader } from './transloco-loader';
+import { translocoCustomConfig , TranslocoHttpLoader } from '@anx-store/utils';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -20,12 +16,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(appRoutes),
     provideHttpClient(),
     provideTransloco({
-      config: {
-        availableLangs: ['en', 'uk'],
-        defaultLang: 'en',
-        reRenderOnLangChange: true,
-        prodMode: !isDevMode(),
-      },
+      config: translocoCustomConfig,
       loader: TranslocoHttpLoader,
     }),
   ],
