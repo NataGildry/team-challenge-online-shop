@@ -8,18 +8,16 @@ import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
-  selector: 'lib-shared-icon',
+  selector: 'shared-icon',
   imports: [CommonModule],
   template: '<span [innerHTML]="sanitizedSvg"></span>',
-  styleUrl: './shared-icon.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
-export class SharedIconComponent {
+export class IconComponent {
   @Input({ required: true }) public set svg(value: string) {
     this.sanitizedSvg = this.sanitizer.bypassSecurityTrustHtml(value);
   }
-
-  protected sanitizedSvg: SafeHtml = '';
-
   private readonly sanitizer: DomSanitizer = inject(DomSanitizer);
+  protected sanitizedSvg: SafeHtml = '';
 }

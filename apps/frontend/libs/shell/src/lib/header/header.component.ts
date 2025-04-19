@@ -1,37 +1,64 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+} from '@angular/core';
 import { NavigationItemComponent } from '../navigation-item/navigation-item.component';
 import { RouterOutlet } from '@angular/router';
 import {
   SelectComponent,
-  SharedIconComponent,
+  IconComponent,
   iconBasket,
   iconPerson,
   iconSearch,
-} from '@anx-store/ui';
+  SelectOption,
+} from '@anx-store/shared/ui';
+import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Langs } from '@anx-store/shared/utils';
 
 @Component({
   selector: 'lib-header',
   standalone: true,
   imports: [
-    MatIconModule,
     NavigationItemComponent,
     RouterOutlet,
     SelectComponent,
-    SharedIconComponent,
+    IconComponent,
+    TranslocoDirective,
+    ReactiveFormsModule,
   ],
   templateUrl: './header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent {
-  protected readonly routes: { name: string; link: string }[] = [
-    { name: 'home', link: '/home' },
-    { name: 'catalog', link: '/catalog' },
-    { name: 'about us', link: '/about-us' },
-  ];
+export class HeaderComponent implements OnInit {
+  private translocoService: TranslocoService = inject(TranslocoService);
+
   protected readonly iconBasket = iconBasket;
   protected readonly iconPerson = iconPerson;
   protected readonly iconSearch = iconSearch;
 
-  protected readonly languageOptions = ['eng', 'укр'];
+  protected readonly routes: { name: string; link: string }[] = [
+    { name: 'home', link: '/home' },
+    { name: 'catalog', link: '/catalog' },
+    { name: 'about', link: '/about-us' },
+  ];
+
+  protected readonly languageOptions: SelectOption[] = [
+    { name: 'eng', value: Langs.ENG },
+    { name: 'укр', value: Langs.UKR },
+  ];
+
+  private readonly currentLang = Langs.ENG;
+
+  protected readonly selectLangControl = new FormControl();
+
+  public ngOnInit(): void {
+    this.selectLangControl.valueChanges.subscribe((lang: string | null) => {
+      if (!lang) return;
+      this.translocoService.setActiveLang(lang);
+    });
+    this.selectLangControl.setValue(this.currentLang);
+  }
 }

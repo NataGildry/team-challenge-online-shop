@@ -19,12 +19,13 @@
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/anx-store/public"
+            "input": "apps/anx-store/src/assets",
+            "output": "assets"
           }
         ],
         "styles": [
           "@angular/material/prebuilt-themes/azure-blue.css",
-          "apps/anx-store/src/styles.css"
+          "global.css"
         ],
         "scripts": [],
         "server": "apps/anx-store/src/main.server.ts",
