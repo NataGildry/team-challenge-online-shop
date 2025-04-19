@@ -14,7 +14,7 @@
       <shared-icon [svg]="iconBasket.svg" />
       <shared-select
         [options]="languageOptions"
-        (optionSelected)="switchLanguage($event)"
+        [formControl]="selectLangControl"
       />
     </div>
   </div>

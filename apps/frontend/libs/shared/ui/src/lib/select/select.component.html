@@ -7,7 +7,7 @@
     aria-haspopup="true"
     (click)="isOpen.set(!isOpen())"
   >
-    {{ selectedOption() }}
+    {{ selected() }}
     <svg
       class="-mr-1 size-5 text-gray-400"
       viewBox="0 0 20 20"
@@ -43,8 +43,8 @@
         role="menuitem"
         tabindex="-1"
         id="$index"
-        (click)="selectOption(item.value)"
-        (keydown.enter)="selectOption(item.value)"
+        (click)="selectOption(item)"
+        (keydown.enter)="selectOption(item)"
       >
         {{ item.name }}
       </li>
