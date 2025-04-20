@@ -36,13 +36,15 @@ export class SelectComponent implements ControlValueAccessor {
   protected value = signal<string>('');
   protected selected = computed(() => {
     const option = this.options().find((el) => el.value === this.value());
-    return option === undefined ? 'no name' : option.name;
+    return option?.name + '';
   });
 
-  // eslint-disable-next-line
-  private onChange = (value: string) => {};
-  // eslint-disable-next-line
-  private onTouched = () => {};
+  private onChange: (value: string) => void = (_value: string) => {
+    // Placeholder for form change callback
+  };
+  private onTouched: () => void = () => {
+    // Placeholder for touch callback
+  };
 
   public writeValue(value: string): void {
     this.value.set(value);

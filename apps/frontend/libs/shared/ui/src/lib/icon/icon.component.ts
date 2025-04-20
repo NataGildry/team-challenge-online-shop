@@ -4,12 +4,11 @@ import {
   inject,
   Input,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'shared-icon',
-  imports: [CommonModule],
+  imports: [],
   template: '<span [innerHTML]="sanitizedSvg"></span>',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
