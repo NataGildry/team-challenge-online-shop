@@ -2,7 +2,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   inject,
-  OnDestroy,
   PLATFORM_ID,
 } from '@angular/core';
 import { NavigationItemComponent } from '../navigation-item/navigation-item.component';
@@ -18,8 +17,9 @@ import {
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Langs } from '@anx-store/shared/utils';
-import { Subject, takeUntil, tap } from 'rxjs';
+import { tap } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'lib-header',
@@ -35,7 +35,7 @@ import { isPlatformBrowser } from '@angular/common';
   templateUrl: './header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent implements OnDestroy {
+export class HeaderComponent {
   private readonly CURRENT_LANGUAGE_KEY = 'currentLangugeAnxSotre';
 
   private readonly translocoService: TranslocoService =
@@ -58,13 +58,13 @@ export class HeaderComponent implements OnDestroy {
 
   protected readonly selectLangControl = new FormControl();
 
-  private destroy$ = new Subject<void>();
+  //private destroy$ = new Subject<void>();
 
   private stor = inject(PLATFORM_ID);
 
   public constructor() {
     this.selectLangControl.valueChanges
-      .pipe(takeUntil(this.destroy$))
+      // .pipe(takeUntil(this.destroy$))
       .pipe(
         tap((lang: string) => {
           if (!lang) return;
@@ -72,6 +72,7 @@ export class HeaderComponent implements OnDestroy {
           this.saveLanguage(lang);
         })
       )
+      .pipe(takeUntilDestroyed())
       .subscribe();
     if (isPlatformBrowser(this.stor)) {
       this.selectLangControl.setValue(
@@ -80,10 +81,10 @@ export class HeaderComponent implements OnDestroy {
     }
   }
 
-  public ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
-  }
+  // public ngOnDestroy(): void {
+  //   this.destroy$.next();
+  //   this.destroy$.complete();
+  // }
 
   private saveLanguage(lang: string): void {
     localStorage.setItem(this.CURRENT_LANGUAGE_KEY, lang);
