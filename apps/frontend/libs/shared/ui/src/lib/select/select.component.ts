@@ -31,7 +31,7 @@ export interface SelectOption {
 export class SelectComponent implements ControlValueAccessor {
   protected readonly isOpen = signal(false);
   public isDisabled = signal(true);
-  ///////////////disabled = true;
+  //disabled = true;
   public readonly options = input.required<SelectOption[]>();
 
   protected readonly value = signal<string>('');
@@ -56,7 +56,7 @@ export class SelectComponent implements ControlValueAccessor {
   public registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
   }
-  protected setDisabledState(isDisabled: boolean): void {
+  public setDisabledState(isDisabled: boolean): void {
     this.isDisabled.set(isDisabled);
   }
 
