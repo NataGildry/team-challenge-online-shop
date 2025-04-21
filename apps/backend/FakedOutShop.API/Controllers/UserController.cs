@@ -41,13 +41,6 @@ namespace FakedOutShop.Api.Controllers
         return Conflict("Email is already in use.");
       }
     }
-
-    [HttpGet("unique/{email}")]
-    public async Task<IActionResult> IsEmailUniqueAsync(string email)
-    {
-      var isUnique = await _userService.IsEmailUniqueAsync(email);
-      return Ok(isUnique);
-    }
   }
 }
 
