@@ -30,13 +30,14 @@ export interface SelectOption {
 })
 export class SelectComponent implements ControlValueAccessor {
   protected readonly isOpen = signal(false);
-
+  public isDisabled = signal(true);
+  ///////////////disabled = true;
   public readonly options = input.required<SelectOption[]>();
 
-  protected value = signal<string>('');
-  protected selected = computed(() => {
+  protected readonly value = signal<string>('');
+  protected readonly selected = computed(() => {
     const option = this.options().find((el) => el.value === this.value());
-    return option?.name + '';
+    return option?.name ?? '';
   });
 
   private onChange: (value: string) => void = (_value: string) => {
@@ -54,6 +55,9 @@ export class SelectComponent implements ControlValueAccessor {
   }
   public registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
+  }
+  protected setDisabledState(isDisabled: boolean): void {
+    this.isDisabled.set(isDisabled);
   }
 
   protected selectOption(item: SelectOption): void {

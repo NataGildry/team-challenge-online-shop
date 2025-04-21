@@ -6,6 +6,7 @@
     aria-expanded="true"
     aria-haspopup="true"
     (click)="isOpen.set(!isOpen())"
+    [disabled]="isDisabled()"
   >
     {{ selected() }}
     <svg
