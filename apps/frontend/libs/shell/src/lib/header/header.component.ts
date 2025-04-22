@@ -1,37 +1,67 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { NavigationItemComponent } from '../navigation-item/navigation-item.component';
 import { RouterOutlet } from '@angular/router';
 import {
   SelectComponent,
-  SharedIconComponent,
+  IconComponent,
   iconBasket,
   iconPerson,
   iconSearch,
-} from '@anx-store/ui';
+  SelectOption,
+} from '@anx-store/shared/ui';
+import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Langs, LocalStorageService } from '@anx-store/shared/utils';
+import { tap } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'lib-header',
   standalone: true,
   imports: [
-    MatIconModule,
     NavigationItemComponent,
     RouterOutlet,
     SelectComponent,
-    SharedIconComponent,
+    IconComponent,
+    TranslocoDirective,
+    ReactiveFormsModule,
   ],
   templateUrl: './header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
-  protected readonly routes: { name: string; link: string }[] = [
-    { name: 'home', link: '/home' },
-    { name: 'catalog', link: '/catalog' },
-    { name: 'about us', link: '/about-us' },
-  ];
+  private readonly translocoService: TranslocoService =
+    inject(TranslocoService);
+  private readonly storageService = inject(LocalStorageService);
+
   protected readonly iconBasket = iconBasket;
   protected readonly iconPerson = iconPerson;
   protected readonly iconSearch = iconSearch;
 
-  protected readonly languageOptions = ['eng', 'укр'];
+  protected readonly routes: { name: string; link: string }[] = [
+    { name: 'home', link: '/home' },
+    { name: 'catalog', link: '/catalog' },
+    { name: 'about', link: '/about-us' },
+  ];
+
+  protected readonly languageOptions: SelectOption[] = [
+    { name: 'eng', value: Langs.ENG },
+    { name: 'укр', value: Langs.UKR },
+  ];
+
+  protected readonly selectLangControl = new FormControl();
+
+  public constructor() {
+    this.selectLangControl.valueChanges
+      .pipe(
+        tap((lang: string) => {
+          if (!lang) return;
+          this.translocoService.setActiveLang(lang);
+          this.storageService.setCurrentLang(lang);
+        }),
+        takeUntilDestroyed()
+      )
+      .subscribe();
+    this.selectLangControl.setValue(this.storageService.getCurrentLang());
+  }
 }

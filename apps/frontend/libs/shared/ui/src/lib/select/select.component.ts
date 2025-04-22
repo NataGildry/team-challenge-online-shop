@@ -1,34 +1,67 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
+  forwardRef,
   input,
-  OnInit,
-  output,
   signal,
 } from '@angular/core';
-import { ClickOutsideDirective } from '../click-outside.directive';
+import { ClickOutsideDirective } from '../directives';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+
+export interface SelectOption {
+  name: string;
+  value: string;
+}
 
 @Component({
-  selector: 'lib-select',
+  selector: 'shared-select',
   imports: [ClickOutsideDirective],
   templateUrl: './select.component.html',
-  styleUrl: './select.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => SelectComponent),
+      multi: true,
+    },
+  ],
 })
-export class SelectComponent implements OnInit {
-  public readonly options = input<string[]>(['option']);
-  public readonly optionSelected = output<string>();
-
+export class SelectComponent implements ControlValueAccessor {
   protected readonly isOpen = signal(false);
-  protected readonly selectedOption = signal('');
+  protected readonly isDisabled = signal(false);
+  protected readonly value = signal<string>('');
+  protected readonly selected = computed(() => {
+    const option = this.options().find((el) => el.value === this.value());
+    return option?.name ?? '';
+  });
 
-  public ngOnInit(): void {
-    this.selectedOption.set(this.options()[0]);
+  public readonly options = input.required<SelectOption[]>();
+
+  private onChange?: (value: string) => void;
+  private onTouched?: () => void;
+
+  protected selectOption(item: SelectOption): void {
+    this.value.set(item.value);
+    this.isOpen.set(false);
+    this.onChange?.(this.value());
+    this.onTouched?.();
   }
 
-  protected selectOption(item: string): void {
-    this.selectedOption.set(item);
-    this.optionSelected.emit(item);
-    this.isOpen.set(false);
+  public writeValue(value: string): void {
+    this.value.set(value);
+  }
+
+  public registerOnChange(fn: (value: string) => void): void {
+    this.onChange = fn;
+  }
+
+  public registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
+
+  public setDisabledState(isDisabled: boolean): void {
+    this.isDisabled.set(isDisabled);
   }
 }

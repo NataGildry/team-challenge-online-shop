@@ -1,13 +1,14 @@
-<div class="relative inline-block text-left" #selectRef>
+<div class="relative inline-block text-left">
   <button
     type="button"
-    class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm text-gray-900 shadow-xs ring-inset hover:bg-gray-50 uppercase"
+    class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm text-gray-900 shadow-xs ring-inset uppercase disabled:bg-gray-200 disabled:text-gray-400 enabled:hover:bg-gray-50"
     id="menu-button"
     aria-expanded="true"
     aria-haspopup="true"
     (click)="isOpen.set(!isOpen())"
+    [disabled]="isDisabled()"
   >
-    {{ selectedOption() }}
+    {{ selected() }}
     <svg
       class="-mr-1 size-5 text-gray-400"
       viewBox="0 0 20 20"
@@ -31,7 +32,12 @@
     aria-labelledby="menu-button"
     tabindex="-1"
   >
-    <ul class="py-1" role="none" (libClickOutside)="isOpen.set(false)">
+    <ul
+      class="py-1"
+      role="none"
+      sharedClickOutside
+      (clickOutside)="isOpen.set(false)"
+    >
       @for (item of options(); track $index) {
       <li
         class="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-50"
@@ -41,7 +47,7 @@
         (click)="selectOption(item)"
         (keydown.enter)="selectOption(item)"
       >
-        {{ item }}
+        {{ item.name }}
       </li>
       }
     </ul>
