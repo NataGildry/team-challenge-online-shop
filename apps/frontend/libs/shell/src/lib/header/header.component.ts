@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { NavigationItemComponent } from '../navigation-item/navigation-item.component';
-import { RouterOutlet } from '@angular/router';
 import {
   SelectComponent,
   IconComponent,
@@ -20,7 +19,6 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   standalone: true,
   imports: [
     NavigationItemComponent,
-    RouterOutlet,
     SelectComponent,
     IconComponent,
     TranslocoDirective,
