@@ -30,7 +30,7 @@ export interface SelectOption {
 })
 export class SelectComponent implements ControlValueAccessor {
   protected readonly isOpen = signal(false);
-  protected readonly isDisabled = signal(true);
+  protected readonly isDisabled = signal(false);
   protected readonly value = signal<string>('');
   protected readonly selected = computed(() => {
     const option = this.options().find((el) => el.value === this.value());

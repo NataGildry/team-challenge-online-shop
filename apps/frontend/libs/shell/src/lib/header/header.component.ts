@@ -32,6 +32,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 export class HeaderComponent {
   private readonly translocoService: TranslocoService =
     inject(TranslocoService);
+  private readonly storageService = inject(LocalStorageService);
 
   protected readonly iconBasket = iconBasket;
   protected readonly iconPerson = iconPerson;
@@ -50,8 +51,6 @@ export class HeaderComponent {
 
   protected readonly selectLangControl = new FormControl();
 
-  private readonly storageService = inject(LocalStorageService);
-
   public constructor() {
     this.selectLangControl.valueChanges
       .pipe(
@@ -59,9 +58,9 @@ export class HeaderComponent {
           if (!lang) return;
           this.translocoService.setActiveLang(lang);
           this.storageService.setCurrentLang(lang);
-        })
+        }),
+        takeUntilDestroyed()
       )
-      .pipe(takeUntilDestroyed())
       .subscribe();
     this.selectLangControl.setValue(this.storageService.getCurrentLang());
   }
