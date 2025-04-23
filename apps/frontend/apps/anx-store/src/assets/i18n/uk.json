@@ -6,10 +6,10 @@
   "help": "допомога",
   "contact": "зв'язатись з нами",
   "social": "соціальні мережі",
-  "armchairs/sofas": "крісла та дивани",
-  "beds/futons": "Ліжка та футони",
-  "chairs/semi-chairs": "Стільці та напівкрісла",
-  "kinds_furniture": "Дитячі меблі",
-  "payment/delivery": "оплата та доставка",
+  "armchairs_sofas": "крісла та дивани",
+  "beds_futons": "ліжка та футони",
+  "chairs_semi-chairs": "стільці та напівкрісла",
+  "kinds_furniture": "дитячі меблі",
+  "payment_delivery": "оплата та доставка",
   "returns": "повернення"
 }

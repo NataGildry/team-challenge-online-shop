@@ -6,10 +6,10 @@
   "help": "help",
   "contact": "contact us",
   "social": "social media",
-  "armchairs/sofas": "Armchairs and sofas",
-  "beds/futons": "Beds and futons",
-  "chairs/semi-chairs": "Chairs and semi-chairs",
-  "kinds_furniture": "Kinds furniture",
-  "payment/delivery": "paymen and delivery",
+  "armchairs_sofas": "armchairs and sofas",
+  "beds_futons": "beds and futons",
+  "chairs_semi-chairs": "chairs and semi-chairs",
+  "kinds_furniture": "kinds furniture",
+  "payment_delivery": "paymen and delivery",
   "returns": "returns"
 }

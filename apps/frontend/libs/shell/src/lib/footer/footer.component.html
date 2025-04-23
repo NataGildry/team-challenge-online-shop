@@ -2,25 +2,31 @@
   *transloco="let t"
   class="bg-black m-auto text-white fixed bottom-0 bottom-0 w-full"
 >
-  <div class="w-[var(--app-width)] m-auto flex py-6 capitalize">
+  <div class="w-[var(--app-width)] m-auto flex py-6">
     <div class="flex-1">comfortwave</div>
     <div class="flex-1">
-      <span class="block pb-3 font-medium">{{ t('shop') }}</span>
+      <span class="block pb-3 font-medium capitalize">{{ t('shop') }}</span>
       <ul class="">
-        <li class="my-3">{{ t('armchairs/sofas') }}</li>
-        <li class="my-3">{{ t('beds/futons') }}</li>
-        <li class="my-3">{{ t('chairs/semi-chairs') }}</li>
-        <li class="my-3">{{ t('kinds_furniture') }}</li>
+        <li class="my-3">{{ t('armchairs_sofas') | capitalizeFirstWord }}</li>
+        <li class="my-3">{{ t('beds_futons') | capitalizeFirstWord }}</li>
+        <li class="my-3">
+          {{ t('chairs_semi-chairs') | capitalizeFirstWord }}
+        </li>
+        <li class="my-3">{{ t('kinds_furniture') | capitalizeFirstWord }}</li>
       </ul>
     </div>
     <div class="flex-1">
-      <span class="block pb-3 font-medium">{{ t('help') }}</span>
+      <span class="block pb-3 font-medium capitalize">{{ t('help') }}</span>
       <ul>
-        <li class="my-3">{{ t('payment/delivery') }}</li>
-        <li class="my-3">{{ t('returns') }}</li>
+        <li class="my-3">{{ t('payment_delivery') | capitalizeFirstWord }}</li>
+        <li class="my-3">{{ t('returns') | capitalizeFirstWord }}</li>
       </ul>
     </div>
-    <div class="flex-1">{{ t('contact') }}</div>
-    <div class="flex-1">{{ t('social') }}</div>
+    <div class="flex-1">
+      <span class="capitalize">{{ t('contact') }}</span>
+    </div>
+    <div class="flex-1">
+      <span class="capitalize">{{ t('social') }}</span>
+    </div>
   </div>
 </div>
