@@ -1,1 +1,17 @@
-<p>footer works!</p>
+<div *transloco="let t" class="bg-black text-white fixed bottom-0 w-full">
+  <div class="max-w-[62%] m-auto flex py-6 capitalize">
+    <div class="flex-1">comfortwave</div>
+    <div class="flex-1">
+      <span>{{ t('store') }}</span>
+      <ul>
+        <li>{{ t('armchairs/sofas') }}</li>
+        <li>{{ t('beds/futons') }}</li>
+        <li>{{ t('chairs/semi-chairs') }}</li>
+        <li>{{ t('kinds_furniture') }}</li>
+      </ul>
+    </div>
+    <div class="flex-1">{{ t('help') }}</div>
+    <div class="flex-1">{{ t('contact') }}</div>
+    <div class="flex-1">{{ t('social') }}</div>
+  </div>
+</div>

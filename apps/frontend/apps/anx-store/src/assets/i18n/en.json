@@ -1,5 +1,13 @@
 {
   "home": "home",
   "catalog": "catalog",
-  "about": "about us"
+  "about": "about us",
+  "store": "store",
+  "help": "help",
+  "contact": "contact us",
+  "social": "social media",
+  "armchairs/sofas": "Armchairs and sofas",
+  "beds/futons": "Beds and futons",
+  "chairs/semi-chairs": "Chairs and semi-chairs",
+  "kinds_furniture": "Kinds furniture"
 }
