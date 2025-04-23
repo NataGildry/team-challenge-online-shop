@@ -2,12 +2,14 @@
   "home": "головна",
   "catalog": "каталог",
   "about": "про нас",
-  "store": "крамниця",
+  "shop": "крамниця",
   "help": "допомога",
   "contact": "зв'язатись з нами",
   "social": "соціальні мережі",
   "armchairs/sofas": "крісла та дивани",
   "beds/futons": "Ліжка та футони",
   "chairs/semi-chairs": "Стільці та напівкрісла",
-  "kinds_furniture": "Дитячі меблі"
+  "kinds_furniture": "Дитячі меблі",
+  "payment/delivery": "оплата та доставка",
+  "returns": "повернення"
 }
