@@ -10,7 +10,7 @@ body {
 }
 body {
   margin: 0;
-  font-family: Inter, 'Helvetica Neue', sans-serif;
+  font-family: Lato, 'Helvetica Neue', sans-serif;
 }
 :root {
   --app-width: 1202px;
