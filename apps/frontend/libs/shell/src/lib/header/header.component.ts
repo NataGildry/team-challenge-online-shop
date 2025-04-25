@@ -13,6 +13,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Langs, LocalStorageService } from '@anx-store/shared/utils';
 import { tap } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'lib-header',
@@ -23,6 +24,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     IconComponent,
     TranslocoDirective,
     ReactiveFormsModule,
+    RouterLink,
   ],
   templateUrl: './header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

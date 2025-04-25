@@ -3,9 +3,9 @@
   class="bg-black m-auto text-white bottom-0 bottom-0 w-full"
 >
   <div class="w-[var(--app-width)] m-auto flex pt-[140px]">
-    <div class="uppercase w-[290px]">comfortwave</div>
+    <div class="uppercase w-[290px] font-semibold">comfortwave</div>
     <div class="w-[266px]">
-      <span class="block pb-3 font-medium capitalize">{{ t('shop') }}</span>
+      <span class="block pb-3 font-semibold capitalize">{{ t('shop') }}</span>
       <ul class="">
         <li class="my-3">{{ t('armchairs_sofas') | capitalizeFirstWord }}</li>
         <li class="my-3">{{ t('beds_futons') | capitalizeFirstWord }}</li>
@@ -16,14 +16,16 @@
       </ul>
     </div>
     <div class="w-[266px]">
-      <span class="block pb-3 font-medium capitalize">{{ t('help') }}</span>
+      <span class="block pb-3 font-semibold capitalize">{{ t('help') }}</span>
       <ul>
         <li class="my-3">{{ t('payment_delivery') | capitalizeFirstWord }}</li>
         <li class="my-3">{{ t('returns') | capitalizeFirstWord }}</li>
       </ul>
     </div>
     <div class="w-[248px]">
-      <span class="block pb-3 font-medium capitalize">{{ t('contact') }}</span>
+      <span class="block pb-3 font-semibold capitalize">{{
+        t('contact')
+      }}</span>
       <ul>
         <li class="my-3">
           <a href="tel:+380973458787">+38 (097) 345 - 87 - 87</a>
@@ -33,7 +35,7 @@
     </div>
 
     <div class="flex-1">
-      <span class="block pb-3 font-medium capitalize">{{ t('social') }}</span>
+      <span class="block pb-3 font-semibold capitalize">{{ t('social') }}</span>
       <div class="flex gap-7 my-3">
         <shared-icon [svg]="instagram.svg" />
         <shared-icon [svg]="telegram.svg" />
