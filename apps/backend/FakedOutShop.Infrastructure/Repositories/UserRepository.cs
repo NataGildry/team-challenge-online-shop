@@ -1,6 +1,7 @@
 using FakedOutShop.Domain.Entities;
 using FakedOutShop.Domain.Interfaces;
 using Microsoft.Azure.Cosmos;
+using Microsoft.Extensions.Options;
 using System.Net;
 using FakedOutShop.Infrastructure.Cosmos;
 
@@ -10,9 +11,10 @@ namespace FakedOutShop.Infrastructure.Repositories
   {
     private readonly Container _container;
 
-    public UserRepository(CosmosClient cosmosClient, CosmosOptions options)
+    public UserRepository(CosmosClient cosmosClient, IOptions<CosmosOptions> options)
     {
-      _container = cosmosClient.GetContainer(options.DatabaseName, "users");
+      var cosmosOptions = options.Value;
+      _container = cosmosClient.GetContainer(cosmosOptions.DatabaseName, "users");
     }
 
     public async Task<FakedOutShop.Domain.Entities.User> GetByEmailAsync(string email)
@@ -35,6 +37,7 @@ namespace FakedOutShop.Infrastructure.Repositories
       var user = await GetByEmailAsync(email);
       return user == null;
     }
+
     public async Task AddAsync(FakedOutShop.Domain.Entities.User user)
     {
       await _container.CreateItemAsync(user, new PartitionKey(user.Email));

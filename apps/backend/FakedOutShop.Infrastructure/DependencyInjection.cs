@@ -6,7 +6,6 @@ using FakedOutShop.Infrastructure.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Microsoft.Azure.Cosmos;
 
 namespace FakedOutShop.Infrastructure
 {
@@ -14,17 +13,10 @@ namespace FakedOutShop.Infrastructure
   {
     public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
     {
-      // Register CosmosOptions
       services.Configure<CosmosOptions>(configuration.GetSection("CosmosDb"));
 
-      // Register CosmosClient
-      services.AddSingleton<CosmosClient>(provider =>
-      {
-        var options = provider.GetRequiredService<IOptions<CosmosOptions>>().Value;
-        return new CosmosClient(options.AccountEndpoint, options.AccountKey);
-      });
+      CosmosClientProvider.ProvideCosmosClient(services, configuration);
 
-      // Register repositories and services
       services.AddScoped<IUserService, UserService>();
       services.AddScoped<IUserRepository, UserRepository>();
 
