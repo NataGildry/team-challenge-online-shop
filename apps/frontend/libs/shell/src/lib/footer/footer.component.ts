@@ -12,7 +12,6 @@ import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
   selector: 'lib-footer',
   imports: [TranslocoDirective, CapitalizeFirstWordPipe, IconComponent],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css',
 })
 export class FooterComponent {
   private readonly translocoService: TranslocoService =

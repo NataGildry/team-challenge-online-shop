@@ -7,6 +7,5 @@ import { RouterOutlet } from '@angular/router';
   selector: 'lib-shell',
   imports: [HeaderComponent, FooterComponent, RouterOutlet],
   templateUrl: './shell.component.html',
-  styleUrl: './shell.component.css',
 })
 export class ShellComponent {}
