@@ -12,6 +12,9 @@ module.exports = {
       spacing: {
         app: 'var(--app-width)',
       },
+      letterSpacing: {
+        wider: 'var(--app-letter-spacing)',
+      },
       colors: {
         primary: '#065F46',
       },

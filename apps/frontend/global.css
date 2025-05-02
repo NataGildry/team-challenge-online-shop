@@ -15,4 +15,5 @@ body {
 :root {
   --app-width: 1202px;
   --app-color-primary: #065f46;
+  --app-letter-spacing: 0.1em;
 }
