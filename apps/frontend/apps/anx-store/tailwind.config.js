@@ -9,6 +9,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        Montserrat: 'Montserrat',
+      },
       spacing: {
         app: 'var(--app-width)',
       },
