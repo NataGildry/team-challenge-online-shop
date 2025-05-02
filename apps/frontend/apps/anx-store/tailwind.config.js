@@ -12,6 +12,12 @@ module.exports = {
       spacing: {
         app: 'var(--app-width)',
       },
+      colors: {
+        primary: '#065F46',
+      },
+      boxShadow: {
+        btn: ' 0px 0px 15px -5px var(--app-color-primary)',
+      },
     },
   },
   plugins: [],
