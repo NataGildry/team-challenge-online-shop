@@ -4,16 +4,30 @@
 
 /* You can add global styles to this file, and also import other style files */
 
+@font-face {
+  font-family: 'Lato';
+  src: url('/assets/fonts/Lato/Lato-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url('/assets/fonts/Lato/Lato-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
 html,
 body {
   height: 100%;
 }
 body {
   margin: 0;
-  font-family: Lato, 'Helvetica Neue', sans-serif;
+  font-family: Lato, serif;
 }
 :root {
   --app-width: 1202px;
   --app-color-primary: #065f46;
   --app-letter-spacing: 0.1em;
+  --app-letter-spacing2: 0.27em;
 }
