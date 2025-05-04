@@ -7,10 +7,16 @@ import {
 } from '@anx-store/shared/ui';
 import { CapitalizeFirstWordPipe } from '@anx-store/shared/utils';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
+import { FooterLinkComponent } from './footer-link/footer-link.component';
 
 @Component({
   selector: 'lib-footer',
-  imports: [TranslocoDirective, CapitalizeFirstWordPipe, IconComponent],
+  imports: [
+    TranslocoDirective,
+    CapitalizeFirstWordPipe,
+    IconComponent,
+    FooterLinkComponent,
+  ],
   templateUrl: './footer.component.html',
 })
 export class FooterComponent {

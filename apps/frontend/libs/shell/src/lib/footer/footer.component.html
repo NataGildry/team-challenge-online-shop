@@ -2,7 +2,8 @@
   <div class="w-app m-auto flex pt-[140px]">
     <div class="uppercase min-w-[290px] font-semibold">comfortwave</div>
     <div class="min-w-[266px]">
-      <span class="block pb-3 font-semibold capitalize">{{ t('shop') }}</span>
+      <!-- <span class="block pb-3 ">{{ t('shop') }} </span> -->
+      <lib-footer-link [name]="t('shop')" [link]="'/catalog'" />
       <ul>
         <li class="my-3">{{ t('armchairs_sofas') | capitalizeFirstWord }}</li>
         <li class="my-3">{{ t('beds_futons') | capitalizeFirstWord }}</li>
