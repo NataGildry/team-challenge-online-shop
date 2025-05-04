@@ -22,7 +22,16 @@ import { FooterLinkComponent } from './footer-link/footer-link.component';
 export class FooterComponent {
   private readonly translocoService: TranslocoService =
     inject(TranslocoService);
+
+  public readonly email = 'comfortwave@gmail.com';
+  public readonly phone = '+380973458787';
   public readonly instagram = instagramLogo;
   public readonly telegram = telegramLogo;
   public readonly twitter = twitterLogo;
+
+  protected copyLink(link: string): void {
+    navigator.clipboard.writeText(link).catch((err) => {
+      console.error('Failed to copy: ', err);
+    });
+  }
 }
