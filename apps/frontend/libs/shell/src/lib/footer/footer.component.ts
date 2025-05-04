@@ -20,8 +20,7 @@ import { FooterLinkComponent } from './footer-link/footer-link.component';
   templateUrl: './footer.component.html',
 })
 export class FooterComponent {
-  private readonly translocoService: TranslocoService =
-    inject(TranslocoService);
+  private readonly translocoService = inject(TranslocoService);
 
   public readonly email = 'comfortwave@gmail.com';
   public readonly phone = '+380973458787';
