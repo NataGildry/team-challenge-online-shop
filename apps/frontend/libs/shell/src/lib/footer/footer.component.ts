@@ -22,8 +22,8 @@ import { FooterLinkComponent } from './footer-link/footer-link.component';
 export class FooterComponent {
   private readonly translocoService = inject(TranslocoService);
 
-  public readonly email = 'comfortwave@gmail.com';
-  public readonly phone = '+380973458787';
+  protected readonly email = 'comfortwave@gmail.com';
+  protected readonly phone = '+380973458787';
   public readonly instagram = instagramLogo;
   public readonly telegram = telegramLogo;
   public readonly twitter = twitterLogo;

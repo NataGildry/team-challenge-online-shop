@@ -39,9 +39,9 @@ export class HeaderComponent {
   protected readonly iconSearch = iconSearch;
 
   protected readonly routes: { name: string; link: string }[] = [
-    { name: 'shell.home', link: '/home' },
-    { name: 'shell.catalog', link: '/catalog' },
-    { name: 'shell.about', link: '/about-us' },
+    { name: 'navigation.home', link: '/home' },
+    { name: 'navigation.catalog', link: '/catalog' },
+    { name: 'navigation.about', link: '/about-us' },
   ];
 
   protected readonly languageOptions: SelectOption[] = [

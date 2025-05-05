@@ -5,10 +5,9 @@ import { RouterLink } from '@angular/router';
   selector: 'lib-footer-link',
   imports: [RouterLink],
   templateUrl: './footer-link.component.html',
-  styleUrl: './footer-link.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterLinkComponent {
-  public readonly name = input<string>('/');
-  public readonly link = input<string>('#');
+  public readonly name = input.required<string>();
+  public readonly link = input.required<string>();
 }
