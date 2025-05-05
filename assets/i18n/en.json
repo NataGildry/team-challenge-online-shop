@@ -1,11 +1,13 @@
 {
-  "shell": {
+  "navigation": {
     "home": "home",
     "catalog": "catalog",
     "about": "about us",
     "shop": "shop",
     "help": "help",
-    "contact": "contact us",
+    "contact": "contact us"
+  },
+  "footer": {
     "social": "social media",
     "armchairs_sofas": "armchairs and sofas",
     "beds_futons": "beds and futons",

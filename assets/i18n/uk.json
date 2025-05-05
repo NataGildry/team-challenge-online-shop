@@ -1,11 +1,13 @@
 {
-  "shell": {
+  "navigation": {
     "home": "головна",
     "catalog": "каталог",
     "about": "про нас",
     "shop": "крамниця",
     "help": "допомога",
-    "contact": "зв'язатись з нами",
+    "contact": "зв'язатись з нами"
+  },
+  "footer": {
     "social": "соціальні мережі",
     "armchairs_sofas": "крісла та дивани",
     "beds_futons": "ліжка та футони",
