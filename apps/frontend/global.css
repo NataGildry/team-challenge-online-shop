@@ -31,10 +31,12 @@ body {
 body {
   margin: 0;
   font-family: Lato, sans-serif;
+  background-color: var(--app-color-bg);
 }
 :root {
   --app-width: 1202px;
   --app-color-primary: #065f46;
+  --app-color-bg: #f9f9f9;
   --app-letter-spacing: 0.05em;
   --app-letter-spacing2: 0.12em;
 }

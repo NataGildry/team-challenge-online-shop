@@ -11,7 +11,7 @@
       effortless. Take advantage of special offers to create the perfect living
       space.
     </p>
-    <shared-button [text]="t('controls.shop_now')" />
+    <shared-button [content]="t('controls.shop_now')" />
   </div>
   <div class="w-[590px] overflow-hidden">
     <div class="w-[700px] ml-[-8px] mt-[20px]">
@@ -19,8 +19,19 @@
     </div>
   </div>
 </div>
-<section class="block w-app">
-  <div>
-    <h2 class="uppercase">latest items</h2>
+<section *transloco="let t" class="block w-app flex justify-between">
+  <div class="w-[284px] border">
+    <h2 class="uppercase text-[32px] font-bold tracking-wider2">
+      latest items
+    </h2>
+    <p>
+      Discover our latest collection, featuring stylish and modern furniture
+      designed to elevate your space. Crafted with high-quality materials, these
+      pieces bring both comfort and elegance to your home.
+    </p>
+    <shared-button [content]="t('controls.see_more')" />
   </div>
+  <shared-small-card />
+  <shared-small-card />
+  <shared-small-card />
 </section>

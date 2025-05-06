@@ -1,12 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
+import { IconComponent } from '../icon';
 
 @Component({
   selector: 'shared-button',
-  imports: [CommonModule],
+  imports: [CommonModule, IconComponent],
   templateUrl: './button.component.html',
 })
 export class ButtonComponent {
-  public readonly text = input.required<string>();
+  public readonly content = input.required<string>();
   public readonly disabled = input(false);
+  public readonly iconMode = input(false);
 }

@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { ButtonComponent } from '@anx-store/shared/ui';
+import { ButtonComponent, SmallCardComponent } from '@anx-store/shared/ui';
 import { TranslocoService, TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
   selector: 'lib-feature-home',
-  imports: [ButtonComponent, TranslocoDirective],
+  imports: [ButtonComponent, TranslocoDirective, SmallCardComponent],
   templateUrl: './feature-home.component.html',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
