@@ -24,9 +24,9 @@ export class FooterComponent {
 
   protected readonly email = 'comfortwave@gmail.com';
   protected readonly phone = '+380973458787';
-  public readonly instagram = instagramLogo;
-  public readonly telegram = telegramLogo;
-  public readonly twitter = twitterLogo;
+  protected readonly instagram = instagramLogo;
+  protected readonly telegram = telegramLogo;
+  protected readonly twitter = twitterLogo;
 
   protected copyLink(link: string): void {
     navigator.clipboard.writeText(link).catch((err) => {
