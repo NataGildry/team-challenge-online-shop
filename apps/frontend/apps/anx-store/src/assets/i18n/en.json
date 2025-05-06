@@ -1,5 +1,22 @@
 {
-  "home": "home",
-  "catalog": "catalog",
-  "about": "about us"
+  "navigation": {
+    "home": "home",
+    "catalog": "catalog",
+    "about": "about us",
+    "shop": "shop",
+    "help": "help",
+    "contact": "contact us"
+  },
+  "footer": {
+    "social": "social media",
+    "armchairs_sofas": "armchairs and sofas",
+    "beds_futons": "beds and futons",
+    "chairs_semi-chairs": "chairs and semi-chairs",
+    "kinds_furniture": "kinds furniture",
+    "payment_delivery": "paymen and delivery",
+    "returns": "returns",
+    "rights": "all rights reserved",
+    "terms_conditions": "terms & conditions",
+    "privacy_policy": "privacy policy"
+  }
 }

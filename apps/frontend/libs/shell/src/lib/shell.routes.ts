@@ -7,7 +7,7 @@ export const shellRoutes: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./header/header.component').then((m) => m.HeaderComponent),
+      import('./shell/shell.component').then((m) => m.ShellComponent),
     children: [
       ...featureHomeRoutes,
       ...featureCatalogRoutes,

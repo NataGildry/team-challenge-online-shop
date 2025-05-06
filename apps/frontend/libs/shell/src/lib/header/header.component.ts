@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { NavigationItemComponent } from '../navigation-item/navigation-item.component';
-import { RouterOutlet } from '@angular/router';
 import {
   SelectComponent,
   IconComponent,
@@ -14,17 +13,18 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Langs, LocalStorageService } from '@anx-store/shared/utils';
 import { tap } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'lib-header',
   standalone: true,
   imports: [
     NavigationItemComponent,
-    RouterOutlet,
     SelectComponent,
     IconComponent,
     TranslocoDirective,
     ReactiveFormsModule,
+    RouterLink,
   ],
   templateUrl: './header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -39,9 +39,9 @@ export class HeaderComponent {
   protected readonly iconSearch = iconSearch;
 
   protected readonly routes: { name: string; link: string }[] = [
-    { name: 'home', link: '/home' },
-    { name: 'catalog', link: '/catalog' },
-    { name: 'about', link: '/about-us' },
+    { name: 'navigation.home', link: '/home' },
+    { name: 'navigation.catalog', link: '/catalog' },
+    { name: 'navigation.about', link: '/about-us' },
   ];
 
   protected readonly languageOptions: SelectOption[] = [

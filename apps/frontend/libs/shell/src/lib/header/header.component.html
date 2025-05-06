@@ -1,13 +1,15 @@
-<div class="flex flex-col" *transloco="let t">
+<div class="flex flex-col w-app m-auto" *transloco="let t">
   <div class="flex flex-row uppercase text-sm py-8 tracking-[0.15em]">
     <div class="basis-1/3 flex items-center">
-      <span class="font-bold">comfortwave</span>
+      <a [routerLink]="'/home'">
+        <img src="assets/logo.png" alt="logo image"
+      /></a>
     </div>
-    <div class="basis-1/3 flex flex-row justify-around items-center">
+    <nav class="basis-1/3 flex flex-row justify-around items-center">
       @for (item of routes; track $index) {
       <lib-navigation-item [name]="t(item.name)" [link]="item.link" />
       }
-    </div>
+    </nav>
     <div class="basis-1/3 flex justify-end items-center gap-5">
       <shared-icon [svg]="iconSearch.svg" />
       <shared-icon [svg]="iconPerson.svg" />
@@ -17,8 +19,5 @@
         [formControl]="selectLangControl"
       />
     </div>
-  </div>
-  <div class="flex flex-grow">
-    <router-outlet />
   </div>
 </div>
