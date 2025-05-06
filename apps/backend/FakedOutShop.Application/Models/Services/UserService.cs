@@ -1,17 +1,38 @@
 using FakedOutShop.Application.Abstractions;
-using FakedOutShop.Application.DTOs;
+using FakedOutShop.Domain.Entities;
+using FakedOutShop.Domain.Interfaces;
+using System;
+using System.Threading.Tasks;
 
 namespace FakedOutShop.Application.Models.Services
 {
   public class UserService : IUserService
   {
-    public async Task<ResponseDto> GetRandomUserAgeAsync()
+    private readonly IUserRepository _userRepository;
+
+    public UserService(IUserRepository userRepository)
     {
-      await Task.Delay(10);
+      _userRepository = userRepository;
+    }
 
-      int randomAge = new Random().Next(18, 101);
+    public async Task<User> GetByEmailAsync(string email)
+    {
+      return await _userRepository.GetByEmailAsync(email);
+    }
 
-      return new ResponseDto(randomAge);
+    public async Task<bool> IsEmailUniqueAsync(string email)
+    {
+      return await _userRepository.IsEmailUniqueAsync(email);
+    }
+
+    public async Task AddAsync(User user)
+    {
+      if (!await IsEmailUniqueAsync(user.Email))
+      {
+        throw new InvalidOperationException("Email is already in use.");
+      }
+
+      await _userRepository.AddAsync(user);
     }
   }
 }

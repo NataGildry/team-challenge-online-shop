@@ -1,18 +1,22 @@
 {
-  "home": "головна",
-  "catalog": "каталог",
-  "about": "про нас",
-  "shop": "крамниця",
-  "help": "допомога",
-  "contact": "зв'язатись з нами",
-  "social": "соціальні мережі",
-  "armchairs_sofas": "крісла та дивани",
-  "beds_futons": "ліжка та футони",
-  "chairs_semi-chairs": "стільці та напівкрісла",
-  "kinds_furniture": "дитячі меблі",
-  "payment_delivery": "оплата та доставка",
-  "returns": "повернення",
-  "rights": "всі права захищені",
-  "terms_conditions": "умови та положення",
-  "privacy_policy": "політика конфіденційності"
+  "navigation": {
+    "home": "головна",
+    "catalog": "каталог",
+    "about": "про нас",
+    "shop": "крамниця",
+    "help": "допомога",
+    "contact": "зв'язатись з нами"
+  },
+  "footer": {
+    "social": "соціальні мережі",
+    "armchairs_sofas": "крісла та дивани",
+    "beds_futons": "ліжка та футони",
+    "chairs_semi-chairs": "стільці та напівкрісла",
+    "kinds_furniture": "дитячі меблі",
+    "payment_delivery": "оплата та доставка",
+    "returns": "повернення",
+    "rights": "всі права захищені",
+    "terms_conditions": "умови та положення",
+    "privacy_policy": "політика конфіденційності"
+  }
 }

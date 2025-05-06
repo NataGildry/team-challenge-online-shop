@@ -2,54 +2,112 @@
   <div class="w-app m-auto flex pt-[140px]">
     <div class="uppercase min-w-[290px] font-semibold">comfortwave</div>
     <div class="min-w-[266px]">
-      <span class="block pb-3 font-semibold capitalize">{{ t('shop') }}</span>
+      <span class="block pb-3 font-semibold capitalize"
+        >{{ t('navigation.shop') }}
+      </span>
       <ul>
-        <li class="my-3">{{ t('armchairs_sofas') | capitalizeFirstWord }}</li>
-        <li class="my-3">{{ t('beds_futons') | capitalizeFirstWord }}</li>
         <li class="my-3">
-          {{ t('chairs_semi-chairs') | capitalizeFirstWord }}
+          <lib-footer-link
+            [name]="t('footer.armchairs_sofas') | capitalizeFirstWord"
+            [link]="'/'"
+          />
         </li>
-        <li class="mt-3">{{ t('kinds_furniture') | capitalizeFirstWord }}</li>
+        <li class="my-3">
+          <lib-footer-link
+            [name]="t('footer.beds_futons') | capitalizeFirstWord"
+            [link]="'/'"
+          />
+        </li>
+        <li class="my-3">
+          <lib-footer-link
+            [name]="t('footer.chairs_semi-chairs') | capitalizeFirstWord"
+            [link]="'/'"
+          />
+        </li>
+        <li class="mt-3">
+          <lib-footer-link
+            [name]="t('footer.kinds_furniture') | capitalizeFirstWord"
+            [link]="'/'"
+          />
+        </li>
       </ul>
     </div>
     <div class="min-w-[266px]">
-      <span class="block pb-3 font-semibold capitalize">{{ t('help') }}</span>
+      <span class="block pb-3 font-semibold capitalize">{{
+        t('navigation.help')
+      }}</span>
       <ul>
-        <li class="my-3">{{ t('payment_delivery') | capitalizeFirstWord }}</li>
-        <li class="my-3">{{ t('returns') | capitalizeFirstWord }}</li>
+        <li class="my-3">
+          <lib-footer-link
+            [name]="t('footer.payment_delivery') | capitalizeFirstWord"
+            [link]="'/'"
+          />
+        </li>
+        <li class="my-3">
+          <lib-footer-link
+            [name]="t('footer.returns') | capitalizeFirstWord"
+            [link]="'/'"
+          />
+        </li>
       </ul>
     </div>
     <div class="min-w-[248px]">
       <span class="block pb-3 font-semibold capitalize">{{
-        t('contact')
+        t('navigation.contact')
       }}</span>
       <ul>
         <li class="my-3">
-          <a href="tel:+380973458787">+38 (097) 345 - 87 - 87</a>
+          <a
+            href="tel:{{ phone }}"
+            class="hover:border-b hover:border-white"
+            (click)="copyLink(phone)"
+            >+38 (097) 345 - 87 - 87</a
+          >
         </li>
-        <li class="my-3">comfortwave&#64;gmail.com</li>
+        <li class="my-3">
+          <a
+            href="mailto:{{ email }}"
+            class="hover:border-b hover:border-white"
+            (click)="copyLink(email)"
+            >{{ email }}</a
+          >
+        </li>
       </ul>
     </div>
 
     <div class="flex-1">
-      <span class="block pb-3 font-semibold capitalize">{{ t('social') }}</span>
+      <span class="block pb-3 font-semibold capitalize">{{
+        t('footer.social')
+      }}</span>
       <div class="flex gap-7 my-3">
-        <shared-icon [svg]="instagram.svg" />
-        <shared-icon [svg]="telegram.svg" />
-        <shared-icon [svg]="twitter.svg" />
+        <a href="https://www.instagram.com/" target="_blank"
+          ><shared-icon [svg]="instagram.svg"
+        /></a>
+        <a href="https://web.telegram.org/" target="_blank"
+          ><shared-icon [svg]="telegram.svg"
+        /></a>
+        <a href="https://twitter.com/" target="_blank">
+          <shared-icon [svg]="twitter.svg"
+        /></a>
       </div>
     </div>
   </div>
   <hr class="w-app m-auto my-[70px]" />
   <div class="w-app m-auto flex justify-between pb-[140px]">
     <span class="flex-[4]"
-      >© 2025 ™ COMFORTWAVE. {{ t('rights') | capitalizeFirstWord }}.</span
+      >© 2025 ™ COMFORTWAVE.
+      {{ t('footer.rights') | capitalizeFirstWord }}.</span
     >
-    <span class="flex-1"
-      >{{ t('terms_conditions') | capitalizeFirstWord }}
+    <span class="flex-1">
+      <lib-footer-link
+        [name]="t('footer.terms_conditions') | capitalizeFirstWord"
+        [link]="'/'"
+      />
     </span>
-    <span class="flex-1 text-right">{{
-      t('privacy_policy') | capitalizeFirstWord
-    }}</span>
+    <span class="flex-1 text-right">
+      <lib-footer-link
+        [name]="t('footer.privacy_policy') | capitalizeFirstWord"
+        [link]="'/'"
+    /></span>
   </div>
 </div>
