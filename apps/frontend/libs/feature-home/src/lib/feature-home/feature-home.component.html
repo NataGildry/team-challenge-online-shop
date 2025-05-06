@@ -1,4 +1,4 @@
-<div class="flex overflow-visible scrollbar-none">
+<div *transloco="let t" class="flex overflow-visible scrollbar-none">
   <div class="w-[700px] flex-2 pt-[150px]">
     <h1
       class="uppercase tracking-wider2 font-bold font-Montserrat leading-[60px] mb-5 text-[2.5rem]"
@@ -11,7 +11,7 @@
       effortless. Take advantage of special offers to create the perfect living
       space.
     </p>
-    <shared-button [text]="'shop&nbsp;&nbsp;now'" />
+    <shared-button [text]="t('controls.shop_now')" />
   </div>
   <div class="w-[590px] overflow-hidden">
     <div class="w-[700px] ml-[-8px] mt-[20px]">
@@ -19,3 +19,8 @@
     </div>
   </div>
 </div>
+<section class="block w-app">
+  <div>
+    <h2 class="uppercase">latest items</h2>
+  </div>
+</section>

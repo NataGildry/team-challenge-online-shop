@@ -30,7 +30,7 @@ body {
 }
 body {
   margin: 0;
-  font-family: Lato, serif;
+  font-family: Lato, sans-serif;
 }
 :root {
   --app-width: 1202px;
