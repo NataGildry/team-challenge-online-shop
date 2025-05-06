@@ -24,6 +24,7 @@ module.exports = {
       },
       boxShadow: {
         btn: ' 0px 0px 15px -5px var(--app-color-primary)',
+        hover: ' 0px 0px 25px -5px var(--app-color-primary)',
       },
     },
   },

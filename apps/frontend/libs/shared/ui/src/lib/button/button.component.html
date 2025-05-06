@@ -1,5 +1,11 @@
 <button
   class="uppercase bg-primary text-white py-4 space-x-4 w-[260px] tracking-wider rounded-full shadow-btn font-[15px]"
+  [ngClass]="{
+    'shadow-none': disabled(),
+    'opacity-50': disabled(),
+    'hover:shadow-hover': !disabled()
+  }"
+  [disabled]="disabled()"
 >
   {{ text() }}
 </button>
