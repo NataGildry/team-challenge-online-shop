@@ -12,6 +12,11 @@ module.exports = {
       fontFamily: {
         Montserrat: 'Montserrat',
       },
+      fontSize: {
+        baseSize: 'var(--app-font-size-base)',
+        h2Size: 'var(--app-font-size-h2)',
+        h3Size: 'var(--app-font-size-h3)',
+      },
       spacing: {
         app: 'var(--app-width)',
       },

@@ -1,11 +1,12 @@
 <button
-  class="uppercase w-[260px] text-white py-4 tracking-wider rounded-full shadow-btn font-[15px]"
+  class="uppercase w-[260px] text-white rounded-full shadow-btn font-[15px] tracking-wider2"
   [ngClass]="{
     'shadow-none': disabled()||iconMode(),
     'opacity-50': disabled(),
     'hover:shadow-hover': !disabled(),
 
     'bg-primary':!iconMode(),
+    'h-[60px]':!iconMode(),
    
     'w-[45px]': iconMode(),
     'h-[45px]': iconMode(),
