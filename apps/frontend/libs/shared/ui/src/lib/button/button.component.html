@@ -1,22 +1,18 @@
 <button
-  class="uppercase w-[260px] text-white rounded-full shadow-btn font-[15px] tracking-wider2"
+  class="uppercase flex w-[260px] text-white rounded-full shadow-btn font-[15px] tracking-wider2 items-center justify-center active:opacity-50 active:shadow-none disabled:opacity-50"
   [ngClass]="{
-    'shadow-none': disabled()||iconMode(),
-    'opacity-50': disabled(),
+    'bg-primary': !blackMode(),
+    'h-[60px]': !iconMode(),
     'hover:shadow-hover': !disabled(),
 
-    'bg-primary':!iconMode(),
-    'h-[60px]':!iconMode(),
-   
-    'w-[45px]': iconMode(),
-    'h-[45px]': iconMode(),
-    'flex': iconMode(),
-    'items-center': iconMode(),
-    'justify-center': iconMode(), 
-    'bg-black': iconMode(), 
-    'hover:shadow-none': iconMode(), 
-    'hover:rotate-45': iconMode(), 
-    
+    'hover:shadow-btnBlack': blackMode() && !disabled(),
+  
+    'shadow-none': disabled() || iconMode() || blackMode(),
+
+    'bg-black': blackMode(),
+
+    'w-[45px] h-[45px]': iconMode(),
+
   }"
   [disabled]="disabled()"
 >

@@ -11,4 +11,5 @@ export class ButtonComponent {
   public readonly content = input.required<string>();
   public readonly disabled = input(false);
   public readonly iconMode = input(false);
+  public readonly blackMode = input(false);
 }

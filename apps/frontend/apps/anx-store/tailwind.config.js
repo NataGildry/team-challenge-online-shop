@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Montserrat: 'Montserrat',
+        Montserrat: ['Montserrat', 'sans-serif'],
       },
       fontSize: {
         baseSize: 'var(--app-font-size-base)',
@@ -29,6 +29,8 @@ module.exports = {
       },
       boxShadow: {
         btn: ' 0px 0px 15px -5px var(--app-color-primary)',
+        btnBlack: ' 0px 0px 15px -5px black',
+        card: ' 0px 0px 7px -5px black',
         hover: ' 0px 0px 25px -5px var(--app-color-primary)',
       },
     },
