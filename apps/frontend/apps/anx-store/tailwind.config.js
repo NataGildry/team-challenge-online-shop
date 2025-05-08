@@ -21,7 +21,7 @@ module.exports = {
         app: 'var(--app-width)',
       },
       letterSpacing: {
-        wider: 'var(--app-letter-spacing)',
+        wider1: 'var(--app-letter-spacing)',
         wider2: 'var(--app-letter-spacing2)',
       },
       colors: {
