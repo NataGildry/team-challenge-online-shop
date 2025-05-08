@@ -4,7 +4,9 @@ export type IconName =
   | 'search'
   | 'instagram'
   | 'telegram'
-  | 'twitter';
+  | 'twitter'
+  | 'heartOutline'
+  | 'arrow';
 export interface SharedIcon {
   name: IconName;
   svg: string;

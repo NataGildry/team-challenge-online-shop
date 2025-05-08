@@ -4,3 +4,4 @@ export * from './lib/directives';
 export * from './lib/button/button.component';
 export * from './lib/small-card/small-card.component';
 export * from './lib/large-card/large-card.component';
+export * from './lib/mid-card/mid-card.component';

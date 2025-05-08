@@ -40,3 +40,13 @@
 <section class="w-app mt-[145px]">
   <shared-large-card></shared-large-card>
 </section>
+<section class="w-app flex flex-wrap justify-between gap-4 mt-[140px]">
+  <h2
+    class="uppercase text-h2Size w-full font-bold tracking-wider2 font-Montserrat pr-[70%] mb-3 leading-[46px]"
+  >
+    discover our categories
+  </h2>
+  @for (item of cardItems; track $index) {
+  <shared-mid-card [dataCard]="item" />
+  }
+</section>
