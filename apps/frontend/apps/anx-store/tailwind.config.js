@@ -9,6 +9,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      borderRadius: {
+        cardRadius: 'var(--app-border-radius)',
+      },
       fontFamily: {
         Montserrat: ['Montserrat', 'sans-serif'],
       },
