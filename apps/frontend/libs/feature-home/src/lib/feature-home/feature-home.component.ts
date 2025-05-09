@@ -20,7 +20,6 @@ import { MidCard } from '@anx-store/shared/utils';
   templateUrl: './feature-home.component.html',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // styles: [':host{background-color: cyan;}'],
 })
 export class FeatureHomeComponent {
   private readonly translocoService = inject(TranslocoService);
