@@ -1,0 +1,30 @@
+﻿networks:
+  deploy-faked-out-shop-database:
+    driver: bridge
+services:
+  webapi:
+    container_name: faked-out-shop-database
+    build:
+      context: .
+      dockerfile: FakedOutShop.API/Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      deploy-faked-out-shop-database:
+    depends_on:
+      - postgres_db
+  postgres_db:
+    container_name: postgresql
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: faked-out-shop-database
+    ports:
+      - "5432:5432"
+    networks:
+      - deploy-faked-out-shop-database
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+volumes:
+  postgres-data:

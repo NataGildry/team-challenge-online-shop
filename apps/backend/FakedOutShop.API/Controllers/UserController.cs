@@ -1,20 +1,44 @@
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+using FakedOutShop.Application.Abstractions;
 using FakedOutShop.Application.DTOs;
+using FluentResults;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
-namespace FakedOutShop.API.Controllers
+namespace FakedOutShop.Application.Controllers
 {
   [ApiController]
-  [Route("[controller]")]
+  [Route("api/user")]
   public class UserController : ControllerBase
   {
-    [HttpGet]
-    [AllowAnonymous]
-    public async Task<ActionResult<ResponseDto>> Get()
+    private readonly IAuthService _authService;
+
+    public UserController(IAuthService authService)
     {
-      int randomAge = new Random().Next(18, 101);
-      return new ResponseDto(randomAge);
+      _authService = authService;
+    }
+
+    [HttpPost("register")]
+    public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
+    {
+      var result = await _authService.RegisterUserAsync(registerDto);
+      if (result.IsFailed)
+      {
+        return BadRequest(new { Errors = result.Errors });
+      }
+      return Ok(new { Message = "User registered successfully" });
+    }
+
+    [HttpPost("login")]
+    public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
+    {
+      var result = await _authService.LoginUserAsync(loginDto);
+      if (result.IsFailed)
+      {
+        return Unauthorized(new { Errors = result.Errors });
+      }
+      return Ok(new { Token = result.Value });
     }
   }
 }
+
 
