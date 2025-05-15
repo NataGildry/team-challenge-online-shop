@@ -1,9 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* You can add global styles to this file, and also import other style files */
-
 @font-face {
   font-family: 'Lato';
   src: url('/assets/fonts/Lato/Lato-Regular.ttf') format('truetype');
@@ -19,35 +13,14 @@
 @font-face {
   font-family: 'Montserrat';
   src: url('/assets/fonts/Montserrat/static/Montserrat-Regular.ttf')
-    format('truetype');
+  format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: 'Montserrat';
   src: url('/assets/fonts/Montserrat/static/Montserrat-Bold.ttf')
-    format('truetype');
+  format('truetype');
   font-weight: 700;
   font-style: normal;
-}
-
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Lato, sans-serif;
-  background-color: var(--app-color-bg);
-}
-:root {
-  --app-width: 1202px;
-  --app-color-primary: #065f46;
-  --app-color-bg: #f9f9f9;
-  --app-letter-spacing: 0.045em;
-  --app-letter-spacing2: 0.12em;
-  --app-font-size-base: 15px;
-  --app-font-size-h2: 32px;
-  --app-font-size-h3: 22px;
-  --app-border-radius: 50px;
 }

@@ -25,7 +25,7 @@
         ],
         "styles": [
           "@angular/material/prebuilt-themes/azure-blue.css",
-          "global.css"
+          "global.scss"
         ],
         "scripts": [],
         "server": "apps/anx-store/src/main.server.ts",
@@ -36,7 +36,6 @@
       },
       "configurations": {
         "production": {
-          "baseHref": "/team-challenge-online-shop/",
           "budgets": [
             {
               "type": "initial",
