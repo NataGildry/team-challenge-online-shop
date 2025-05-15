@@ -1,13 +1,4 @@
-const { createGlobPatternsForDependencies } = require('@nx/angular/tailwind');
-const { join } = require('path');
-
-/** @type {import('tailwindcss').Config} */
 module.exports = {
-  presets: [require('../../tailwind.preset.js')],
-  content: [
-    join(__dirname, 'src/**/!(*.stories|*.spec).{ts,html}'),
-    ...createGlobPatternsForDependencies(__dirname),
-  ],
   theme: {
     extend: {
       borderRadius: {
@@ -25,8 +16,8 @@ module.exports = {
         app: 'var(--app-width)',
       },
       letterSpacing: {
-        widerText: 'var(--app-letter-spacing-text)',
-        widerHeading: 'var(--app-letter-spacing-heading)',
+        wider1: 'var(--app-letter-spacing)',
+        wider2: 'var(--app-letter-spacing2)',
       },
       colors: {
         primary: '#065F46',

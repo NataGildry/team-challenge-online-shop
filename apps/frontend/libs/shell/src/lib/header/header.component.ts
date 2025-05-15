@@ -10,7 +10,11 @@ import {
 } from '@anx-store/shared/ui';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { Langs, LocalStorageService } from '@anx-store/shared/utils';
+import {
+  CapitalizeFirstWordPipe,
+  Langs,
+  LocalStorageService,
+} from '@anx-store/shared/utils';
 import { tap } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
@@ -25,6 +29,7 @@ import { RouterLink } from '@angular/router';
     TranslocoDirective,
     ReactiveFormsModule,
     RouterLink,
+    CapitalizeFirstWordPipe,
   ],
   templateUrl: './header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
