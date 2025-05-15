@@ -1,13 +1,13 @@
-<div class="flex flex-col gap-[140px]">
+<div class="flex flex-col gap-[140px] m-auto">
   <section *transloco="let t" class="flex">
     <div class="w-[700px] flex-2 mt-[155px]">
       <h1
-        class="uppercase tracking-wider2 font-bold font-[Montserrat] leading-[60px] mb-5 text-[2.5rem]"
+        class="uppercase tracking-widerHeading font-bold font-[Montserrat] leading-[60px] mb-5 text-[2.5rem]"
       >
         Comfort for Every Corner of Your Home
       </h1>
       <p
-        class="text-baseSize w-[509px] tracking-wider1 leading-[24px] mb-[30px]"
+        class="text-baseSize w-[509px] tracking-widerText leading-[24px] mb-[30px]"
       >
         Upholstered furniture that combines style and quality for your home.
         Enjoy hassle-free delivery and professional assembly, making the process
@@ -16,21 +16,25 @@
       </p>
       <shared-button [content]="t('controls.shop_now')" />
     </div>
-    <div class="w-[590px] overflow-hidden">
+
+    <div class="w-[590px] overflow-hidden hidden xl:block">
       <div class="w-[700px] ml-[-8px] mt-[20px]">
         <img src="https://i.imgur.com/H0iKI72.png" alt="chair image" />
       </div>
     </div>
   </section>
 
-  <section *transloco="let t" class="block w-app flex justify-between">
+  <section
+    *transloco="let t"
+    class="block max-w-app flex justify-between flex-wrap"
+  >
     <div class="w-[284px]">
       <h2
-        class="uppercase text-h2Size font-bold tracking-wider2 font-Montserrat pr-5 mb-7 leading-[46px]"
+        class="uppercase text-h2Size font-bold tracking-widerHeading font-Montserrat pr-5 mb-7 leading-[46px]"
       >
         latest items
       </h2>
-      <p class="tracking-wider1 text-baseSize leading-[24px] mb-8">
+      <p class="tracking-widerText text-baseSize leading-[24px] mb-8">
         Discover our latest collection, featuring stylish and modern furniture
         designed to elevate your space. Crafted with high-quality materials,
         these pieces bring both comfort and elegance to your home.
@@ -42,13 +46,13 @@
     <shared-small-card />
   </section>
 
-  <section class="w-app">
+  <section class="max-w-app">
     <shared-large-card></shared-large-card>
   </section>
 
-  <section class="w-app flex flex-wrap justify-between gap-4">
+  <section class="max-w-app flex flex-wrap justify-between gap-4">
     <h2
-      class="uppercase text-h2Size w-full font-bold tracking-wider2 font-Montserrat pr-[70%] mb-3 leading-[46px]"
+      class="uppercase text-h2Size w-full font-bold tracking-widerHeading font-Montserrat pr-[70%] mb-3 leading-[46px]"
     >
       discover our categories
     </h2>
@@ -57,47 +61,47 @@
     }
   </section>
 
-  <section class="w-app flex flex-wrap justify-between items-center">
+  <section class="max-w-app flex flex-wrap justify-between items-center">
     <div class="w-[692px] h-[415px] flex flex-wrap gap-8 justify-between pr-11">
       <h2
-        class="uppercase text-h2Size w-[690px] font-bold tracking-wider2 font-Montserrat mb-[-2px]"
+        class="uppercase text-h2Size w-[690px] font-bold tracking-widerHeading font-Montserrat mb-[-2px]"
       >
         why choose us
       </h2>
       <div class="w-[284px]">
-        <h3 class="font-bold text-h3Size tracking-wider1 capitalize">
+        <h3 class="font-bold text-h3Size tracking-widerText capitalize">
           High-Quality materials
         </h3>
-        <p class="tracking-wider1 text-baseSize leading-[24px] mt-3">
+        <p class="tracking-widerText text-baseSize leading-[24px] mt-3">
           Our furniture is crafted from durable, premium materials designed to
           last, ensuring that every piece stands the test of time while
           maintaining its beauty.
         </p>
       </div>
       <div class="w-[284px]">
-        <h3 class="font-bold text-h3Size tracking-wider1 capitalize">
+        <h3 class="font-bold text-h3Size tracking-widerText capitalize">
           Delivery & Assembly
         </h3>
-        <p class="tracking-wider1 text-baseSize leading-[24px] mt-3">
+        <p class="tracking-widerText text-baseSize leading-[24px] mt-3">
           We offer hassle-free delivery and professional assembly services, so
           you can enjoy your new furniture without any effort or stress on your
           part.
         </p>
       </div>
       <div class="w-[284px]">
-        <h3 class="font-bold text-h3Size tracking-wider1 capitalize">
+        <h3 class="font-bold text-h3Size tracking-widerText capitalize">
           Personalized Experience
         </h3>
-        <p class="tracking-wider1 text-baseSize leading-[24px] mt-3">
+        <p class="tracking-widerText text-baseSize leading-[24px] mt-3">
           Our team provides personalized recommendations to help you choose the
           perfect furniture pieces that suit your home’s style and needs.
         </p>
       </div>
       <div class="w-[284px]">
-        <h3 class="font-bold text-h3Size tracking-wider1 capitalize">
+        <h3 class="font-bold text-h3Size tracking-widerText capitalize">
           Offers & Discounts
         </h3>
-        <p class="tracking-wider1 text-baseSize leading-[24px] mt-3">
+        <p class="tracking-widerText text-baseSize leading-[24px] mt-3">
           Take advantage of special deals and discounts on top-quality
           furniture, allowing you to upgrade your home at an affordable price.
         </p>
