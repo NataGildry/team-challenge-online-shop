@@ -36,6 +36,7 @@
       },
       "configurations": {
         "production": {
+          "baseHref": "/team-challenge-online-shop/",
           "budgets": [
             {
               "type": "initial",
