@@ -9,7 +9,6 @@ import { MidCard } from '@anx-store/shared/utils';
   templateUrl: './mid-card.component.html',
 })
 export class MidCardComponent {
-  public dataCard = input.required<MidCard>();
-
   protected readonly arrow = arrow;
+  public dataCard = input.required<MidCard>();
 }
