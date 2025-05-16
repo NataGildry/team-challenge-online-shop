@@ -6,7 +6,9 @@ export type IconName =
   | 'telegram'
   | 'twitter'
   | 'heartOutline'
-  | 'arrow';
+  | 'arrow'
+  | 'plus'
+  | 'minus';
 export interface SharedIcon {
   name: IconName;
   svg: string;
@@ -44,4 +46,12 @@ export const heartOutline = {
 export const arrow = {
   name: 'arrow',
   svg: '<svg width="34" height="35" viewBox="0 0 34 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.15416 23.0154L21.1342 12.7506L11.49 11.8863L11.4912 10.5813L23.4316 11.6514L22.6585 23.6147L21.3688 23.4158L21.9932 13.7531L10.0132 24.018L9.15416 23.0154Z" fill="white"/></svg>',
+};
+export const plus = {
+  name: 'plus',
+  svg: '<svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 8.57695V7.42311H6.92308V0.500031H8.07692V7.42311H15V8.57695H8.07692V15.5H6.92308V8.57695H0Z" fill="#05060F"/></svg>',
+};
+export const minus = {
+  name: 'minus',
+  svg: '<svg width="15" height="2" viewBox="0 0 15 2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 1H15" stroke="#05060F"/></svg>',
 };
