@@ -6,7 +6,7 @@ import {
   SmallCardComponent,
 } from '@anx-store/shared/ui';
 import { TranslocoService, TranslocoDirective } from '@jsverse/transloco';
-import { MidCard } from '@anx-store/shared/utils';
+import { CatalogService, MidCard } from '@anx-store/shared/utils';
 
 @Component({
   selector: 'lib-feature-home',
@@ -23,17 +23,11 @@ import { MidCard } from '@anx-store/shared/utils';
 })
 export class FeatureHomeComponent {
   private readonly translocoService = inject(TranslocoService);
+  private readonly catalogService = inject(CatalogService);
 
-  protected readonly cardItems: MidCard[] = [
-    {
-      title: 'Armchairs and sofas',
-      imgLink: 'https://i.imgur.com/9xo3v7p.jpeg',
-    },
-    { title: 'Beds and futons', imgLink: 'https://i.imgur.com/9xo3v7p.jpeg' },
-    {
-      title: 'Chairs and semi-chairs',
-      imgLink: 'https://i.imgur.com/9xo3v7p.jpeg',
-    },
-    { title: 'Kids furniture', imgLink: 'https://i.imgur.com/9xo3v7p.jpeg' },
-  ];
+  protected readonly cardItems: MidCard[] = this.catalogService.getMidCards();
+
+  protected readonly smallCards = this.catalogService
+    .getSmallCards()
+    .slice(0, 3);
 }

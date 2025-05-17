@@ -1,6 +1,10 @@
-<div>
-  <aside class="w-[247px]">
+<div class="max-w-app flex justify-between">
+  <aside class="block w-[247px]">
     <lib-aside-accordion />
   </aside>
-  <section></section>
+  <section class="flex gap-5 flex-wrap max-w-[896px]">
+    @for (item of smallCards; track $index) {
+    <shared-small-card [cardData]="item" />
+    }
+  </section>
 </div>
