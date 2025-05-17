@@ -1,0 +1,20 @@
+<div class="w-full flex justify-center items-center gap-[19px] w-full">
+  <button class="bg-black rounded-[10px] text-white h-[35px] min-w-[35px]">
+    {{ currentPage + 1 }}
+  </button>
+  <button class="bg-black rounded-[10px] text-white h-[35px] min-w-[35px] px-4">
+    of {{ totalPage() }} pages
+  </button>
+  <button
+    class="bg-black rounded-[10px] text-white h-[35px] min-w-[35px] inline-flex justify-center items-center rotate-180"
+    (click)="moveToNext(-1)"
+  >
+    <shared-icon [svg]="chevronIcon.svg" />
+  </button>
+  <button
+    class="bg-black rounded-[10px] text-white h-[35px] min-w-[35px] inline-flex justify-center items-center"
+    (click)="moveToNext(1)"
+  >
+    <shared-icon [svg]="chevronIcon.svg" />
+  </button>
+</div>

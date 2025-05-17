@@ -8,7 +8,8 @@ export type IconName =
   | 'heartOutline'
   | 'arrow'
   | 'plus'
-  | 'minus';
+  | 'minus'
+  | 'chevron';
 export interface SharedIcon {
   name: IconName;
   svg: string;
@@ -54,4 +55,8 @@ export const plus = {
 export const minus = {
   name: 'minus',
   svg: '<svg width="15" height="2" viewBox="0 0 15 2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 1H15" stroke="#05060F"/></svg>',
+};
+export const chevron = {
+  name: 'chevron',
+  svg: '<svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.499999 15L8.5 8L0.499999 0.999998" stroke="white"/></svg>',
 };

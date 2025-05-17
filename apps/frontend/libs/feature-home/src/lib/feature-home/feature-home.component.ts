@@ -28,6 +28,6 @@ export class FeatureHomeComponent {
   protected readonly cardItems: MidCard[] = this.catalogService.getMidCards();
 
   protected readonly smallCards = this.catalogService
-    .getSmallCards()
+    .getSmallCards(1)
     .slice(0, 3);
 }

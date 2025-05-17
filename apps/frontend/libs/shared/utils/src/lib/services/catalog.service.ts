@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SmallCard, MidCard } from '../models/interfaces';
 
+export const PAGE_SIZE: number = 9;
 @Injectable({
   providedIn: 'root',
 })
@@ -52,7 +53,18 @@ export class CatalogService {
       title: 'Sleek Chic Metro Lounge Sofa',
       price: '1340',
     },
+    {
+      imgUrl: 'https://i.imgur.com/3qFwJ2h.png',
+      title: 'Sleek Chic Metro Lounge Sofa',
+      price: '1340',
+    },
+    {
+      imgUrl: 'https://i.imgur.com/3qFwJ2h.png',
+      title: 'Sleek Chic Metro Lounge Sofa',
+      price: '1340',
+    },
   ];
+
   private midCards: MidCard[] = [
     {
       title: 'Armchairs and sofas',
@@ -66,9 +78,15 @@ export class CatalogService {
     { title: 'Kids furniture', imgLink: 'https://i.imgur.com/9xo3v7p.jpeg' },
   ];
 
-  public getSmallCards(): SmallCard[] {
-    return this.smallCards;
+  public getSmallCards(page: number): SmallCard[] {
+    return this.smallCards.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
   }
+
+  public getSmallCardsSize(): number {
+    // const r = this.smallCards.length;
+    return Math.ceil(this.smallCards.length / PAGE_SIZE);
+  }
+
   public getMidCards(): MidCard[] {
     return this.midCards;
   }
