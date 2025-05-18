@@ -15,13 +15,15 @@ export class CatalogPaginationComponent {
 
   public readonly navigateNextPage = output<number>();
 
-  protected moveToNext(page: number): void {
-    if (
-      (this.currentPage + 1 === this.totalPage() && page > 0) ||
-      (this.currentPage === 0 && page < 0)
-    )
-      return;
-    this.currentPage = this.currentPage + page;
+  protected moveForward(): void {
+    if (this.currentPage + 1 === this.totalPage()) return;
+    this.currentPage++;
+    this.navigateNextPage.emit(this.currentPage);
+  }
+
+  protected moveBackward(): void {
+    if (this.currentPage === 0) return;
+    this.currentPage--;
     this.navigateNextPage.emit(this.currentPage);
   }
 }
