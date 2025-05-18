@@ -49,7 +49,7 @@ jobs:
       - name: Build Angular app
         run: |
           cd $FRONTEND_FOLDER_PATH
-          npx nx build anx-store --configuration=production --base-href="/team-challenge-online-shop/"
+          npx nx run anx-store:build:production
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
