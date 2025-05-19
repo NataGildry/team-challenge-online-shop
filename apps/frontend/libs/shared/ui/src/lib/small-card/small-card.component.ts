@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { heartOutline, IconComponent, arrow } from '../icon';
-import { ButtonComponent } from '../button/button.component';
+import { IconButtonComponent } from '../icon-button/icon-button.component';
 
 @Component({
   selector: 'shared-small-card',
-  imports: [IconComponent, ButtonComponent],
+  imports: [IconComponent, IconButtonComponent],
   templateUrl: './small-card.component.html',
 })
 export class SmallCardComponent {

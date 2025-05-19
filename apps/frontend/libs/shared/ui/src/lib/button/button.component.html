@@ -1,43 +1,10 @@
-<!-- <button
-  class="uppercase flex w-[260px] text-white rounded-full shadow-btn font-[15px] tracking-wider2 items-center justify-center active:opacity-50 active:shadow-none disabled:opacity-50"
-  [ngClass]="{
-    'bg-primary': !blackMode(),
-    'h-[60px]': !iconMode(),
-    'hover:shadow-hover': !disabled(),
-
-    'hover:shadow-btnBlack': blackMode() && !disabled(),
-  
-    'shadow-none': disabled() || iconMode() || blackMode(),
-
-    'bg-black': blackMode(),
-
-    'w-[45px] h-[45px]': iconMode(),
-
-  }"
-  [disabled]="disabled()"
->
-  @if (iconMode()) {
-  <shared-icon svg="{{ content() }}" />
-  } @else {
-  {{ content() }}
-  }
-</button> -->
-
 @if (blackMode()) {
 <button
-  class="uppercase w-[260px] h-[60px] text-white bg-black rounded-full font-[15px] tracking-wider2 hover:shadow-btnBlack active:opacity-50 active:shadow-none disabled:opacity-50 disabled:hover:shadow-none"
+  class="uppercase w-[260px] h-[60px] text-white bg-black rounded-full font-[15px] tracking-wider2 black-btn-bahavior"
   [disabled]="disabled()"
 >
   {{ content() }}
 </button>
-} @else if (iconMode()) {
-<button
-  class="uppercase flex w-[45px] h-[45px] text-white rounded-full bg-black font-[15px] tracking-wider2 items-center justify-center hover:shadow-btnBlack active:opacity-50 active:shadow-none disabled:opacity-50 disabled:hover:shadow-none"
-  [disabled]="disabled()"
->
-  <shared-icon svg="{{ content() }}" />
-</button>
-
 } @else {
 <button
   class="uppercase w-[260px] h-[60px] text-white rounded-full bg-primary shadow-btn font-[15px] tracking-wider2 hover:shadow-hover active:opacity-50 active:shadow-none disabled:opacity-50 disabled:hover:shadow-none"
