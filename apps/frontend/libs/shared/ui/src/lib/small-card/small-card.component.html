@@ -7,16 +7,16 @@
 
   <div class="h-[156px] w-full mx-auto mt-3 mb-4">
     <img
-      src="https://i.imgur.com/3qFwJ2h.png"
+      src="{{ product().imgUrl }}"
       alt="chair image"
       class="h-full mx-auto"
     />
   </div>
   <h3 class="font-bold text-h3Size tracking-[.045em] px-5">
-    Vibrant plush urban lounge sofa
+    {{ product().title }}
   </h3>
   <span class="flex items-center w-full justify-end gap-4 pr-5 pt-4"
-    >$1,400
+    >${{ product().price }}
     <shared-icon-button [svgIcon]="arrow.svg" />
   </span>
 </div>

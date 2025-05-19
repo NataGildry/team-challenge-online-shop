@@ -38,9 +38,9 @@
       </p>
       <shared-button [content]="t('controls.see_more')" [blackMode]="true" />
     </div>
-    <shared-small-card />
-    <shared-small-card />
-    <shared-small-card />
+    @for (item of smallCards; track $index) {
+    <shared-small-card [product]="item" />
+    }
   </section>
 
   <section class="max-w-app">
