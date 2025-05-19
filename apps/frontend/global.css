@@ -26,4 +26,3 @@ body {
 .black-btn-bahavior {
   @apply hover:shadow-btnBlack active:opacity-50 active:shadow-none disabled:opacity-50 disabled:hover:shadow-none;
 }
-.primary-btn-bahavior {}
