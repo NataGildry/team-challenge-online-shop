@@ -1,5 +1,5 @@
-<div class="flex flex-col gap-[140px] m-auto">
-  <section *transloco="let t" class="flex">
+<div *transloco="let t" class="flex flex-col gap-[140px] m-auto">
+  <section class="flex">
     <div class="w-[700px] flex-2 mt-[155px]">
       <h1
         class="uppercase tracking-widerHeading font-bold font-[Montserrat] leading-[60px] mb-5 text-[2.5rem]"
@@ -24,10 +24,7 @@
     </div>
   </section>
 
-  <section
-    *transloco="let t"
-    class="block max-w-app flex justify-between flex-wrap"
-  >
+  <section class="block max-w-app flex justify-between flex-wrap">
     <div class="w-[284px]">
       <h2
         class="uppercase text-h2Size font-bold tracking-widerHeading font-Montserrat pr-5 mb-7 leading-[46px]"
@@ -47,7 +44,7 @@
   </section>
 
   <section class="max-w-app">
-    <shared-large-card></shared-large-card>
+    <shared-large-card />
   </section>
 
   <section class="max-w-app flex flex-wrap justify-between gap-4">
