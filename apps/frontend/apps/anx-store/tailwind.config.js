@@ -18,14 +18,14 @@ module.exports = {
       },
       fontSize: {
         baseSize: 'var(--app-font-size-base)',
-        h2Size: 'var(--app-font-size-h2)',
-        h3Size: 'var(--app-font-size-h3)',
+        h2: 'var(--app-font-size-h2)',
+        h3: 'var(--app-font-size-h3)',
       },
       spacing: {
         app: 'var(--app-width)',
       },
       letterSpacing: {
-        widerText: 'var(--app-letter-spacing-text)',
+        bodyLetter: 'var(--app-letter-spacing-text)',
         widerHeading: 'var(--app-letter-spacing-heading)',
       },
       colors: {
