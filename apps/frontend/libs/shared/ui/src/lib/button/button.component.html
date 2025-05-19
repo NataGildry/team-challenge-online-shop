@@ -1,6 +1,6 @@
 @if (blackMode()) {
 <button
-  class="uppercase w-[260px] h-[60px] text-white bg-black rounded-full font-[15px] tracking-wider2 black-btn-bahavior"
+  class="uppercase w-[260px] h-[60px] text-white bg-black rounded-full font-[15px] tracking-wider2 hover:shadow-btnBlack active:opacity-50 active:shadow-none disabled:opacity-50 disabled:hover:shadow-none"
   [disabled]="disabled()"
 >
   {{ content() }}
