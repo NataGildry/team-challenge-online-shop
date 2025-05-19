@@ -1,0 +1,22 @@
+<div
+  class="bg-white w-[284px] h-[375px] pt-6 flex flex-col rounded-[50px] shadow-card"
+>
+  <span class="ml-auto mr-[23px]">
+    <shared-icon [svg]="heart.svg" />
+  </span>
+
+  <div class="h-[156px] w-full mx-auto mt-3 mb-4">
+    <img
+      src="{{ product().imgUrl }}"
+      alt="chair image"
+      class="h-full mx-auto"
+    />
+  </div>
+  <h3 class="font-bold text-h3Size tracking-[.045em] px-5">
+    {{ product().title }}
+  </h3>
+  <span class="flex items-center w-full justify-end gap-4 pr-5 pt-4"
+    >${{ product().price }}
+    <shared-icon-button [svgIcon]="arrow.svg" />
+  </span>
+</div>
