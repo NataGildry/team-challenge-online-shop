@@ -1,8 +1,7 @@
 using System.Text.Json;
 using FakedOutShop.Infrastructure;
 using FakedOutShop.Domain.Interfaces;
-using FakedOutShop.Infrastructure.Repositories; // Ensure this namespace is included
-using FakedOutShop.Domain;
+using FakedOutShop.Domain.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

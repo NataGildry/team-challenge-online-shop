@@ -3,7 +3,7 @@ using FakedOutShop.Domain.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 
-namespace FakedOutShop.Infrastructure.Repositories
+namespace FakedOutShop.Domain.Repositories
 {
   public class UserRepository : IUserRepository
   {
