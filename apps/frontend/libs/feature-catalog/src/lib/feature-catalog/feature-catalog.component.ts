@@ -4,6 +4,7 @@ import { AsideAccordionComponent } from './aside-accordion/aside-accordion.compo
 import { CatalogService, SmallCard } from '@anx-store/shared/utils';
 import { SmallCardComponent } from '@anx-store/shared/ui';
 import { CatalogPaginationComponent } from './catalog-pagination/catalog-pagination.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'lib-feature-catalog',
@@ -12,6 +13,7 @@ import { CatalogPaginationComponent } from './catalog-pagination/catalog-paginat
     AsideAccordionComponent,
     SmallCardComponent,
     CatalogPaginationComponent,
+    RouterOutlet,
   ],
   templateUrl: './feature-catalog.component.html',
   standalone: true,
