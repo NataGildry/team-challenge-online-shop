@@ -1,13 +1,13 @@
 @if (blackMode()) {
 <button
-  class="uppercase w-[260px] h-[60px] text-white bg-black rounded-full font-[15px] tracking-wider2 hover:shadow-btnBlack active:opacity-50 active:shadow-none disabled:opacity-50 disabled:hover:shadow-none"
+  class="uppercase w-[260px] h-[60px] text-white bg-black rounded-full font-[15px] tracking-widerHeading hover:shadow-btnBlack active:opacity-50 active:shadow-none disabled:opacity-50 disabled:hover:shadow-none"
   [disabled]="disabled()"
 >
   {{ content() }}
 </button>
 } @else {
 <button
-  class="uppercase w-[260px] h-[60px] text-white rounded-full bg-primary shadow-btn font-[15px] tracking-wider2 hover:shadow-hover active:opacity-50 active:shadow-none disabled:opacity-50 disabled:hover:shadow-none"
+  class="uppercase w-[260px] h-[60px] text-white rounded-full bg-primary shadow-btn font-[15px] tracking-widerHeading hover:shadow-hover active:opacity-50 active:shadow-none disabled:opacity-50 disabled:hover:shadow-none"
   [disabled]="disabled()"
 >
   {{ content() }}

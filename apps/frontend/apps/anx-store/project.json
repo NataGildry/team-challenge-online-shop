@@ -21,6 +21,16 @@
             "glob": "**/*",
             "input": "apps/anx-store/src/assets",
             "output": "assets"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/feature-home/src/lib/i18n",
+            "output": "assets/i18n/home"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/shared/ui/src/lib/i18n",
+            "output": "assets/i18n/shared"
           }
         ],
         "styles": [

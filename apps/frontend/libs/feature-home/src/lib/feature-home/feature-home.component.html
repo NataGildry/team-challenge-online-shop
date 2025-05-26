@@ -1,10 +1,10 @@
-<div *transloco="let t" class="flex flex-col gap-[140px] m-auto">
+<div *transloco="let t; scope: 'home'" class="flex flex-col gap-[140px] m-auto">
   <section class="flex">
     <div class="w-[700px] flex-2 mt-[155px]">
       <h1
-        class="uppercase tracking-bodyLetter font-bold font-[Montserrat] leading-[60px] mb-5 text-[2.5rem]"
+        class="uppercase tracking-widerHeading font-bold font-[Montserrat] leading-[60px] mb-5 text-[2.5rem]"
       >
-        Comfort for Every Corner of Your Home
+        {{ t('home.headers.comfort') }}
       </h1>
       <p
         class="text-baseSize w-[509px] tracking-bodyLetter leading-[24px] mb-[30px]"
@@ -14,7 +14,7 @@
         effortless. Take advantage of special offers to create the perfect
         living space.
       </p>
-      <shared-button [content]="t('controls.shop_now')" />
+      <shared-button [content]="t('home.controls.shop_now')" />
     </div>
 
     <div class="w-[590px] overflow-hidden hidden xl:block">
@@ -29,14 +29,17 @@
       <h2
         class="uppercase text-h2 font-bold tracking-widerHeading font-Montserrat pr-5 mb-7 leading-[46px]"
       >
-        latest items
+        {{ t('home.headers.latest') }}
       </h2>
       <p class="tracking-bodyLetter text-baseSize leading-[24px] mb-8">
         Discover our latest collection, featuring stylish and modern furniture
         designed to elevate your space. Crafted with high-quality materials,
         these pieces bring both comfort and elegance to your home.
       </p>
-      <shared-button [content]="t('controls.see_more')" [blackMode]="true" />
+      <shared-button
+        [content]="t('home.controls.see_more')"
+        [blackMode]="true"
+      />
     </div>
     @for (item of smallCards; track $index) {
     <shared-small-card [product]="item" />
@@ -51,7 +54,7 @@
     <h2
       class="uppercase text-h2 w-full font-bold tracking-widerHeading font-Montserrat pr-[70%] mb-3 leading-[46px]"
     >
-      discover our categories
+      {{ t('home.headers.discover') }}
     </h2>
     @for (item of cardItems; track $index) {
     <shared-mid-card [dataCard]="item" />
@@ -63,7 +66,7 @@
       <h2
         class="uppercase text-h2 w-[690px] font-bold tracking-widerHeading font-Montserrat mb-[-2px]"
       >
-        why choose us
+        {{ t('home.headers.choose') }}
       </h2>
       <div class="w-[284px]">
         <h3 class="font-bold text-h3Size tracking-bodyLetter capitalize">
