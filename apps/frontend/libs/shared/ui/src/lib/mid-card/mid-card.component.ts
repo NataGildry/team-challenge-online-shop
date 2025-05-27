@@ -1,6 +1,10 @@
 import { Component, input } from '@angular/core';
 import { arrow, IconComponent } from '../icon';
-import { MidCard } from '@anx-store/types';
+
+export interface MidCard {
+  title: string;
+  imgLink: string;
+}
 
 @Component({
   selector: 'shared-mid-card',

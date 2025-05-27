@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Product, MidCard } from '@anx-store/types';
+import { Product } from '@anx-store/types';
+import { MidCard } from '@anx-store/shared/ui';
 
 export const PAGE_SIZE = 9;
 @Injectable({
@@ -83,7 +84,6 @@ export class CatalogService {
   }
 
   public getSmallCardsSize(): number {
-    // const r = this.smallCards.length;
     return Math.ceil(this.smallCards.length / PAGE_SIZE);
   }
 

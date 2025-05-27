@@ -2,11 +2,11 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {
   ButtonComponent,
   LargeCardComponent,
+  MidCard,
   MidCardComponent,
   SmallCardComponent,
 } from '@anx-store/shared/ui';
 import { TranslocoService, TranslocoDirective } from '@jsverse/transloco';
-import { MidCard } from '@anx-store/types';
 import { CatalogService } from '@anx-store/shared/utils';
 
 @Component({
