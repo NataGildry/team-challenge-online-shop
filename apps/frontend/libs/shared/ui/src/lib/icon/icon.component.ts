@@ -20,13 +20,10 @@ export class IconComponent {
   public readonly svg = input.required<string>();
   public readonly color = input<string>('');
 
-  public readonly sanitizedSvg = computed<SafeHtml>(() => {
-    const svgValue = this.svg();
-    const colorValue = this.color();
-
-    const finalSvg = colorValue
-      ? this.changeColor(colorValue, svgValue)
-      : svgValue;
+  protected readonly sanitizedSvg = computed<SafeHtml>(() => {
+    const finalSvg = this.color()
+      ? this.changeColor(this.color(), this.svg())
+      : this.svg();
 
     return this.sanitizer.bypassSecurityTrustHtml(finalSvg);
   });

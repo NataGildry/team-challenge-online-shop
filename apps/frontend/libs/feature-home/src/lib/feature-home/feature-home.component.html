@@ -14,7 +14,7 @@
         effortless. Take advantage of special offers to create the perfect
         living space.
       </p>
-      <shared-button [content]="t('home.controls.shop_now')" />
+      <shared-button [label]="t('home.controls.shop_now')" />
     </div>
 
     <div class="w-[590px] overflow-hidden hidden xl:block">
@@ -36,10 +36,7 @@
         designed to elevate your space. Crafted with high-quality materials,
         these pieces bring both comfort and elegance to your home.
       </p>
-      <shared-button
-        [content]="t('home.controls.see_more')"
-        [blackMode]="true"
-      />
+      <shared-button [label]="t('home.controls.see_more')" [color]="'black'" />
     </div>
     @for (item of smallCards; track $index) {
     <shared-small-card [product]="item" />
