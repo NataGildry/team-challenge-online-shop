@@ -7,18 +7,16 @@
 
   <div class="h-[156px] w-full mx-auto mt-3 mb-4">
     <img
-      src="{{ cardData().imgUrl }}"
+      src="{{ product().imgUrl }}"
       alt="chair image"
       class="h-full mx-auto"
     />
   </div>
   <h3 class="font-bold text-h3Size tracking-[.045em] px-5">
-    {{ cardData().title }}
+    {{ product().title }}
   </h3>
   <span class="flex items-center w-full justify-end gap-4 pr-5 pt-4"
-    >${{ cardData().price }}
-    <a routerLink="product"
-      ><shared-button [iconMode]="true" [content]="arrow.svg"
-    /></a>
+    >${{ product().price }}
+    <shared-icon-button [svgIcon]="arrow.svg" />
   </span>
 </div>

@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 
 @Component({
   selector: 'shared-large-card',
-  imports: [CommonModule],
+  imports: [TranslocoDirective],
   templateUrl: './large-card.component.html',
 })
-export class LargeCardComponent {}
+export class LargeCardComponent {
+  private readonly translocoService = inject(TranslocoService);
+}

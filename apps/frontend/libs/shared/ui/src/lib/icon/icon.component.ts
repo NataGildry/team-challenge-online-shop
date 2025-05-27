@@ -1,44 +1,36 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   inject,
   input,
-  Input,
-  OnInit,
 } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'shared-icon',
   imports: [],
-  template: '<span [innerHTML]="sanitizedSvg"></span>',
+  template: '<span [innerHTML]="sanitizedSvg()"></span>',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
-export class IconComponent implements OnInit {
-  @Input({ required: true }) public set svg(value: string) {
-    this.rawSvg = value;
-    this.sanitizedSvg = this.sanitizer.bypassSecurityTrustHtml(value);
-  }
+export class IconComponent {
+  private readonly sanitizer = inject(DomSanitizer);
 
-  private rawSvg = '';
-  private readonly sanitizer: DomSanitizer = inject(DomSanitizer);
-
-  protected sanitizedSvg: SafeHtml = '';
+  public readonly svg = input.required<string>();
   public readonly color = input<string>('');
 
-  public ngOnInit(): void {
-    if (this.color()) {
-      this.sanitizedSvg = this.sanitizer.bypassSecurityTrustHtml(
-        this.changeColor(this.color(), this.rawSvg)
-      );
-    }
-  }
+  protected readonly sanitizedSvg = computed<SafeHtml>(() => {
+    const finalSvg = this.color()
+      ? this.changeColor(this.color(), this.svg())
+      : this.svg();
+
+    return this.sanitizer.bypassSecurityTrustHtml(finalSvg);
+  });
 
   private changeColor(color: string, svg: string): string {
-    const repainted = svg
+    return svg
       .replace(/fill="white"/g, `fill="${color}"`)
       .replace(/stroke="white"/g, `stroke="${color}"`);
-    return repainted;
   }
 }

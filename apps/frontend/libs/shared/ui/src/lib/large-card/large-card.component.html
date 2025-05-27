@@ -1,5 +1,6 @@
 <div
-  class="bg-white w-app h-[690px] relative overflow-hidden flex flex-col rounded-[50px] shadow-card"
+  *transloco="let t; scope: 'home'"
+  class="bg-white max-w-app h-[690px] relative overflow-hidden flex flex-col rounded-[50px] shadow-card"
 >
   <img
     src="https://i.imgur.com/9xo3v7p.jpeg"
@@ -10,11 +11,11 @@
     class="absolute bg-white shadow-card w-[576px] rounded-br-[50px] pt-[65px] pb-[30px] pl-[60px] pr-[50px]"
   >
     <h2
-      class="uppercase text-h2Size font-bold font-Montserrat tracking-wider2 font-Montserrat mb-7 leading-[46px]"
+      class="uppercase text-h2Size font-bold font-Montserrat tracking-widerHeading font-Montserrat mb-7 leading-[46px]"
     >
-      Furniture that sets the mood
+      {{ t('home.headers.sets_mood') }}
     </h2>
-    <p class="tracking-wider1 text-baseSize leading-[24px] mb-8 pr-[120px]">
+    <p class="tracking-bodyLetter text-baseSize leading-[24px] mb-8 pr-[120px]">
       Crafted with elegant design and natural materials, each piece tells a
       story of comfort and style. Create a space you’ll love to live in
     </p>
