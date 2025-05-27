@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { AsideAccordionComponent } from './aside-accordion/aside-accordion.component';
-import { CatalogService, SmallCard } from '@anx-store/shared/utils';
 import { SmallCardComponent } from '@anx-store/shared/ui';
 import { CatalogPaginationComponent } from './catalog-pagination/catalog-pagination.component';
 import { RouterOutlet } from '@angular/router';
+import { CatalogFacadeService, Product } from '@anx-store/domain';
 
 @Component({
   selector: 'lib-feature-catalog',
@@ -20,12 +20,12 @@ import { RouterOutlet } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FeatureCatalogComponent {
-  private readonly catalogService = inject(CatalogService);
+  private readonly catalogFacade = inject(CatalogFacadeService);
 
-  protected smallCards: SmallCard[] = this.catalogService.getSmallCards(0);
-  protected totalPage: number = this.catalogService.getSmallCardsSize();
+  protected smallCards: Product[] = this.catalogFacade.getSmallCards(0);
+  protected totalPage: number = this.catalogFacade.getSmallCardsSize();
 
   protected navigateNexPage(next: number): void {
-    this.smallCards = this.catalogService.getSmallCards(next);
+    this.smallCards = this.catalogFacade.getSmallCards(next);
   }
 }

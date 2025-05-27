@@ -6,7 +6,7 @@
   <section class="">
     <div class="flex gap-5 flex-wrap max-w-[896px] pt-5 pb-10">
       @for (item of smallCards; track $index) {
-      <shared-small-card [cardData]="item" />
+      <shared-small-card [product]="item" />
       }
     </div>
     <lib-catalog-pagination

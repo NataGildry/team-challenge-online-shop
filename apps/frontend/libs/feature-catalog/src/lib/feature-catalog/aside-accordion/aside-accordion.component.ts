@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { plus, minus, IconComponent } from '@anx-store/shared/ui';
-import { AccordionOptions } from '@anx-store/shared/utils';
+import { AccordionOptions } from '@anx-store/domain';
 
 @Component({
   selector: 'lib-aside-accordion',

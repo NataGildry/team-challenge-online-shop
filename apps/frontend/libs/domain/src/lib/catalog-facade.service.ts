@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { SmallCard, MidCard } from '../models/interfaces';
+import { MidCard, Product } from './types/interfaces';
 
-export const PAGE_SIZE: number = 9;
+const PAGE_SIZE = 9;
+
 @Injectable({
   providedIn: 'root',
 })
-export class CatalogService {
-  private smallCards: SmallCard[] = [
+export class CatalogFacadeService {
+  private smallCards: Product[] = [
     {
       imgUrl: 'https://i.imgur.com/3qFwJ2h.png',
       title: 'Vibrant plush urban lounge sofa',
@@ -78,12 +79,11 @@ export class CatalogService {
     { title: 'Kids furniture', imgLink: 'https://i.imgur.com/9xo3v7p.jpeg' },
   ];
 
-  public getSmallCards(page: number): SmallCard[] {
+  public getSmallCards(page: number): Product[] {
     return this.smallCards.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
   }
 
   public getSmallCardsSize(): number {
-    // const r = this.smallCards.length;
     return Math.ceil(this.smallCards.length / PAGE_SIZE);
   }
 
