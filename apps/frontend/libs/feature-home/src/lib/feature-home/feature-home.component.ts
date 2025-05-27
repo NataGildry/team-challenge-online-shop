@@ -2,12 +2,11 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {
   ButtonComponent,
   LargeCardComponent,
-  MidCard,
   MidCardComponent,
   SmallCardComponent,
 } from '@anx-store/shared/ui';
 import { TranslocoService, TranslocoDirective } from '@jsverse/transloco';
-import { CatalogService } from '@anx-store/shared/utils';
+import { HomeFacadeService, MidCard } from '@anx-store/domain';
 
 @Component({
   selector: 'lib-feature-home',
@@ -24,11 +23,9 @@ import { CatalogService } from '@anx-store/shared/utils';
 })
 export class FeatureHomeComponent {
   private readonly translocoService = inject(TranslocoService);
-  private readonly catalogService = inject(CatalogService);
+  private readonly homeFacade = inject(HomeFacadeService);
 
-  protected readonly cardItems: MidCard[] = this.catalogService.getMidCards();
+  protected readonly cardItems: MidCard[] = this.homeFacade.getMidCards();
 
-  protected readonly smallCards = this.catalogService
-    .getSmallCards(0)
-    .slice(0, 3);
+  protected readonly smallCards = this.homeFacade.getSmallCards(0).slice(0, 3);
 }

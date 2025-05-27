@@ -3,3 +3,8 @@ export interface Product {
   title: string;
   price: string;
 }
+
+export interface MidCard {
+  title: string;
+  imgLink: string;
+}

@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Product } from '@anx-store/types';
-import { MidCard } from '@anx-store/shared/ui';
+import { MidCard, Product } from './types/interfaces';
 
 export const PAGE_SIZE = 9;
 @Injectable({
   providedIn: 'root',
 })
-export class CatalogService {
+export class HomeFacadeService {
   private smallCards: Product[] = [
     {
       imgUrl: 'https://i.imgur.com/3qFwJ2h.png',
