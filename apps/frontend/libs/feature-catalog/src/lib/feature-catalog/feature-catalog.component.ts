@@ -5,6 +5,7 @@ import { SmallCardComponent } from '@anx-store/shared/ui';
 import { CatalogPaginationComponent } from './catalog-pagination/catalog-pagination.component';
 import { RouterOutlet } from '@angular/router';
 import { CatalogFacadeService, Product } from '@anx-store/domain';
+import { SortSelectComponent } from './sort-select/sort-select.component';
 
 @Component({
   selector: 'lib-feature-catalog',
@@ -14,6 +15,7 @@ import { CatalogFacadeService, Product } from '@anx-store/domain';
     SmallCardComponent,
     CatalogPaginationComponent,
     RouterOutlet,
+    SortSelectComponent,
   ],
   templateUrl: './feature-catalog.component.html',
   standalone: true,

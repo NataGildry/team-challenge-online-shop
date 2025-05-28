@@ -1,9 +1,16 @@
 <router-outlet />
-<div class="max-w-app flex justify-between gap-12">
+<div class="max-w-app flex justify-between gap-12 flex-wrap">
+  <h1
+    class="w-full tracking-widerHeading font-bold uppercase font-Montserrat leading-[60px] mb-5 text-[2.5rem]"
+  >
+    catalog
+  </h1>
   <aside class="block w-[247px] mr-2">
     <lib-aside-accordion />
   </aside>
   <section class="">
+    <div class="flex justify-between"><span></span><lib-sort-select /></div>
+
     <div class="flex gap-5 flex-wrap max-w-[896px] pt-5 pb-10">
       @for (item of products; track $index) {
       <shared-small-card [product]="item" />
