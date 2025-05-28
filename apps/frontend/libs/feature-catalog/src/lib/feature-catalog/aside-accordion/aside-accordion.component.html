@@ -12,11 +12,16 @@
     }
   </button>
   @if (openIndex() === index) {
-  <div class="">
-    <div class="">
-      {{ options[index].data }}
-    </div>
-  </div>
+
+  <ul class="flex flex-col gap-4">
+    @for (item of categoriesList; track $index) {
+    <li class="flex justify-between tracking-bodyLetter">
+      <span>{{ item.name }}</span
+      ><span>{{ item.amount }}</span>
+    </li>
+    }
+  </ul>
+
   }
 </div>
 
@@ -35,11 +40,14 @@
     }
   </button>
   @if (openIndex() === index1) {
-  <div class="">
-    <div class="">
-      {{ options[index1].data }}
-    </div>
-  </div>
+  <ul class="flex flex-col gap-4">
+    @for (item of categoriesList; track $index) {
+    <li class="flex justify-between tracking-bodyLetter">
+      <span>{{ item.name }}</span
+      ><span>{{ item.amount }}</span>
+    </li>
+    }
+  </ul>
   }
 </div>
 

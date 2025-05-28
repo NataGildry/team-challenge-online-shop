@@ -5,13 +5,13 @@
   </aside>
   <section class="">
     <div class="flex gap-5 flex-wrap max-w-[896px] pt-5 pb-10">
-      @for (item of smallCards; track $index) {
+      @for (item of products; track $index) {
       <shared-small-card [product]="item" />
       }
     </div>
     <lib-catalog-pagination
       [totalPage]="totalPage"
-      (navigateNextPage)="navigateNexPage($event)"
+      (navigateNextPage)="navigateNextPage($event)"
     />
   </section>
 </div>

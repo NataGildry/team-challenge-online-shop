@@ -20,6 +20,14 @@ export class AsideAccordionComponent {
     { option: 'price', data: 'data' },
   ];
 
+  protected readonly categoriesList: { name: string; amount: number }[] = [
+    { name: 'All', amount: 445 },
+    { name: 'Armchairs and Sofas', amount: 120 },
+    { name: 'Beds and Futons', amount: 95 },
+    { name: 'Chairs and Semi-chairs', amount: 150 },
+    { name: 'Kids Furniture', amount: 80 },
+  ];
+
   protected toggleAccordion(index: number): void {
     if (this.openIndex() === index) {
       this.openIndex.set(-1);

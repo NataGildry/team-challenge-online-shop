@@ -22,10 +22,10 @@ import { CatalogFacadeService, Product } from '@anx-store/domain';
 export class FeatureCatalogComponent {
   private readonly catalogFacade = inject(CatalogFacadeService);
 
-  protected smallCards: Product[] = this.catalogFacade.getSmallCards(0);
+  protected products: Product[] = this.catalogFacade.getSmallCards(0);
   protected totalPage: number = this.catalogFacade.getSmallCardsSize();
 
-  protected navigateNexPage(next: number): void {
-    this.smallCards = this.catalogFacade.getSmallCards(next);
+  protected navigateNextPage(next: number): void {
+    this.products = this.catalogFacade.getSmallCards(next);
   }
 }
