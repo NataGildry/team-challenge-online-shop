@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { ClickOutsideDirective } from '../directives';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { angle, IconComponent } from '../icon';
 
 export interface SelectOption {
   name: string;
@@ -16,7 +17,7 @@ export interface SelectOption {
 
 @Component({
   selector: 'shared-select',
-  imports: [ClickOutsideDirective],
+  imports: [ClickOutsideDirective, IconComponent],
   templateUrl: './select.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
@@ -41,6 +42,8 @@ export class SelectComponent implements ControlValueAccessor {
 
   private onChange?: (value: string) => void;
   private onTouched?: () => void;
+
+  protected readonly angle = angle;
 
   protected selectOption(item: SelectOption): void {
     this.value.set(item.value);
