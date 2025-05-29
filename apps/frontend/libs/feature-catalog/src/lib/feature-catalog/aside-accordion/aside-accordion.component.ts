@@ -1,32 +1,47 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { plus, minus, IconComponent } from '@anx-store/shared/ui';
-import { AccordionOptions } from '@anx-store/domain';
+import {
+  plus,
+  minus,
+  IconComponent,
+  ClickOutsideDirective,
+} from '@anx-store/shared/ui';
+import { CatalogFacadeService } from '@anx-store/domain';
+
+enum FilterGroups {
+  Categories = 'categories',
+  Color = 'color',
+  UpholsteryMaterial = 'Upholstery material',
+  Price = 'price',
+}
 
 @Component({
   selector: 'lib-aside-accordion',
-  imports: [CommonModule, IconComponent],
+  imports: [CommonModule, IconComponent, ClickOutsideDirective],
   templateUrl: './aside-accordion.component.html',
 })
 export class AsideAccordionComponent {
+  private readonly catalogFacadeService = inject(CatalogFacadeService);
   protected readonly plus = plus;
   protected readonly minus = minus;
   protected openIndex = signal(-1);
+  protected selectedColor = '';
 
-  protected readonly options: AccordionOptions[] = [
-    { option: 'categories', data: 'data' },
-    { option: 'color', data: 'data' },
-    { option: 'Upholstery material', data: 'data' },
-    { option: 'price', data: 'data' },
+  protected readonly options: FilterGroups[] = [
+    FilterGroups.Categories,
+    FilterGroups.Color,
+    FilterGroups.UpholsteryMaterial,
+    FilterGroups.Price,
   ];
 
-  protected readonly categoriesList: { name: string; amount: number }[] = [
-    { name: 'All', amount: 445 },
-    { name: 'Armchairs and Sofas', amount: 120 },
-    { name: 'Beds and Futons', amount: 95 },
-    { name: 'Chairs and Semi-chairs', amount: 150 },
-    { name: 'Kids Furniture', amount: 80 },
-  ];
+  protected readonly categoriesList: { name: string; amount: number }[] =
+    this.catalogFacadeService.getFilterCategoryOptions();
+
+  protected readonly materialList: { name: string; amount: number }[] =
+    this.catalogFacadeService.getFilterMaterialOptions();
+
+  protected readonly colorList: { name: string; value: string }[] =
+    this.catalogFacadeService.getFilterColorsOptions();
 
   protected toggleAccordion(index: number): void {
     if (this.openIndex() === index) {
@@ -34,5 +49,13 @@ export class AsideAccordionComponent {
       return;
     }
     this.openIndex.set(index);
+  }
+
+  protected selectColor(value: string): void {
+    if (this.selectedColor === value) {
+      this.selectedColor = '';
+      return;
+    }
+    this.selectedColor = value;
   }
 }

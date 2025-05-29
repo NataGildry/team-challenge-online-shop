@@ -4,7 +4,7 @@
     class="w-full flex justify-between items-center py-5 text-slate-800"
     (click)="toggleAccordion(index)"
   >
-    <span class="uppercase">{{ options[index].option }}</span>
+    <span class="uppercase">{{ options[index] }}</span>
     @if (openIndex() === index){
     <shared-icon [svg]="minus.svg" />
     } @else {
@@ -31,7 +31,7 @@
     class="w-full flex justify-between items-center py-5 text-slate-800"
     (click)="toggleAccordion(index1)"
   >
-    <span class="uppercase">{{ options[index1].option }}</span>
+    <span class="uppercase">{{ options[index1] }}</span>
 
     @if (openIndex() === index1){
     <shared-icon [svg]="minus.svg" />
@@ -40,11 +40,24 @@
     }
   </button>
   @if (openIndex() === index1) {
-  <ul class="flex flex-col gap-4">
-    @for (item of categoriesList; track $index) {
+  <ul
+    class="flex gap-4 flex-wrap pr-12"
+    sharedClickOutside
+    (clickOutside)="selectedColor = ''"
+  >
+    @for (item of colorList; track $index) {
     <li class="flex justify-between tracking-bodyLetter">
-      <span>{{ item.name }}</span
-      ><span>{{ item.amount }}</span>
+      <button
+        tabindex="0"
+        class="w-6 h-6 rounded-[5px]"
+        [ngStyle]="{
+          'background-color': item.value,
+          outline:
+            selectedColor === item.value ? '3px solid red' : '1px solid #ccc'
+        }"
+        aria-label="item.name"
+        (click)="selectColor(item.value)"
+      ></button>
     </li>
     }
   </ul>
@@ -57,7 +70,7 @@
     class="w-full flex justify-between items-center py-5 text-slate-800"
     (click)="toggleAccordion(index2)"
   >
-    <span class="uppercase">{{ options[index2].option }}</span>
+    <span class="uppercase">{{ options[index2] }}</span>
 
     @if (openIndex() === index2){
     <shared-icon [svg]="minus.svg" />
@@ -66,11 +79,14 @@
     }
   </button>
   @if (openIndex() === index2) {
-  <div class="">
-    <div class="">
-      {{ options[index2].data }}
-    </div>
-  </div>
+  <ul class="flex flex-col gap-4">
+    @for (item of materialList; track $index) {
+    <li class="flex justify-between tracking-bodyLetter">
+      <span>{{ item.name }}</span
+      ><span>{{ item.amount }}</span>
+    </li>
+    }
+  </ul>
   }
 </div>
 
@@ -80,7 +96,7 @@
     class="w-full flex justify-between items-center py-5 text-slate-800"
     (click)="toggleAccordion(index3)"
   >
-    <span class="uppercase">{{ options[index3].option }}</span>
+    <span class="uppercase">{{ options[index3] }}</span>
 
     @if (openIndex() === index3){
     <shared-icon [svg]="minus.svg" />
@@ -91,7 +107,7 @@
   @if (openIndex() === index3) {
   <div class="">
     <div class="">
-      {{ options[index3].data }}
+      {{ 'options[index3].data' }}
     </div>
   </div>
   }

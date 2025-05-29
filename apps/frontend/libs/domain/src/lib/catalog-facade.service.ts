@@ -1,7 +1,25 @@
 import { Injectable } from '@angular/core';
-import { MidCard, Product } from './types/interfaces';
+import { Product } from './types/interfaces';
+import {
+  FurnitureCategory,
+  UpholsteryMaterial,
+  FabricColor,
+} from './types/filter-enums';
 
 const PAGE_SIZE = 9;
+
+interface CategoryFilter {
+  name: FurnitureCategory;
+  amount: number;
+}
+interface MaterialsFilter {
+  name: UpholsteryMaterial;
+  amount: number;
+}
+interface ColorsFilter {
+  name: string;
+  value: FabricColor;
+}
 
 @Injectable({
   providedIn: 'root',
@@ -66,18 +84,28 @@ export class CatalogFacadeService {
     },
   ];
 
-  private midCards: MidCard[] = [
-    {
-      title: 'Armchairs and sofas',
-      imgLink: 'https://i.imgur.com/9xo3v7p.jpeg',
-    },
-    { title: 'Beds and futons', imgLink: 'https://i.imgur.com/9xo3v7p.jpeg' },
-    {
-      title: 'Chairs and semi-chairs',
-      imgLink: 'https://i.imgur.com/9xo3v7p.jpeg',
-    },
-    { title: 'Kids furniture', imgLink: 'https://i.imgur.com/9xo3v7p.jpeg' },
+  private readonly filterCategoryOptions: CategoryFilter[] = [
+    { name: FurnitureCategory.All, amount: 445 },
+    { name: FurnitureCategory.ArmchairsAndSofas, amount: 120 },
+    { name: FurnitureCategory.BedsAndFutons, amount: 95 },
+    { name: FurnitureCategory.ChairsAndSemiChairs, amount: 150 },
+    { name: FurnitureCategory.KidsFurniture, amount: 80 },
   ];
+
+  private readonly filterMaterialOptions: MaterialsFilter[] = [
+    { name: UpholsteryMaterial.Cotton, amount: 0 },
+    { name: UpholsteryMaterial.Linen, amount: 0 },
+    { name: UpholsteryMaterial.Polyester, amount: 0 },
+    { name: UpholsteryMaterial.Velvet, amount: 0 },
+    { name: UpholsteryMaterial.Leather, amount: 0 },
+    { name: UpholsteryMaterial.Microfiber, amount: 0 },
+    { name: UpholsteryMaterial.Chenille, amount: 0 },
+    { name: UpholsteryMaterial.Vinyl, amount: 0 },
+  ];
+
+  private readonly filterColorsOptions: ColorsFilter[] = Object.entries(
+    FabricColor
+  ).map(([k, v]) => ({ name: k, value: v }));
 
   public getSmallCards(page: number): Product[] {
     return this.smallCards.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
@@ -87,7 +115,13 @@ export class CatalogFacadeService {
     return Math.ceil(this.smallCards.length / PAGE_SIZE);
   }
 
-  public getMidCards(): MidCard[] {
-    return this.midCards;
+  public getFilterCategoryOptions(): CategoryFilter[] {
+    return this.filterCategoryOptions;
+  }
+  public getFilterMaterialOptions(): MaterialsFilter[] {
+    return this.filterMaterialOptions;
+  }
+  public getFilterColorsOptions(): ColorsFilter[] {
+    return this.filterColorsOptions;
   }
 }
