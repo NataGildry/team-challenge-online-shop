@@ -9,7 +9,6 @@ COPY FakedOutShop.sln .
 COPY FakedOutShop.API/ ./FakedOutShop.API/
 COPY FakedOutShop.Infrastructure/ ./FakedOutShop.Infrastructure/
 COPY FakedOutShop.Application/ ./FakedOutShop.Application/
-COPY FakedOutShop.Domain/ ./FakedOutShop.Domain/
 
 RUN dotnet restore ./FakedOutShop.API/FakedOutShop.API.csproj
 
