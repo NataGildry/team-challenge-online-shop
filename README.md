@@ -22,7 +22,11 @@ repository.
 
 ### Backend
 
-//TODO add backend tooling Nataliia
+- .NET 8.0
+- REST API with Swagger documentation
+
+Deployed backend URL: https://team-challenge-online-shop.onrender.com
+Swagger UI (API docs): https://team-challenge-online-shop.onrender.com/swagger/index.html
 
 ## Local Development
 //TODO add steps to run progect locally Yura/Nataliia
