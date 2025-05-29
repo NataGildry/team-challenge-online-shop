@@ -7,7 +7,12 @@ import {
   signal,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { angle, IconComponent, SharedIcon , ClickOutsideDirective } from '@anx-store/shared/ui';
+import {
+  angle,
+  IconComponent,
+  SharedIcon,
+  ClickOutsideDirective,
+} from '@anx-store/shared/ui';
 
 export interface SelectOption {
   name: string;
