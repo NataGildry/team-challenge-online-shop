@@ -2,12 +2,15 @@ using System.Text.Json;
 using FakedOutShop.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
-var port = Environment.GetEnvironmentVariable("PORT") ?? "80";
 
-builder.WebHost.ConfigureKestrel(options =>
+if (!builder.Environment.IsDevelopment())
 {
-    options.ListenAnyIP(int.Parse(port));
-});
+    var port = Environment.GetEnvironmentVariable("PORT") ?? "80";
+    builder.WebHost.ConfigureKestrel(options =>
+    {
+        options.ListenAnyIP(int.Parse(port));
+    });
+}
 
 builder.Services.AddControllers()
   .AddJsonOptions(options =>
@@ -22,11 +25,11 @@ builder.Services.AddCors(options =>
   options.AddPolicy("AllowLocalhost", builder =>
   {
     builder.WithOrigins(
-    // Docker
+    // 👇 Docker
     "http://localhost",
-    // Angular
+    // 👇 Angular
     "http://localhost:4200",
-    // Swagger UI (Docker)
+    // 👇 Swagger UI (Docker)
     "http://localhost:8080"
     )
       .AllowAnyHeader()
@@ -41,11 +44,10 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-  app.UseSwagger();
-  app.UseSwaggerUI();
-}
+// ⚠️ Swagger is enabled for all environments for testing purposes,
+// ⚠️ since we currently don't have a dedicated production environment.
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseExceptionHandler("/error");
 app.UseHttpsRedirection();
