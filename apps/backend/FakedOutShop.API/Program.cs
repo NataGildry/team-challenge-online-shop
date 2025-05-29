@@ -2,6 +2,12 @@ using System.Text.Json;
 using FakedOutShop.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
+var port = Environment.GetEnvironmentVariable("PORT") ?? "80";
+
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(int.Parse(port));
+});
 
 builder.Services.AddControllers()
   .AddJsonOptions(options =>
@@ -15,7 +21,14 @@ builder.Services.AddCors(options =>
 {
   options.AddPolicy("AllowLocalhost", builder =>
   {
-    builder.WithOrigins("http://localhost:4200")
+    builder.WithOrigins(
+    // Docker
+    "http://localhost",
+    // Angular
+    "http://localhost:4200",
+    // Swagger UI (Docker)
+    "http://localhost:8080"
+    )
       .AllowAnyHeader()
       .AllowAnyMethod();
   });
@@ -44,6 +57,7 @@ app.UseAuthorization();
 app.UseEndpoints(endpoints =>
 {
   endpoints.MapControllers();
+  endpoints.MapHealthChecks("/health");
 });
 
 app.Run();
