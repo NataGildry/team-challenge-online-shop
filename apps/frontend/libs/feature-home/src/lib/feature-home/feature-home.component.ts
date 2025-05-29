@@ -6,7 +6,7 @@ import {
   SmallCardComponent,
 } from '@anx-store/shared/ui';
 import { TranslocoService, TranslocoDirective } from '@jsverse/transloco';
-import { HomeFacadeService, MidCard } from '@anx-store/domain';
+import { HomeFacadeService } from '@anx-store/domain';
 
 @Component({
   selector: 'lib-feature-home',
@@ -25,7 +25,8 @@ export class FeatureHomeComponent {
   private readonly translocoService = inject(TranslocoService);
   private readonly homeFacade = inject(HomeFacadeService);
 
-  protected readonly cardItems: MidCard[] = this.homeFacade.getMidCards();
+  protected readonly cardItems: { title: string; imgLink: string }[] =
+    this.homeFacade.getMidCards();
 
   protected readonly smallCards = this.homeFacade.getSmallCards(0).slice(0, 3);
 }
