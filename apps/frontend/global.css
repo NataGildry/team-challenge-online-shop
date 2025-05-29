@@ -2,16 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-/* You can add global styles to this file, and also import other style files */
-
 html,
 body {
   height: 100%;
 }
 body {
   margin: 0;
-  font-family: Lato, 'Helvetica Neue', sans-serif;
+  font-family: Lato, sans-serif;
+  background-color: var(--app-color-bg);
 }
 :root {
   --app-width: 1202px;
+  --app-color-primary: #065f46;
+  --app-color-bg: #f9f9f9;
+  --app-letter-spacing-text: 0.045em;
+  --app-letter-spacing-heading: 0.12em;
+  --app-font-size-base: 15px;
+  --app-font-size-h2: 32px;
+  --app-font-size-h3: 22px;
+  --app-border-radius: 50px;
 }
