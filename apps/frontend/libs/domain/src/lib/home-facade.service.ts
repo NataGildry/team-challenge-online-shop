@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MidCard, Product } from './types/interfaces';
+import { Product } from './types/interfaces';
 
 export const PAGE_SIZE = 9;
 @Injectable({
@@ -65,7 +65,7 @@ export class HomeFacadeService {
     },
   ];
 
-  private midCards: MidCard[] = [
+  private midCards: { title: string; imgLink: string }[] = [
     {
       title: 'Armchairs and sofas',
       imgLink: 'https://i.imgur.com/9xo3v7p.jpeg',
@@ -86,7 +86,7 @@ export class HomeFacadeService {
     return Math.ceil(this.smallCards.length / PAGE_SIZE);
   }
 
-  public getMidCards(): MidCard[] {
+  public getMidCards(): { title: string; imgLink: string }[] {
     return this.midCards;
   }
 }
