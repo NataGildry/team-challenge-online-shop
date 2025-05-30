@@ -40,11 +40,7 @@
     }
   </button>
   @if (openIndex() === index1) {
-  <ul
-    class="flex gap-4 flex-wrap pr-12"
-    sharedClickOutside
-    (clickOutside)="selectedColor = ''"
-  >
+  <ul class="flex gap-4 flex-wrap pr-12">
     @for (item of colorList; track $index) {
     <li class="flex justify-between tracking-bodyLetter">
       <button
@@ -55,8 +51,10 @@
           outline:
             selectedColor === item.value ? '3px solid red' : '1px solid #ccc'
         }"
-        aria-label="item.name"
+        [attr.aria-label]="`color ${item.name}`"
         (click)="selectColor(item.value)"
+        sharedClickOutside
+        (clickOutside)="clickOutsideColor(item)"
       ></button>
     </li>
     }
@@ -107,7 +105,7 @@
   @if (openIndex() === index3) {
   <div class="">
     <div class="">
-      {{ 'options[index3].data' }}
+      <lib-price-range />
     </div>
   </div>
   }

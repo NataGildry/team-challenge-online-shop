@@ -7,6 +7,7 @@ import {
   ClickOutsideDirective,
 } from '@anx-store/shared/ui';
 import { CatalogFacadeService } from '@anx-store/domain';
+import { PriceRangeComponent } from './price-range/price-range.component';
 
 enum FilterGroups {
   Categories = 'categories',
@@ -17,7 +18,12 @@ enum FilterGroups {
 
 @Component({
   selector: 'lib-aside-accordion',
-  imports: [CommonModule, IconComponent, ClickOutsideDirective],
+  imports: [
+    CommonModule,
+    IconComponent,
+    ClickOutsideDirective,
+    PriceRangeComponent,
+  ],
   templateUrl: './aside-accordion.component.html',
 })
 export class AsideAccordionComponent {
@@ -57,5 +63,10 @@ export class AsideAccordionComponent {
       return;
     }
     this.selectedColor = value;
+  }
+  protected clickOutsideColor(item: { name: string; value: string }): void {
+    if (this.selectedColor === item.value) {
+      this.selectedColor = '';
+    }
   }
 }
