@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,5 +9,19 @@ import { CommonModule } from '@angular/common';
 })
 export class ColorPickerComponent {
   public readonly colorList =
-    input.required<{ name: string; value: string }[]>();
+    input.required<{ name: string; hexCode: string }[]>();
+
+  protected readonly value = signal<string[]>([]);
+
+  protected selectColor(hexCode: string): void {
+    if (this.value().includes(hexCode)) {
+      const newState = this.value().filter((color) => color !== hexCode);
+      this.value.set([...newState]);
+      console.log(this.value());
+    } else {
+      const newState = [...this.value(), hexCode];
+      this.value.set([...newState]);
+      console.log(this.value());
+    }
+  }
 }

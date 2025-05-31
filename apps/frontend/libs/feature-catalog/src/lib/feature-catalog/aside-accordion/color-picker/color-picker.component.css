@@ -2,7 +2,6 @@
   position: absolute;
   height: 0;
   width: 0;
-  
 }
 .custom-cb {
   position: absolute;
@@ -15,4 +14,3 @@
 .checkbox:checked + .custom-cb {
   outline: 3px solid red;
 }
-

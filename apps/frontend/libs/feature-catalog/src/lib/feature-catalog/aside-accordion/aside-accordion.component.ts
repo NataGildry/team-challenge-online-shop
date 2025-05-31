@@ -41,7 +41,7 @@ export class AsideAccordionComponent {
   protected readonly materialList: { name: string; amount: number }[] =
     this.catalogFacadeService.getFilterMaterialOptions();
 
-  protected readonly colorList: { name: string; value: string }[] =
+  protected readonly colorList: { name: string; hexCode: string }[] =
     this.catalogFacadeService.getFilterColorsOptions();
 
   protected toggleAccordion(index: number): void {

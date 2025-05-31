@@ -18,7 +18,7 @@ interface MaterialsFilter {
 }
 interface ColorsFilter {
   name: string;
-  value: FabricColor;
+  hexCode: FabricColor;
 }
 
 @Injectable({
@@ -105,7 +105,7 @@ export class CatalogFacadeService {
 
   private readonly filterColorsOptions: ColorsFilter[] = Object.entries(
     FabricColor
-  ).map(([k, v]) => ({ name: k, value: v }));
+  ).map(([k, v]) => ({ name: k, hexCode: v }));
 
   public getSmallCards(page: number): Product[] {
     return this.smallCards.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
