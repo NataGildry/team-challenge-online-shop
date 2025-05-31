@@ -22,11 +22,4 @@ body {
   --app-font-size-h2: 32px;
   --app-font-size-h3: 22px;
   --app-border-radius: 50px;
-
-  @include mat.slider-overrides((
-    active-track-color: orange,
-    active-track-shape: red,
-  ));
 }
-
-
