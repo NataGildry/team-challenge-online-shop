@@ -6,9 +6,13 @@ import {
   input,
   signal,
 } from '@angular/core';
-import { ClickOutsideDirective } from '../directives';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { angle, IconComponent } from '../icon';
+import {
+  angle,
+  IconComponent,
+  SharedIcon,
+  ClickOutsideDirective,
+} from '@anx-store/shared/ui';
 
 export interface SelectOption {
   name: string;
@@ -16,34 +20,38 @@ export interface SelectOption {
 }
 
 @Component({
-  selector: 'shared-select',
+  selector: 'lib-sort-select',
   imports: [ClickOutsideDirective, IconComponent],
-  templateUrl: './select.component.html',
+  templateUrl: './sort-select.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => SelectComponent),
+      useExisting: forwardRef(() => SortSelectComponent),
       multi: true,
     },
   ],
 })
-export class SelectComponent implements ControlValueAccessor {
+export class SortSelectComponent implements ControlValueAccessor {
   protected readonly isOpen = signal(false);
   protected readonly isDisabled = signal(false);
-  protected readonly value = signal<string>('');
+  protected readonly value = signal<string>('popularity');
   protected readonly selected = computed(() => {
     const option = this.options().find((el) => el.value === this.value());
     return option?.name ?? '';
   });
 
-  public readonly options = input.required<SelectOption[]>();
+  public readonly options = input<SelectOption[]>([
+    { name: 'By popularity', value: 'popularity' },
+    { name: 'By price increase', value: 'increase' },
+    { name: 'By price decrease', value: 'decrease' },
+  ]);
 
   private onChange?: (value: string) => void;
   private onTouched?: () => void;
 
-  protected readonly angle = angle;
+  protected readonly angle: SharedIcon = angle;
 
   protected selectOption(item: SelectOption): void {
     this.value.set(item.value);
