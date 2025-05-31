@@ -1,9 +1,13 @@
 <ul class="flex gap-3 flex-wrap h-[148px] w-[148px]">
   @for (item of colorList(); track $index) {
   <li class="w-5 h-5">
-    <div class="container">
+    <div
+      class="container"
+      [class.opacity-25]="isDisabled()"
+      [class.pointer-events-none]="isDisabled()"
+    >
       <input
-        tabindex="0"
+        [tabindex]="isDisabled() ? -1 : 0"
         id="cb-{{ $index }}"
         type="checkbox"
         class="checkbox rounded-[5px] w-6 h-6"

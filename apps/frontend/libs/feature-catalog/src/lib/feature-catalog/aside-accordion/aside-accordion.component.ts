@@ -4,6 +4,7 @@ import { plus, minus, IconComponent } from '@anx-store/shared/ui';
 import { CatalogFacadeService } from '@anx-store/domain';
 import { PriceRangeComponent } from './price-range/price-range.component';
 import { ColorPickerComponent } from './color-picker/color-picker.component';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 enum FilterGroups {
   Categories = 'categories',
@@ -19,6 +20,7 @@ enum FilterGroups {
     IconComponent,
     PriceRangeComponent,
     ColorPickerComponent,
+    ReactiveFormsModule,
   ],
   templateUrl: './aside-accordion.component.html',
 })
@@ -27,6 +29,8 @@ export class AsideAccordionComponent {
   protected readonly plus = plus;
   protected readonly minus = minus;
   protected opened = signal<boolean[]>([false, false, false, false]);
+
+  protected readonly colorsControl = new FormControl();
 
   protected readonly options: FilterGroups[] = [
     FilterGroups.Categories,
