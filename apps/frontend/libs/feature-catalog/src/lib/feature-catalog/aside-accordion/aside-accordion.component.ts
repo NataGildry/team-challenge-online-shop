@@ -1,13 +1,9 @@
 import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  plus,
-  minus,
-  IconComponent,
-  ClickOutsideDirective,
-} from '@anx-store/shared/ui';
+import { plus, minus, IconComponent } from '@anx-store/shared/ui';
 import { CatalogFacadeService } from '@anx-store/domain';
 import { PriceRangeComponent } from './price-range/price-range.component';
+import { ColorPickerComponent } from './color-picker/color-picker.component';
 
 enum FilterGroups {
   Categories = 'categories',
@@ -21,8 +17,8 @@ enum FilterGroups {
   imports: [
     CommonModule,
     IconComponent,
-    ClickOutsideDirective,
     PriceRangeComponent,
+    ColorPickerComponent,
   ],
   templateUrl: './aside-accordion.component.html',
 })
@@ -30,8 +26,7 @@ export class AsideAccordionComponent {
   private readonly catalogFacadeService = inject(CatalogFacadeService);
   protected readonly plus = plus;
   protected readonly minus = minus;
-  protected openIndex = signal(-1);
-  protected selectedColor = '';
+  protected opened = signal<boolean[]>([false, false, false, false]);
 
   protected readonly options: FilterGroups[] = [
     FilterGroups.Categories,
@@ -50,23 +45,8 @@ export class AsideAccordionComponent {
     this.catalogFacadeService.getFilterColorsOptions();
 
   protected toggleAccordion(index: number): void {
-    if (this.openIndex() === index) {
-      this.openIndex.set(-1);
-      return;
-    }
-    this.openIndex.set(index);
-  }
-
-  protected selectColor(value: string): void {
-    if (this.selectedColor === value) {
-      this.selectedColor = '';
-      return;
-    }
-    this.selectedColor = value;
-  }
-  protected clickOutsideColor(item: { name: string; value: string }): void {
-    if (this.selectedColor === item.value) {
-      this.selectedColor = '';
-    }
+    const newState = [...this.opened()];
+    newState[index] = !newState[index];
+    this.opened.set(newState);
   }
 }

@@ -1,0 +1,23 @@
+<ul class="flex gap-3 flex-wrap h-[148px] w-[148px]">
+  @for (item of colorList(); track $index) {
+  <li class="w-5 h-5">
+    <div class="container">
+      <input
+        tabindex="0"
+        id="cb-{{ $index }}"
+        type="checkbox"
+        class="checkbox rounded-[5px] w-6 h-6"
+      />
+      <label
+        for="cb-{{ $index }}"
+        type="checkbox"
+        class="custom-cb rounded-[5px]"
+        [attr.aria-label]="`color ${item.name}`"
+        [ngStyle]="{
+          'background-color': item.value,
+        }"
+      ></label>
+    </div>
+  </li>
+  }
+</ul>
