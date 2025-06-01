@@ -6,6 +6,7 @@ import { CatalogPaginationComponent } from './catalog-pagination/catalog-paginat
 import { RouterOutlet } from '@angular/router';
 import { CatalogFacadeService, Product } from '@anx-store/domain';
 import { SortSelectComponent } from './sort-select/sort-select.component';
+import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 
 @Component({
   selector: 'lib-feature-catalog',
@@ -16,6 +17,7 @@ import { SortSelectComponent } from './sort-select/sort-select.component';
     CatalogPaginationComponent,
     RouterOutlet,
     SortSelectComponent,
+    TranslocoDirective,
   ],
   templateUrl: './feature-catalog.component.html',
   standalone: true,
@@ -23,6 +25,7 @@ import { SortSelectComponent } from './sort-select/sort-select.component';
 })
 export class FeatureCatalogComponent {
   private readonly catalogFacade = inject(CatalogFacadeService);
+  private readonly translocoService = inject(TranslocoService);
 
   protected products: Product[] = this.catalogFacade.getSmallCards(0);
   protected totalPage: number = this.catalogFacade.getSmallCardsSize();
