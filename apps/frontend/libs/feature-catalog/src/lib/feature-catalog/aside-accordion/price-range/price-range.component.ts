@@ -9,7 +9,7 @@ import { MatSliderModule } from '@angular/material/slider';
 })
 export class PriceRangeComponent {
   protected readonly min = 1;
-  protected readonly max = 1500;
+  protected readonly max = 1700;
 
   protected lower = signal(100);
   protected higher = signal(500);

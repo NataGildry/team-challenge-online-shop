@@ -24,6 +24,7 @@ import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FeatureCatalogComponent {
+  protected selectedFilters: string[] = ['High-quality fabric', 'Microfiber'];
   private readonly catalogFacade = inject(CatalogFacadeService);
   private readonly translocoService = inject(TranslocoService);
 

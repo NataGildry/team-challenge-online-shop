@@ -1,7 +1,7 @@
-<div class="border-b border-slate-200">
+<div class="border-b border-slate-200 tracking-bodyLetter text-baseSize">
   @let index = 0;
   <button
-    class="w-full flex justify-between items-center py-5 text-slate-800"
+    class="w-full flex justify-between items-center py-5 text-slate-800 h-[72px] font-semibold"
     (click)="toggleAccordion(index)"
   >
     <span class="uppercase">{{ options[index] }}</span>
@@ -13,7 +13,7 @@
   </button>
   @if (opened()[0]) {
 
-  <ul class="flex flex-col gap-4">
+  <ul class="flex flex-col gap-[14px] mb-5">
     @for (item of categoriesList; track $index) {
     <li class="flex justify-between tracking-bodyLetter">
       <span>{{ item.name }}</span
@@ -25,10 +25,10 @@
   }
 </div>
 
-<div class="border-b border-slate-200">
+<div class="border-b border-slate-200 tracking-bodyLetter">
   @let index1 = 1;
   <button
-    class="w-full flex justify-between items-center py-5 text-slate-800"
+    class="w-full flex justify-between items-center py-5 text-slate-800 h-[72px] font-semibold text-baseSize"
     (click)="toggleAccordion(index1)"
   >
     <span class="uppercase">{{ options[index1] }}</span>
@@ -40,14 +40,16 @@
     }
   </button>
   @if (opened()[1]) {
-  <lib-color-picker [colorList]="colorList" [formControl]="colorsControl" />
+  <div class="mb-5">
+    <lib-color-picker [colorList]="colorList" [formControl]="colorsControl" />
+  </div>
   }
 </div>
 
-<div class="border-b border-slate-200">
+<div class="border-b border-slate-200 tracking-bodyLetter">
   @let index2 = 2;
   <button
-    class="w-full flex justify-between items-center py-5 text-slate-800"
+    class="w-full flex justify-between items-center py-5 text-slate-800 h-[72px] font-semibold text-baseSize"
     (click)="toggleAccordion(index2)"
   >
     <span class="uppercase">{{ options[index2] }}</span>
@@ -59,7 +61,7 @@
     }
   </button>
   @if (opened()[2]) {
-  <ul class="flex flex-col gap-4">
+  <ul class="flex flex-col gap-[14px] mb-5">
     @for (item of materialList; track $index) {
     <li class="flex justify-between tracking-bodyLetter">
       <span>{{ item.name }}</span
@@ -73,7 +75,7 @@
 <div class="border-b border-slate-200">
   @let index3 = 3;
   <button
-    class="w-full flex justify-between items-center py-5 text-slate-800"
+    class="w-full flex justify-between items-center py-5 text-slate-800 h-[72px] font-semibold text-baseSize"
     (click)="toggleAccordion(index3)"
   >
     <span class="uppercase">{{ options[index3] }}</span>
@@ -85,7 +87,7 @@
     }
   </button>
   @if (opened()[3]) {
-  <div class="">
+  <div class="mb-5">
     <lib-price-range />
   </div>
   }

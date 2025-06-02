@@ -2,6 +2,7 @@
 
 .custom-slider {
   width: 242px;
+  margin: 0;
 
   @include mat.slider-overrides(
     (
@@ -20,7 +21,8 @@
   );
 
   ::ng-deep .mdc-slider__track {
-    border: 1px solid #0000004d;
+    border: 1px solid #064E3B;
+    overflow: hidden;
     border-radius: 5px;
   }
 }

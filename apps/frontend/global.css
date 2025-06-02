@@ -23,3 +23,9 @@ body {
   --app-font-size-h3: 22px;
   --app-border-radius: 50px;
 }
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
