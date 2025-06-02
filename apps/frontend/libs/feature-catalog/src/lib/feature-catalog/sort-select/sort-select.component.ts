@@ -3,6 +3,7 @@ import {
   Component,
   computed,
   forwardRef,
+  inject,
   input,
   signal,
 } from '@angular/core';
@@ -13,6 +14,7 @@ import {
   SharedIcon,
   ClickOutsideDirective,
 } from '@anx-store/shared/ui';
+import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 
 export interface SelectOption {
   name: string;
@@ -21,7 +23,7 @@ export interface SelectOption {
 
 @Component({
   selector: 'lib-sort-select',
-  imports: [ClickOutsideDirective, IconComponent],
+  imports: [ClickOutsideDirective, IconComponent, TranslocoDirective],
   templateUrl: './sort-select.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
@@ -42,10 +44,12 @@ export class SortSelectComponent implements ControlValueAccessor {
     return option?.name ?? '';
   });
 
+  private readonly translocoService = inject(TranslocoService);
+
   public readonly options = input<SelectOption[]>([
-    { name: 'By popularity', value: 'popularity' },
-    { name: 'By price increase', value: 'increase' },
-    { name: 'By price decrease', value: 'decrease' },
+    { name: 'by_popularity', value: 'popularity' },
+    { name: 'by_price_increase', value: 'increase' },
+    { name: 'by_price_decrease', value: 'decrease' },
   ]);
 
   private onChange?: (value: string) => void;

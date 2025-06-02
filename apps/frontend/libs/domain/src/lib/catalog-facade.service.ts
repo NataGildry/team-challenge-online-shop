@@ -1,19 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Product } from './types/interfaces';
-import {
-  FurnitureCategory,
-  UpholsteryMaterial,
-  FabricColor,
-} from './types/filter-enums';
+import { FabricColor } from './types/filter-enums';
 
 const PAGE_SIZE = 9;
 
 interface CategoryFilter {
-  name: FurnitureCategory;
+  name: string;
   amount: number;
 }
 interface MaterialsFilter {
-  name: UpholsteryMaterial;
+  name: string;
   amount: number;
 }
 interface ColorsFilter {
@@ -85,22 +81,22 @@ export class CatalogFacadeService {
   ];
 
   private readonly filterCategoryOptions: CategoryFilter[] = [
-    { name: FurnitureCategory.All, amount: 445 },
-    { name: FurnitureCategory.ArmchairsAndSofas, amount: 120 },
-    { name: FurnitureCategory.BedsAndFutons, amount: 95 },
-    { name: FurnitureCategory.ChairsAndSemiChairs, amount: 150 },
-    { name: FurnitureCategory.KidsFurniture, amount: 80 },
+    { name: 'all', amount: 445 },
+    { name: 'armchairs_and_sofas', amount: 120 },
+    { name: 'beds_futons', amount: 95 },
+    { name: 'chairs_semi-chairs', amount: 150 },
+    { name: 'kinds_furniture', amount: 80 },
   ];
 
   private readonly filterMaterialOptions: MaterialsFilter[] = [
-    { name: UpholsteryMaterial.Cotton, amount: 0 },
-    { name: UpholsteryMaterial.Linen, amount: 0 },
-    { name: UpholsteryMaterial.Polyester, amount: 0 },
-    { name: UpholsteryMaterial.Velvet, amount: 0 },
-    { name: UpholsteryMaterial.Leather, amount: 0 },
-    { name: UpholsteryMaterial.Microfiber, amount: 0 },
-    { name: UpholsteryMaterial.Chenille, amount: 0 },
-    { name: UpholsteryMaterial.Vinyl, amount: 0 },
+    { name: 'cotton', amount: 0 },
+    { name: 'linen', amount: 0 },
+    { name: 'polyester', amount: 0 },
+    { name: 'velvet', amount: 0 },
+    { name: 'leather', amount: 0 },
+    { name: 'microfiber', amount: 0 },
+    { name: 'chenille', amount: 0 },
+    { name: 'vinyl', amount: 0 },
   ];
 
   private readonly filterColorsOptions: ColorsFilter[] = Object.entries(

@@ -1,4 +1,7 @@
-<div class="relative inline-block text-left text-baseSize w-[206px]">
+<div
+  *transloco="let t; scope: 'catalog'"
+  class="relative inline-block text-left text-baseSize w-[206px]"
+>
   <button
     type="button"
     class="inline-flex w-full justify-between items-center gap-x-1.5 rounded-2xl h-[48px] bg-white px-6 text-gray-900 shadow-xs ring-inset disabled:bg-gray-200 disabled:text-gray-400 hover:bg-gray-50 tracking-bodyLetter shadow-card"
@@ -8,7 +11,7 @@
     (click)="isOpen.set(!isOpen())"
     [disabled]="isDisabled()"
   >
-    {{ selected() }}
+    {{ t('catalog.sort.' + selected()) }}
     <span [class.rotate-180]="isOpen()"><shared-icon [svg]="angle.svg" /></span>
   </button>
 
@@ -36,7 +39,7 @@
         (click)="selectOption(item)"
         (keydown.enter)="selectOption(item)"
       >
-        {{ item.name }}
+        {{ t('catalog.sort.' + item.name) }}
       </li>
       <hr [class.hidden]="$index === 2" class="border border mx-6" />
       }

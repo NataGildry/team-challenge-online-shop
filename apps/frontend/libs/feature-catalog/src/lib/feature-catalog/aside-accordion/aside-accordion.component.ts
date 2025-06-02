@@ -5,6 +5,7 @@ import { CatalogFacadeService } from '@anx-store/domain';
 import { PriceRangeComponent } from './price-range/price-range.component';
 import { ColorPickerComponent } from './color-picker/color-picker.component';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 
 enum FilterGroups {
   Categories = 'categories',
@@ -21,11 +22,14 @@ enum FilterGroups {
     PriceRangeComponent,
     ColorPickerComponent,
     ReactiveFormsModule,
+    TranslocoDirective,
   ],
   templateUrl: './aside-accordion.component.html',
 })
 export class AsideAccordionComponent {
   private readonly catalogFacadeService = inject(CatalogFacadeService);
+  private readonly translocoService = inject(TranslocoService);
+
   protected readonly plus = plus;
   protected readonly minus = minus;
   protected opened = signal<boolean[]>([false, false, false, false]);

@@ -1,13 +1,15 @@
-import { Component, input, output } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { chevron, IconComponent } from '@anx-store/shared/ui';
+import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 
 @Component({
   selector: 'lib-catalog-pagination',
-  imports: [IconComponent],
+  imports: [IconComponent, TranslocoDirective],
   templateUrl: './catalog-pagination.component.html',
 })
 export class CatalogPaginationComponent {
   protected readonly chevronIcon = chevron;
+  private readonly translocoService = inject(TranslocoService);
 
   protected currentPage = 0;
 

@@ -18,7 +18,9 @@
         class="flex justify-start gap-2 items-center flex-wrap max-w-[650px] text-baseSize tracking-bodyLetter"
       >
         <li>
-          <span class="capitalize font-bold mr-[8px]">remove</span>
+          <span class="capitalize font-bold mr-[8px]">{{
+            t('catalog.controls.remove')
+          }}</span>
         </li>
         @for (filter of selectedFilters; track $index) {
         <li>
