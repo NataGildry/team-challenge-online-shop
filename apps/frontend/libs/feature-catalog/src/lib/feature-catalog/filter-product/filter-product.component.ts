@@ -15,7 +15,7 @@ enum FilterGroups {
 }
 
 @Component({
-  selector: 'lib-aside-accordion',
+  selector: 'lib-filter-product',
   imports: [
     CommonModule,
     IconComponent,
@@ -24,9 +24,9 @@ enum FilterGroups {
     ReactiveFormsModule,
     TranslocoDirective,
   ],
-  templateUrl: './aside-accordion.component.html',
+  templateUrl: './filter-product.component.html',
 })
-export class AsideAccordionComponent {
+export class FilterProductComponent {
   private readonly catalogService = inject(CatalogService);
   private readonly translocoService = inject(TranslocoService);
 

@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { AsideAccordionComponent } from './aside-accordion/aside-accordion.component';
 import { SmallCardComponent } from '@anx-store/shared/ui';
 import { CatalogPaginationComponent } from './catalog-pagination/catalog-pagination.component';
 import { RouterOutlet } from '@angular/router';
@@ -8,12 +7,13 @@ import { CatalogFacadeService, Product } from '@anx-store/domain';
 import { SortSelectComponent } from './sort-select/sort-select.component';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 import { BehaviorSubject } from 'rxjs';
+import { FilterProductComponent } from './filter-product/filter-product.component';
 
 @Component({
   selector: 'lib-feature-catalog',
   imports: [
     CommonModule,
-    AsideAccordionComponent,
+    FilterProductComponent,
     SmallCardComponent,
     CatalogPaginationComponent,
     RouterOutlet,
