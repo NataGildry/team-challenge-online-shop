@@ -35,8 +35,11 @@
       </div>
     </div>
 
-    <div class="flex gap-5 flex-wrap max-w-[896px] pt-10 pb-10">
-      @for (item of products; track $index) {
+    <div
+      class="flex gap-5 flex-wrap max-w-[896px] pt-10 pb-10"
+      *ngIf="$products | async as products"
+    >
+      @for (item of products ; track $index) {
       <shared-small-card [product]="item" />
       }
     </div>

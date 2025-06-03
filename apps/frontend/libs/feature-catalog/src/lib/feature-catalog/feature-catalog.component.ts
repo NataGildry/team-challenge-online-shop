@@ -7,6 +7,7 @@ import { RouterOutlet } from '@angular/router';
 import { CatalogFacadeService, Product } from '@anx-store/domain';
 import { SortSelectComponent } from './sort-select/sort-select.component';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'lib-feature-catalog',
@@ -28,10 +29,16 @@ export class FeatureCatalogComponent {
   private readonly catalogFacade = inject(CatalogFacadeService);
   private readonly translocoService = inject(TranslocoService);
 
-  protected products: Product[] = this.catalogFacade.getSmallCards(0);
-  protected totalPage: number = this.catalogFacade.getSmallCardsSize();
+  protected $products = new BehaviorSubject<Product[]>([]);
+  protected totalPage = 2;
+
+  public constructor() {
+    this.catalogFacade.getProducts(0).then((products) => {
+      this.$products.next(products);
+    });
+  }
 
   protected navigateNextPage(next: number): void {
-    this.products = this.catalogFacade.getSmallCards(next);
+    this.catalogFacade.getProducts(next);
   }
 }

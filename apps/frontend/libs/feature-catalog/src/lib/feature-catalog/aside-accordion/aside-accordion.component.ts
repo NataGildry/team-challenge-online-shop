@@ -1,11 +1,11 @@
 import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { plus, minus, IconComponent } from '@anx-store/shared/ui';
-import { CatalogFacadeService } from '@anx-store/domain';
 import { PriceRangeComponent } from './price-range/price-range.component';
 import { ColorPickerComponent } from './color-picker/color-picker.component';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
+import { CatalogService } from '../../catalog.service';
 
 enum FilterGroups {
   Categories = 'categories',
@@ -27,7 +27,7 @@ enum FilterGroups {
   templateUrl: './aside-accordion.component.html',
 })
 export class AsideAccordionComponent {
-  private readonly catalogFacadeService = inject(CatalogFacadeService);
+  private readonly catalogService = inject(CatalogService);
   private readonly translocoService = inject(TranslocoService);
 
   protected readonly plus = plus;
@@ -44,13 +44,13 @@ export class AsideAccordionComponent {
   ];
 
   protected readonly categoriesList: { name: string; amount: number }[] =
-    this.catalogFacadeService.getFilterCategoryOptions();
+    this.catalogService.getFilterCategoryOptions();
 
   protected readonly materialList: { name: string; amount: number }[] =
-    this.catalogFacadeService.getFilterMaterialOptions();
+    this.catalogService.getFilterMaterialOptions();
 
   protected readonly colorList: { name: string; hexCode: string }[] =
-    this.catalogFacadeService.getFilterColorsOptions();
+    this.catalogService.getFilterColorsOptions();
 
   protected toggleAccordion(index: number): void {
     const newState = [...this.opened()];
