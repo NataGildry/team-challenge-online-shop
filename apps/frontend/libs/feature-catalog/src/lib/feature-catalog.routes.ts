@@ -7,7 +7,7 @@ export const featureCatalogRoutes: Route[] = [
     path: 'catalog',
     children: [
       { path: '', component: FeatureCatalogComponent },
-      { path: 'product', component: ProductDetailComponent },
+      { path: 'product/:id', component: ProductDetailComponent },
     ],
   },
 ];
