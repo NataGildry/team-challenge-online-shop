@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { SmallCardComponent } from '@anx-store/shared/ui';
 import { CatalogPaginationComponent } from './catalog-pagination/catalog-pagination.component';
@@ -12,7 +12,8 @@ import { FilterProductComponent } from './filter-product/filter-product.componen
 @Component({
   selector: 'lib-feature-catalog',
   imports: [
-    CommonModule,
+    NgIf,
+    AsyncPipe,
     FilterProductComponent,
     SmallCardComponent,
     CatalogPaginationComponent,
@@ -29,6 +30,12 @@ export class FeatureCatalogComponent {
   private readonly catalogFacade = inject(CatalogFacadeService);
   private readonly translocoService = inject(TranslocoService);
 
+  protected readonly sortOptions = [
+    { name: 'by_popularity', value: 'popularity' },
+    { name: 'by_price_increase', value: 'increase' },
+    { name: 'by_price_decrease', value: 'decrease' },
+  ];
+
   protected $products = new BehaviorSubject<Product[]>([]);
   protected totalPage = 2;
 
@@ -38,7 +45,7 @@ export class FeatureCatalogComponent {
     });
   }
 
-  protected navigateNextPage(next: number): void {
+  protected changetPage(next: number): void {
     this.catalogFacade.getProducts(next);
   }
 }

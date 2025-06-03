@@ -26,16 +26,18 @@ export class PriceRangeComponent implements OnInit {
 
   public readonly rangeChanged = output<{ lower: number; higher: number }>();
 
-  public ngOnInit(): void {
-    this.lower.set(this.initialLower());
-    this.higher.set(this.initialHigher());
-
+  public constructor() {
     effect(() => {
       this.rangeChanged.emit({
         lower: this.lower(),
         higher: this.higher(),
       });
     });
+  }
+
+  public ngOnInit(): void {
+    this.lower.set(this.initialLower());
+    this.higher.set(this.initialHigher());
   }
 
   protected inputLower(event: Event): void {

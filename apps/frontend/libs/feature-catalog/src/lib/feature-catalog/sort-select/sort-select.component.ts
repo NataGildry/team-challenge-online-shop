@@ -46,11 +46,7 @@ export class SortSelectComponent implements ControlValueAccessor {
 
   private readonly translocoService = inject(TranslocoService);
 
-  public readonly options = input<SelectOption[]>([
-    { name: 'by_popularity', value: 'popularity' },
-    { name: 'by_price_increase', value: 'increase' },
-    { name: 'by_price_decrease', value: 'decrease' },
-  ]);
+  public readonly options = input<SelectOption[]>([]);
 
   private onChange?: (value: string) => void;
   private onTouched?: () => void;

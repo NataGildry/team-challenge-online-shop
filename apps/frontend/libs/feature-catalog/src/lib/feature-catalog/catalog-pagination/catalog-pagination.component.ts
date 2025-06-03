@@ -8,24 +8,24 @@ import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
   templateUrl: './catalog-pagination.component.html',
 })
 export class CatalogPaginationComponent {
-  protected readonly chevronIcon = chevron;
   private readonly translocoService = inject(TranslocoService);
+  protected readonly chevronIcon = chevron;
 
-  protected currentPage = 0;
+  protected currentPageIndex = 0;
 
-  public readonly totalPage = input.required<number>();
+  public readonly totalPages = input.required<number>();
 
-  public readonly navigateNextPage = output<number>();
+  public readonly pageChanged = output<number>();
 
   protected moveForward(): void {
-    if (this.currentPage + 1 === this.totalPage()) return;
-    this.currentPage++;
-    this.navigateNextPage.emit(this.currentPage);
+    if (this.currentPageIndex + 1 === this.totalPages()) return;
+    this.currentPageIndex++;
+    this.pageChanged.emit(this.currentPageIndex);
   }
 
   protected moveBackward(): void {
-    if (this.currentPage === 0) return;
-    this.currentPage--;
-    this.navigateNextPage.emit(this.currentPage);
+    if (this.currentPageIndex === 0) return;
+    this.currentPageIndex--;
+    this.pageChanged.emit(this.currentPageIndex);
   }
 }

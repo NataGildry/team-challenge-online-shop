@@ -5,12 +5,12 @@
   <button
     class="bg-black rounded-[10px] text-white h-[35px] min-w-[35px] black-btn-bahavior pointer-events-none"
   >
-    {{ currentPage + 1 }}
+    {{ currentPageIndex + 1 }}
   </button>
   <button
     class="bg-black rounded-[10px] text-white h-[35px] min-w-[35px] px-4 pointer-events-none"
   >
-    {{ t('catalog.controls.of') }} {{ totalPage() }}
+    {{ t('catalog.controls.of') }} {{ totalPages() }}
     {{ t('catalog.controls.pages') }}
   </button>
   <button
