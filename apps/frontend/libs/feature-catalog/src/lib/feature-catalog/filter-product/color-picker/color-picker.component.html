@@ -2,7 +2,7 @@
   @for (item of colorList(); track $index) {
   <li class="w-5 h-5">
     <div
-      class="container"
+      class="container flex justify-center w-5 h-5 items-center relative"
       [class.opacity-25]="isDisabled()"
       [class.pointer-events-none]="isDisabled()"
     >
@@ -10,13 +10,13 @@
         [tabindex]="isDisabled() ? -1 : 0"
         id="cb-{{ $index }}"
         type="checkbox"
-        class="checkbox rounded-[5px] w-6 h-6"
+        class="sr-only peer"
         (change)="selectColor(item.hexCode)"
       />
       <label
         for="cb-{{ $index }}"
         type="checkbox"
-        class="custom-checkbox rounded-[5px]"
+        class="rounded-[5px] cursor-pointer inline-block transition w-5 h-5 absolute peer-focus:outline peer-focus:outline-1 peer-focus:outline-black peer-focus:peer-checked:outline peer-focus:peer-checked:outline-[3px] peer-focus:peer-checked:outline-red-500 peer-checked:outline peer-checked:outline-[3px] peer-checked:outline-red-500"
         [attr.aria-label]="`color ${item.name}`"
         [ngStyle]="{
           'background-color': item.hexCode,

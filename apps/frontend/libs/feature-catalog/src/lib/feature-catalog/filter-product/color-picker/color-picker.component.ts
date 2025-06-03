@@ -1,10 +1,10 @@
+import { NgStyle } from '@angular/common';
 import { Component, forwardRef, input, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'lib-color-picker',
-  imports: [CommonModule],
+  imports: [NgStyle],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -13,7 +13,6 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     },
   ],
   templateUrl: './color-picker.component.html',
-  styleUrl: './color-picker.component.css',
 })
 export class ColorPickerComponent implements ControlValueAccessor {
   public readonly colorList =
