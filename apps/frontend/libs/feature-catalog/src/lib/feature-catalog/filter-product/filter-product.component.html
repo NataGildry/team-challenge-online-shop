@@ -97,7 +97,12 @@
     </button>
     @if (filterSections()[3].opened) {
     <div class="mb-5">
-      <lib-price-range />
+      <shared-price-range
+        [min]="10"
+        [max]="1700"
+        [initialLower]="500"
+        [initialHigher]="900"
+      />
     </div>
     }
   </div>

@@ -1,6 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
-import { plus, minus, IconComponent } from '@anx-store/shared/ui';
-import { PriceRangeComponent } from './price-range/price-range.component';
+import {
+  plus,
+  minus,
+  IconComponent,
+  PriceRangeComponent,
+} from '@anx-store/shared/ui';
 import { ColorPickerComponent } from './color-picker/color-picker.component';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
