@@ -35,6 +35,7 @@
       </div>
     </div>
 
+    @if (!isLoading()){
     <div
       class="flex gap-5 flex-wrap max-w-[896px] pt-10 pb-10"
       *ngIf="$products | async as products"
@@ -43,6 +44,11 @@
       <shared-small-card [product]="item" />
       }
     </div>
+    } @else {
+    <div class="flex justify-center py-20">
+      <shared-spinner />
+    </div>
+    }
     <lib-catalog-pagination
       [totalPages]="totalPage"
       (pageChanged)="changetPage($event)"

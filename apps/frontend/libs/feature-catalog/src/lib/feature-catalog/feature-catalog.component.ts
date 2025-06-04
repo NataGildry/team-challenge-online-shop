@@ -1,6 +1,11 @@
 import { AsyncPipe, NgIf } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { SmallCardComponent } from '@anx-store/shared/ui';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  signal,
+} from '@angular/core';
+import { SmallCardComponent, SpinnerComponent } from '@anx-store/shared/ui';
 import { CatalogPaginationComponent } from './catalog-pagination/catalog-pagination.component';
 import { RouterOutlet } from '@angular/router';
 import { CatalogFacadeService, Product } from '@anx-store/domain';
@@ -8,6 +13,8 @@ import { SortSelectComponent } from './sort-select/sort-select.component';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 import { BehaviorSubject } from 'rxjs';
 import { FilterProductComponent } from './filter-product/filter-product.component';
+
+const PAGE_SIZE = 9;
 
 @Component({
   selector: 'lib-feature-catalog',
@@ -20,6 +27,7 @@ import { FilterProductComponent } from './filter-product/filter-product.componen
     RouterOutlet,
     SortSelectComponent,
     TranslocoDirective,
+    SpinnerComponent,
   ],
   templateUrl: './feature-catalog.component.html',
   standalone: true,
@@ -38,6 +46,7 @@ export class FeatureCatalogComponent {
 
   protected $products = new BehaviorSubject<Product[]>([]);
   protected totalPage = 2;
+  protected isLoading = signal(false);
 
   public constructor() {
     this.getPage(0);
@@ -48,8 +57,12 @@ export class FeatureCatalogComponent {
   }
 
   private getPage(page: number): void {
-    this.catalogFacade.getProducts(page).then((products) => {
-      this.$products.next(products);
-    });
+    this.isLoading.set(true);
+    this.catalogFacade
+      .getProducts(page * PAGE_SIZE, page * PAGE_SIZE + PAGE_SIZE)
+      .then((products) => {
+        this.$products.next(products);
+        this.isLoading.set(false);
+      });
   }
 }
