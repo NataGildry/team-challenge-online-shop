@@ -1,0 +1,38 @@
+{
+  "headers": {
+    "catalog": "каталог"
+  },
+  "filtersGroup": {
+    "categories": "Категорії",
+    "color": "Колір",
+    "material": "Матеріал оббивки",
+    "price": "Ціна"
+  },
+  "categoryFilters": {
+    "all": "Усі",
+    "armchairs_and_sofas": "Крісла та дивани",
+    "beds_futons": "Ліжка та футони",
+    "chairs_semi-chairs": "Стільці та напівстільці",
+    "kinds_furniture": "Дитячі меблі"
+  },
+  "materials": {
+    "cotton": "Бавовна",
+    "linen": "Льон",
+    "polyester": "Поліестер",
+    "velvet": "Оксамит",
+    "leather": "Шкіра",
+    "microfiber": "Мікрофібра",
+    "chenille": "Шеніл",
+    "vinyl": "Вініл"
+  },
+  "sort": {
+    "by_popularity": "За популярністю",
+    "by_price_increase": "За зростанням ціни",
+    "by_price_decrease": "За спаданням ціни"
+  },
+  "controls": {
+    "remove": "видалити",
+    "of": "з",
+    "pages": "сторінок"
+  }
+}

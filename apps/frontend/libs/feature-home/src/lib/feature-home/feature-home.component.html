@@ -24,7 +24,10 @@
     </div>
   </section>
 
-  <section class="block max-w-app flex justify-between flex-wrap">
+  <section
+    class="block max-w-app flex justify-between flex-wrap"
+    *ngIf="$products | async as products"
+  >
     <div class="w-[284px]">
       <h2
         class="uppercase text-h2 font-bold tracking-widerHeading font-Montserrat pr-5 mb-7 leading-[46px]"
@@ -38,7 +41,7 @@
       </p>
       <shared-button [label]="t('home.controls.see_more')" [color]="'black'" />
     </div>
-    @for (item of smallCards; track $index) {
+    @for (item of products; track $index) {
     <shared-small-card [product]="item" />
     }
   </section>

@@ -6,3 +6,5 @@ export * from './lib/small-card/small-card.component';
 export * from './lib/large-card/large-card.component';
 export * from './lib/mid-card/mid-card.component';
 export * from './lib/icon-button/icon-button.component';
+export * from './lib/price-range/price-range.component';
+export * from './lib/spinner/spinner.component';

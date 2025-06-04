@@ -1,0 +1,28 @@
+<div
+  *transloco="let t; scope: 'catalog'"
+  class="w-full flex justify-center items-center gap-[19px] w-full"
+>
+  <button
+    class="bg-black rounded-[10px] text-white h-[35px] min-w-[35px] black-btn-bahavior pointer-events-none"
+  >
+    {{ currentPageIndex + 1 }}
+  </button>
+  <button
+    class="bg-black rounded-[10px] text-white h-[35px] min-w-[35px] px-4 pointer-events-none"
+  >
+    {{ t('catalog.controls.of') }} {{ totalPages() }}
+    {{ t('catalog.controls.pages') }}
+  </button>
+  <button
+    class="bg-black rounded-[10px] text-white h-[35px] min-w-[35px] inline-flex justify-center items-center rotate-180 black-btn-bahavior"
+    (click)="moveBackward()"
+  >
+    <shared-icon [svg]="chevronIcon.svg" />
+  </button>
+  <button
+    class="bg-black rounded-[10px] text-white h-[35px] min-w-[35px] inline-flex justify-center items-center black-btn-bahavior"
+    (click)="moveForward()"
+  >
+    <shared-icon [svg]="chevronIcon.svg" />
+  </button>
+</div>
