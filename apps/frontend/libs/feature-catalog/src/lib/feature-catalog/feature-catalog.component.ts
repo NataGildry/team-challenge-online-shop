@@ -40,12 +40,16 @@ export class FeatureCatalogComponent {
   protected totalPage = 2;
 
   public constructor() {
-    this.catalogFacade.getProducts(0).then((products) => {
-      this.$products.next(products);
-    });
+    this.getPage(0);
   }
 
   protected changetPage(next: number): void {
-    this.catalogFacade.getProducts(next);
+    this.getPage(next);
+  }
+
+  private getPage(page: number): void {
+    this.catalogFacade.getProducts(page).then((products) => {
+      this.$products.next(products);
+    });
   }
 }
