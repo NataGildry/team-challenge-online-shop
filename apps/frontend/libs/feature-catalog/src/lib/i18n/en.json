@@ -31,7 +31,7 @@
     "by_price_decrease": "By price decrease"
   },
   "controls": {
-    "remove": "remove",
+    "remove": "remove all",
     "of": "of",
     "pages": "pages"
   }

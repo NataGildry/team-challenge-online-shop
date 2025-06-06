@@ -19,13 +19,16 @@
       >
         <li>
           <span class="capitalize font-bold mr-[8px]">{{
-            t('catalog.controls.remove')
+            t('catalog.controls.remove') | capitalizeFirstWord
           }}</span>
         </li>
         @for (filter of selectedFilters; track $index) {
         <li>
-          <span class="bg-white px-3 py-2 rounded-xl">
+          <span class="flex items-center gap-2 bg-white px-3 py-2 rounded-xl">
             {{ filter }}
+            <span class="cursor-pointer">
+              <shared-icon [svg]="crossIcon.svg" />
+            </span>
           </span>
         </li>
         }

@@ -5,7 +5,12 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { SmallCardComponent, SpinnerComponent } from '@anx-store/shared/ui';
+import {
+  cross,
+  IconComponent,
+  SmallCardComponent,
+  SpinnerComponent,
+} from '@anx-store/shared/ui';
 import { CatalogPaginationComponent } from './catalog-pagination/catalog-pagination.component';
 import { RouterOutlet } from '@angular/router';
 import { CatalogFacadeService, Product } from '@anx-store/domain';
@@ -13,6 +18,7 @@ import { SortSelectComponent } from './sort-select/sort-select.component';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 import { BehaviorSubject } from 'rxjs';
 import { FilterProductComponent } from './filter-product/filter-product.component';
+import { CapitalizeFirstWordPipe } from '@anx-store/shared/utils';
 
 const PAGE_SIZE = 9;
 
@@ -28,6 +34,8 @@ const PAGE_SIZE = 9;
     SortSelectComponent,
     TranslocoDirective,
     SpinnerComponent,
+    IconComponent,
+    CapitalizeFirstWordPipe,
   ],
   templateUrl: './feature-catalog.component.html',
   standalone: true,
@@ -47,6 +55,7 @@ export class FeatureCatalogComponent {
   protected $products = new BehaviorSubject<Product[]>([]);
   protected totalPage = 2;
   protected isLoading = signal(false);
+  protected readonly crossIcon = cross;
 
   public constructor() {
     this.getPage(0);

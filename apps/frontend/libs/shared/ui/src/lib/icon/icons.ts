@@ -10,7 +10,8 @@ export type IconName =
   | 'plus'
   | 'minus'
   | 'chevron'
-  | 'angle';
+  | 'angle'
+  | 'cross';
 export interface SharedIcon {
   name: IconName;
   svg: string;
@@ -64,4 +65,8 @@ export const chevron: SharedIcon = {
 export const angle: SharedIcon = {
   name: 'angle',
   svg: '<svg width="20" height="10" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 0.5L10 8.5L19 0.5" stroke="#05060F"/></svg>',
+};
+export const cross: SharedIcon = {
+  name: 'cross',
+  svg: '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.33341 11.2567L0.743408 10.6667L5.41007 6.00001L0.743408 1.33335L1.33341 0.743347L6.00007 5.41001L10.6667 0.743347L11.2567 1.33335L6.59008 6.00001L11.2567 10.6667L10.6667 11.2567L6.00007 6.59001L1.33341 11.2567Z" fill="#05060F"/></svg>',
 };
