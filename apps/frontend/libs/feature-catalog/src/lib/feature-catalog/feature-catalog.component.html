@@ -38,24 +38,22 @@
       </div>
     </div>
 
-    <div *ngIf="!isLoading(); else loading">
-      <div
-        class="flex gap-5 flex-wrap max-w-[896px] pt-10 pb-10"
-        *ngIf="$products | async as products"
-      >
-        @for (item of products ; track $index) {
-        <shared-small-card [product]="item" />
-        }
-      </div>
+    @if (!isLoading(); ) { @let products = products$ | async; @if (products !==
+    null) {
+    <div class="flex gap-5 flex-wrap max-w-[896px] pt-10 pb-10">
+      @for (item of products; track $index) {
+      <shared-small-card [product]="item" />
+      }
     </div>
-    <ng-template #loading>
-      <div class="flex justify-center py-20">
-        <shared-spinner />
-      </div>
-    </ng-template>
+    } } @else {
+    <div class="flex justify-center py-20">
+      <shared-spinner />
+    </div>
+    } @let pages = totalPage$ | async; @if (pages !== null) {
     <lib-catalog-pagination
-      [totalPages]="totalPage"
+      [totalPages]="pages"
       (pageChanged)="changetPage($event)"
     />
+    }
   </section>
 </div>

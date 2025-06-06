@@ -7,7 +7,7 @@ import {
 } from '@anx-store/shared/ui';
 import { TranslocoService, TranslocoDirective } from '@jsverse/transloco';
 import { HomeFacadeService, Product } from '@anx-store/domain';
-import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -31,11 +31,9 @@ export class FeatureHomeComponent {
   protected readonly cardItems: { title: string; imgLink: string }[] =
     this.homeFacade.getMidCards();
 
-  protected $products = new BehaviorSubject<Product[]>([]);
+  protected $products!: Observable<Product[]>;
 
   public constructor() {
-    this.homeFacade.getProducts(3).then((products) => {
-      this.$products.next(products);
-    });
+    this.$products = this.homeFacade.getProducts(3);
   }
 }

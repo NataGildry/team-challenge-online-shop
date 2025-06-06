@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Product } from './types/interfaces';
+import { delay, map, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductApiService {
-  public getProducts(from: number, amount: number): Promise<Product[]> {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(products.slice(from, amount));
-      }, 1000);
-    });
+  public getProducts(from: number, amount: number): Observable<Product[]> {
+    return of(products).pipe(
+      delay(1000),
+      map((all) => all.slice(from, amount))
+    );
   }
 }
 
