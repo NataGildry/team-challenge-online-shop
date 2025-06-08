@@ -38,18 +38,17 @@
       </div>
     </div>
 
-    @if (!isLoading(); ) { @let products = products$ | async; @if (products !==
-    null) {
+    @if (products$ | async; as products ) { @if(isLoading()) {
+    <div class="flex justify-center py-20">
+      <shared-spinner />
+    </div>
+    } @else{
     <div class="flex gap-5 flex-wrap max-w-[896px] pt-10 pb-10">
       @for (item of products; track $index) {
       <shared-small-card [product]="item" />
       }
     </div>
-    } } @else {
-    <div class="flex justify-center py-20">
-      <shared-spinner />
-    </div>
-    } @let pages = totalPage$ | async; @if (pages !== null) {
+    } } @let pages = totalPage$ | async; @if (pages !== null) {
     <lib-catalog-pagination
       [totalPages]="pages"
       (pageChanged)="changetPage($event)"
