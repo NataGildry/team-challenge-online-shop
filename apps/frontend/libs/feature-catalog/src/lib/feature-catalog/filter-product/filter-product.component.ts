@@ -17,10 +17,18 @@ enum FilterGroups {
   Price = 'price',
 }
 interface FilterSection {
-  key: string;
+  key: FilterGroups;
   label: FilterGroups;
   opened: boolean;
 }
+
+interface FilterSections {
+  Categories: FilterSection;
+  Color: FilterSection;
+  UpholsteryMaterial: FilterSection;
+  Price: FilterSection;
+}
+type FilterSectionKey = 'Categories' | 'Color' | 'UpholsteryMaterial' | 'Price';
 
 @Component({
   selector: 'lib-filter-product',
@@ -39,12 +47,28 @@ export class FilterProductComponent {
 
   protected readonly plus = plus;
   protected readonly minus = minus;
-  protected filterSections = signal<FilterSection[]>([
-    { key: 'categories', label: FilterGroups.Categories, opened: false },
-    { key: 'color', label: FilterGroups.Color, opened: false },
-    { key: 'material', label: FilterGroups.UpholsteryMaterial, opened: false },
-    { key: 'price', label: FilterGroups.Price, opened: false },
-  ]);
+  protected filterSections = signal<FilterSections>({
+    Categories: {
+      key: FilterGroups.Categories,
+      label: FilterGroups.Categories,
+      opened: false,
+    },
+    Color: {
+      key: FilterGroups.Color,
+      label: FilterGroups.Color,
+      opened: false,
+    },
+    UpholsteryMaterial: {
+      key: FilterGroups.UpholsteryMaterial,
+      label: FilterGroups.UpholsteryMaterial,
+      opened: false,
+    },
+    Price: {
+      key: FilterGroups.Price,
+      label: FilterGroups.Price,
+      opened: false,
+    },
+  });
 
   protected readonly colorsControl = new FormControl();
 
@@ -57,8 +81,8 @@ export class FilterProductComponent {
   protected readonly colorList: { name: string; hexCode: string }[] =
     this.catalogService.getFilterColorsOptions();
 
-  protected toggleAccordion(index: number): void {
-    const newState = [...this.filterSections()];
+  protected toggleAccordion(index: FilterSectionKey): void {
+    const newState = { ...this.filterSections() };
     newState[index].opened = !newState[index].opened;
     this.filterSections.set(newState);
   }

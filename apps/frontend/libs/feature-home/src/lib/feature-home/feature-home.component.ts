@@ -8,7 +8,7 @@ import {
 import { TranslocoService, TranslocoDirective } from '@jsverse/transloco';
 import { HomeFacadeService, Product } from '@anx-store/domain';
 import { Observable } from 'rxjs';
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, NgIf } from '@angular/common';
 
 @Component({
   selector: 'lib-feature-home',
@@ -18,7 +18,8 @@ import { CommonModule } from '@angular/common';
     SmallCardComponent,
     LargeCardComponent,
     MidCardComponent,
-    CommonModule,
+    NgIf,
+    AsyncPipe,
   ],
   templateUrl: './feature-home.component.html',
   standalone: true,

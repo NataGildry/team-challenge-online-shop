@@ -1,6 +1,6 @@
 import {
   Component,
-  effect,
+  computed,
   input,
   OnInit,
   output,
@@ -26,14 +26,10 @@ export class PriceRangeComponent implements OnInit {
 
   public readonly rangeChanged = output<{ lower: number; higher: number }>();
 
-  public constructor() {
-    effect(() => {
-      this.rangeChanged.emit({
-        lower: this.lower(),
-        higher: this.higher(),
-      });
-    });
-  }
+  protected readonly range = computed(() => ({
+    lower: this.lower(),
+    higher: this.higher(),
+  }));
 
   public ngOnInit(): void {
     this.lower.set(this.initialLower());
@@ -45,6 +41,7 @@ export class PriceRangeComponent implements OnInit {
       const value = Number.parseInt(event.target.value);
       if (!isNaN(value)) {
         this.lower.set(value);
+        this.rangeChanged.emit(this.range());
       }
     }
   }
@@ -53,6 +50,7 @@ export class PriceRangeComponent implements OnInit {
       const value = Number.parseInt(event.target.value);
       if (!isNaN(value)) {
         this.higher.set(value);
+        this.rangeChanged.emit(this.range());
       }
     }
   }

@@ -1,20 +1,20 @@
 <div *transloco="let t; scope: 'catalog'">
   <div class="border-b border-slate-200 tracking-bodyLetter text-baseSize">
-    @let index = 0;
+    @let keyCategories = 'Categories';
     <button
       class="w-full flex justify-between items-center py-5 text-slate-800 h-[72px] font-semibold"
-      (click)="toggleAccordion(index)"
+      (click)="toggleAccordion(keyCategories)"
     >
       <span class="uppercase tracking-bodyLetter">
         {{ t('catalog.filtersGroup.categories') }}</span
       >
-      @if (filterSections()[0].opened){
+      @if (filterSections()[keyCategories].opened){
       <shared-icon [svg]="minus.svg" />
       } @else {
       <shared-icon [svg]="plus.svg" />
       }
     </button>
-    @if (filterSections()[0].opened) {
+    @if (filterSections()[keyCategories].opened) {
 
     <ul class="flex flex-col gap-[14px] mb-5">
       @for (item of categoriesList; track $index) {
@@ -29,22 +29,22 @@
   </div>
 
   <div class="border-b border-slate-200">
-    @let index1 = 1;
+    @let keyColor = 'Color';
     <button
       class="w-full flex justify-between items-center py-5 text-slate-800 h-[72px] font-semibold text-baseSize"
-      (click)="toggleAccordion(index1)"
+      (click)="toggleAccordion(keyColor)"
     >
       <span class="uppercase tracking-bodyLetter">
         {{ t('catalog.filtersGroup.color') }}</span
       >
 
-      @if (filterSections()[1].opened){
+      @if (filterSections()[keyColor].opened){
       <shared-icon [svg]="minus.svg" />
       } @else {
       <shared-icon [svg]="plus.svg" />
       }
     </button>
-    @if (filterSections()[1].opened) {
+    @if (filterSections()[keyColor].opened) {
     <div class="mb-5">
       <lib-color-picker [colorList]="colorList" [formControl]="colorsControl" />
     </div>
@@ -52,22 +52,22 @@
   </div>
 
   <div class="border-b border-slate-200 tracking-bodyLetter">
-    @let index2 = 2;
+    @let keyUpholsteryMaterial = 'UpholsteryMaterial';
     <button
       class="w-full flex justify-between items-center py-5 text-slate-800 h-[72px] font-semibold text-baseSize"
-      (click)="toggleAccordion(index2)"
+      (click)="toggleAccordion(keyUpholsteryMaterial)"
     >
       <span class="uppercase tracking-bodyLetter">
         {{ t('catalog.filtersGroup.material') }}</span
       >
 
-      @if (filterSections()[2].opened){
+      @if (filterSections()[keyUpholsteryMaterial].opened){
       <shared-icon [svg]="minus.svg" />
       } @else {
       <shared-icon [svg]="plus.svg" />
       }
     </button>
-    @if (filterSections()[2].opened) {
+    @if (filterSections()[keyUpholsteryMaterial].opened) {
     <ul class="flex flex-col gap-[14px] mb-5">
       @for (item of materialList; track $index) {
       <li class="flex justify-between tracking-bodyLetter">
@@ -80,22 +80,22 @@
   </div>
 
   <div class="border-b border-slate-200 tracking-bodyLetter">
-    @let index3 = 3;
+    @let keyPrice = 'Price';
     <button
       class="w-full flex justify-between items-center py-5 text-slate-800 h-[72px] font-semibold text-baseSize"
-      (click)="toggleAccordion(index3)"
+      (click)="toggleAccordion(keyPrice)"
     >
       <span class="uppercase tracking-bodyLetter">
         {{ t('catalog.filtersGroup.price') }}</span
       >
 
-      @if (filterSections()[3].opened){
+      @if (filterSections()[keyPrice].opened){
       <shared-icon [svg]="minus.svg" />
       } @else {
       <shared-icon [svg]="plus.svg" />
       }
     </button>
-    @if (filterSections()[3].opened) {
+    @if (filterSections()[keyPrice].opened) {
     <div class="mb-5">
       <shared-price-range
         [min]="10"
