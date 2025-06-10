@@ -19,9 +19,8 @@ namespace FakedOutShop.Infrastructure
   {
     public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
     {
-      // Register ApplicationDbContext
       services.AddDbContext<ApplicationDbContext>(options =>
-        options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"))); // Use Npgsql for PostgreSQL
+        options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
 
       services.AddIdentity<User, IdentityRole>()
         .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -30,16 +29,14 @@ namespace FakedOutShop.Infrastructure
       services.AddScoped<IUserRepository, UserRepository>();
       services.AddScoped<IAuthService, AuthService>();
       services.AddScoped<ITokenService, TokenService>();
-      services.AddScoped<IUserManagerWrapper, UserManagerWrapper>(); // Register UserManagerWrapper
+      services.AddScoped<IUserManagerWrapper, UserManagerWrapper>();
 
       services.Configure<JwtOptions>(configuration.GetSection("Jwt"));
 
-      // Explicitly specify the assembly
       services.AddAutoMapper(typeof(MappingProfile).Assembly);
 
       return services;
     }
-
     public static async Task InitializeRolesAsync(IServiceProvider serviceProvider)
     {
       await RoleInitializer.InitializeAsync(serviceProvider);

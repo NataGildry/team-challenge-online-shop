@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllers()
   .AddJsonOptions(options =>
   {
@@ -17,7 +16,6 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Initialize roles
 using (var scope = app.Services.CreateScope())
 {
   var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
@@ -42,7 +40,6 @@ using (var scope = app.Services.CreateScope())
   }
 }
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
   app.UseSwagger();

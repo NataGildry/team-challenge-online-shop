@@ -19,7 +19,6 @@ namespace FakedOutShop.Infrastructure.Roles
 
           if (!result.Succeeded)
           {
-            // Log the error
             Console.WriteLine($"Failed to create role '{roleName}': {string.Join(", ", result.Errors.Select(e => e.Description))}");
           }
           else

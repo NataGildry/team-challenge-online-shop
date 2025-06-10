@@ -34,11 +34,9 @@ namespace FakedOutShop.Application.Models.Services
             if (existingUser != null)
                 return Result.Fail("A user with this email already exists.");
 
-            // Use AutoMapper to map RegisterDto to User
             var user = _mapper.Map<User>(registerDto);
             user.UserName = registerDto.Email.ToLower();
             user.Email = registerDto.Email.ToLower();
-
 
             var result = await _userManager.CreateAsync(user, registerDto.Password);
             if (!result.Succeeded)
@@ -50,7 +48,6 @@ namespace FakedOutShop.Application.Models.Services
 
             return Result.Ok();
         }
-
         public async Task<Result<string>> LoginUserAsync(LoginDto loginDto)
         {
             var user = await _userManager.FindByEmailAsync(loginDto.Email);

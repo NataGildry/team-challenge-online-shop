@@ -25,7 +25,7 @@ namespace FakedOutShop.API.Controllers
       {
         return BadRequest(new { Errors = result.Errors });
       }
-      return Ok(new { Message = "User registered successfully" });
+      return Ok(new { Message = "Account successfully created. Please log in" });
     }
 
     [HttpPost("login")]
