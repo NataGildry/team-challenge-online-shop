@@ -4,8 +4,8 @@ import {
   minus,
   IconComponent,
   PriceRangeComponent,
+  ColorPickerComponent,
 } from '@anx-store/shared/ui';
-import { ColorPickerComponent } from './color-picker/color-picker.component';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 import { CatalogService } from '../../catalog.service';

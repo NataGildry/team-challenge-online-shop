@@ -46,7 +46,10 @@
     </button>
     @if (filterSections()[keyColor].opened) {
     <div class="mb-5">
-      <lib-color-picker [colorList]="colorList" [formControl]="colorsControl" />
+      <shared-color-picker
+        [colorList]="colorList"
+        [formControl]="colorsControl"
+      />
     </div>
     }
   </div>
