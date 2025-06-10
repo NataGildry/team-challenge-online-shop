@@ -7,10 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\FakedOutShop.Domain\FakedOutShop.Domain.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
+      <PackageReference Include="AutoMapper.Extensions" Version="2.1.0" />
+      <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
       <PackageReference Include="FluentResults" Version="3.16.0" />
       <PackageReference Include="HiNetCloud.Microsoft.IdentityModel.Tokens" Version="23.10.8.15" />
       <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.2" />
@@ -29,6 +27,10 @@
       <PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="8.9.0" />
       <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.9.0" />
       <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.9.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\FakedOutShop.Domain\FakedOutShop.Domain.csproj" />
     </ItemGroup>
 
 </Project>

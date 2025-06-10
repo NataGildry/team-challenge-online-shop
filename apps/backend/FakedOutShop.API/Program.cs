@@ -1,60 +1,65 @@
 using System.Text.Json;
 using FakedOutShop.Infrastructure;
-using FakedOutShop.Domain.Interfaces;
-using FakedOutShop.Domain.Repositories;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configure JSON options
+// Add services to the container.
 builder.Services.AddControllers()
   .AddJsonOptions(options =>
   {
     options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
   });
 
-// Add infrastructure services
 builder.Services.AddInfrastructureServices(builder.Configuration);
-
-// Configure CORS
-builder.Services.AddCors(options =>
-{
-  options.AddPolicy("AllowLocalhost", builder =>
-  {
-    builder.WithOrigins("http://localhost:4200")
-      .AllowAnyHeader()
-      .AllowAnyMethod();
-  });
-});
-
-// Add health checks
-builder.Services.AddHealthChecks();
-
-// Add Swagger for API documentation
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Build the application
 var app = builder.Build();
 
-// Configure middleware
+// Initialize roles
+using (var scope = app.Services.CreateScope())
+{
+  var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+  var roles = new[] { "USER", "ADMIN" };
+
+  foreach (var roleName in roles)
+  {
+    if (!await roleManager.RoleExistsAsync(roleName))
+    {
+      var role = new IdentityRole(roleName);
+      var result = await roleManager.CreateAsync(role);
+
+      if (!result.Succeeded)
+      {
+        Console.WriteLine($"Failed to create role '{roleName}': {string.Join(", ", result.Errors.Select(e => e.Description))}");
+      }
+      else
+      {
+        Console.WriteLine($"Role '{roleName}' created successfully.");
+      }
+    }
+  }
+}
+
+// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
   app.UseSwagger();
   app.UseSwaggerUI();
+  app.UseDeveloperExceptionPage();
+}
+else
+{
+  app.UseExceptionHandler("/error");
 }
 
-app.UseExceptionHandler("/error");
 app.UseHttpsRedirection();
 app.UseCors("AllowLocalhost");
 app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
-app.UseEndpoints(endpoints =>
-{
-  endpoints.MapControllers();
-});
 
-// Run the application
+app.MapControllers();
+
 app.Run();
-

@@ -1,6 +1,7 @@
 using FluentResults;
 using System.Threading.Tasks;
 using FakedOutShop.Application.DTOs;
+using FluentResults;
 
 namespace FakedOutShop.Application.Abstractions
 {
@@ -10,4 +11,5 @@ namespace FakedOutShop.Application.Abstractions
     Task<Result<string>> LoginUserAsync(LoginDto loginDto);
   }
 }
+
 

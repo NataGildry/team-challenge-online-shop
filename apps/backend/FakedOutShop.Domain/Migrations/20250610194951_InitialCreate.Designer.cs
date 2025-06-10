@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FakedOutShop.Domain.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250521110525_SystemUpdate")]
-    partial class SystemUpdate
+    [Migration("20250610194951_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

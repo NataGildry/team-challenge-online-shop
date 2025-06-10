@@ -4,7 +4,7 @@ using FluentResults;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace FakedOutShop.Application.Controllers
+namespace FakedOutShop.API.Controllers
 {
   [ApiController]
   [Route("api/user")]

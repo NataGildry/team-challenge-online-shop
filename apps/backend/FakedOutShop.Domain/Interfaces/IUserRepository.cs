@@ -9,6 +9,6 @@ namespace FakedOutShop.Domain.Interfaces
     Task<IdentityResult> CreateUserAsync(User user, string password);
     Task<IdentityResult> AddToRoleAsync(User user, string role);
     Task<bool> IsInRoleAsync(User user, string role);
-    Task<bool> CheckPasswordAsync(User user, string password);
+    Task<bool> IsPasswordValid(User user, string password);
   }
 }

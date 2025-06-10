@@ -1,25 +1,19 @@
+using FakedOutShop.Application.Abstractions;
 using FakedOutShop.Domain.Entities;
-using FakedOutShop.Domain.Interfaces;
 using Microsoft.AspNetCore.Identity;
-using System.Threading.Tasks;
 
-namespace FakedOutShop.Domain.Repositories
+namespace FakedOutShop.Application.Abstractions
 {
-  public class UserRepository : IUserRepository
+  public class UserManagerWrapper : IUserManagerWrapper
   {
     private readonly UserManager<User> _userManager;
 
-    public UserRepository(UserManager<User> userManager)
+    public UserManagerWrapper(UserManager<User> userManager)
     {
       _userManager = userManager;
     }
 
-    public async Task<User> FindByEmailAsync(string email)
-    {
-      return await _userManager.FindByEmailAsync(email);
-    }
-
-    public async Task<IdentityResult> CreateUserAsync(User user, string password)
+    public async Task<IdentityResult> CreateAsync(User user, string password)
     {
       return await _userManager.CreateAsync(user, password);
     }
@@ -29,9 +23,9 @@ namespace FakedOutShop.Domain.Repositories
       return await _userManager.AddToRoleAsync(user, role);
     }
 
-    public async Task<bool> IsInRoleAsync(User user, string role)
+    public async Task<User> FindByEmailAsync(string email)
     {
-      return await _userManager.IsInRoleAsync(user, role);
+      return await _userManager.FindByEmailAsync(email);
     }
 
     public async Task<bool> IsPasswordValid(User user, string password)
