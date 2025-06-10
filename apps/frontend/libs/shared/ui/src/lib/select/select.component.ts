@@ -37,6 +37,10 @@ export class SelectComponent implements ControlValueAccessor {
     return option?.name ?? '';
   });
 
+  protected readonly enableOptions = computed(() => {
+    return this.options().filter((option) => option.value !== this.value());
+  });
+
   public readonly options = input.required<SelectOption[]>();
 
   private onChange?: (value: string) => void;
