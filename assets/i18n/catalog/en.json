@@ -1,0 +1,38 @@
+{
+  "headers": {
+    "catalog": "catalog"
+  },
+  "filtersGroup": {
+    "categories": "categories",
+    "color": "color",
+    "material": "Upholstery material",
+    "price": "price"
+  },
+  "categoryFilters": {
+    "all": "All",
+    "armchairs_and_sofas": "Armchairs and Sofas",
+    "beds_futons": "Beds and Futons",
+    "chairs_semi-chairs": "Chairs and Semi-chairs",
+    "kinds_furniture": "Kids Furniture"
+  },
+  "materials": {
+    "cotton": "Cotton",
+    "linen": "Linen",
+    "polyester": "Polyester",
+    "velvet": "Velvet",
+    "leather": "Leather",
+    "microfiber": "Microfiber",
+    "chenille": "Chenille",
+    "vinyl": "Vinyl"
+  },
+  "sort": {
+    "by_popularity": "By popularity",
+    "by_price_increase": "By price increase",
+    "by_price_decrease": "By price decrease"
+  },
+  "controls": {
+    "remove": "remove all",
+    "of": "of",
+    "pages": "pages"
+  }
+}
