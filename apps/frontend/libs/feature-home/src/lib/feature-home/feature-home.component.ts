@@ -6,7 +6,9 @@ import {
   SmallCardComponent,
 } from '@anx-store/shared/ui';
 import { TranslocoService, TranslocoDirective } from '@jsverse/transloco';
-import { HomeFacadeService } from '@anx-store/domain';
+import { HomeFacadeService, Product } from '@anx-store/domain';
+import { Observable } from 'rxjs';
+import { AsyncPipe, NgIf } from '@angular/common';
 
 @Component({
   selector: 'lib-feature-home',
@@ -16,6 +18,8 @@ import { HomeFacadeService } from '@anx-store/domain';
     SmallCardComponent,
     LargeCardComponent,
     MidCardComponent,
+    NgIf,
+    AsyncPipe,
   ],
   templateUrl: './feature-home.component.html',
   standalone: true,
@@ -28,5 +32,9 @@ export class FeatureHomeComponent {
   protected readonly cardItems: { title: string; imgLink: string }[] =
     this.homeFacade.getMidCards();
 
-  protected readonly smallCards = this.homeFacade.getSmallCards(0).slice(0, 3);
+  protected $products!: Observable<Product[]>;
+
+  public constructor() {
+    this.$products = this.homeFacade.getProducts(3);
+  }
 }
