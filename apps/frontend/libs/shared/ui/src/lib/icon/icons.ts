@@ -6,7 +6,12 @@ export type IconName =
   | 'telegram'
   | 'twitter'
   | 'heartOutline'
-  | 'arrow';
+  | 'arrow'
+  | 'plus'
+  | 'minus'
+  | 'chevron'
+  | 'angle'
+  | 'cross';
 export interface SharedIcon {
   name: IconName;
   svg: string;
@@ -37,11 +42,31 @@ export const twitterLogo: SharedIcon = {
   svg: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5021 13.0138L1.80773 22.9363M20.7021 1.06375L12.9709 10.1687M1.13086 1.0625L18.2809 22.9375H23.0059L5.85648 1.0625H1.13086Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>',
 };
 
-export const heartOutline = {
+export const heartOutline: SharedIcon = {
   name: 'heartOutline',
   svg: '<svg width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.8 10.3125C2.30576 9.82156 1.91417 9.23714 1.64806 8.59332C1.38195 7.94951 1.24664 7.25916 1.25 6.56252C1.25 5.15356 1.80971 3.80231 2.806 2.80602C3.80228 1.80973 5.15354 1.25002 6.5625 1.25002C8.5375 1.25002 10.2625 2.32502 11.175 3.92502H12.575C13.0389 3.11134 13.7101 2.43513 14.5204 1.96524C15.3306 1.49535 16.2509 1.24857 17.1875 1.25002C18.5965 1.25002 19.9477 1.80973 20.944 2.80602C21.9403 3.80231 22.5 5.15356 22.5 6.56252C22.5 8.02502 21.875 9.37502 20.95 10.3125L11.875 19.375L2.8 10.3125ZM21.825 11.2C23.0125 10 23.75 8.37502 23.75 6.56252C23.75 4.82204 23.0586 3.15284 21.8279 1.92213C20.5972 0.691427 18.928 2.2565e-05 17.1875 2.2565e-05C15 2.2565e-05 13.0625 1.06252 11.875 2.71252C11.2689 1.87065 10.4708 1.18542 9.54685 0.713683C8.62294 0.241946 7.59987 -0.00270538 6.5625 2.2565e-05C4.82202 2.2565e-05 3.15282 0.691427 1.92211 1.92213C0.691404 3.15284 0 4.82204 0 6.56252C0 8.37502 0.7375 10 1.925 11.2L11.875 21.15L21.825 11.2Z" fill="#05060F"/></svg>',
 };
-export const arrow = {
+export const arrow: SharedIcon = {
   name: 'arrow',
   svg: '<svg width="34" height="35" viewBox="0 0 34 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.15416 23.0154L21.1342 12.7506L11.49 11.8863L11.4912 10.5813L23.4316 11.6514L22.6585 23.6147L21.3688 23.4158L21.9932 13.7531L10.0132 24.018L9.15416 23.0154Z" fill="white"/></svg>',
+};
+export const plus: SharedIcon = {
+  name: 'plus',
+  svg: '<svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 8.57695V7.42311H6.92308V0.500031H8.07692V7.42311H15V8.57695H8.07692V15.5H6.92308V8.57695H0Z" fill="#05060F"/></svg>',
+};
+export const minus: SharedIcon = {
+  name: 'minus',
+  svg: '<svg width="15" height="2" viewBox="0 0 15 2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 1H15" stroke="#05060F"/></svg>',
+};
+export const chevron: SharedIcon = {
+  name: 'chevron',
+  svg: '<svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.499999 15L8.5 8L0.499999 0.999998" stroke="white"/></svg>',
+};
+export const angle: SharedIcon = {
+  name: 'angle',
+  svg: '<svg width="20" height="10" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 0.5L10 8.5L19 0.5" stroke="#05060F"/></svg>',
+};
+export const cross: SharedIcon = {
+  name: 'cross',
+  svg: '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.33341 11.2567L0.743408 10.6667L5.41007 6.00001L0.743408 1.33335L1.33341 0.743347L6.00007 5.41001L10.6667 0.743347L11.2567 1.33335L6.59008 6.00001L11.2567 10.6667L10.6667 11.2567L6.00007 6.59001L1.33341 11.2567Z" fill="#05060F"/></svg>',
 };

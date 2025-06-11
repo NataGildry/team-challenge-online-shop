@@ -1,0 +1,28 @@
+@use '@angular/material' as mat;
+
+.custom-slider {
+  width: 242px;
+  margin: 0;
+
+  @include mat.slider-overrides(
+    (
+      handle-width: 18px,
+      handle-height: 18px,
+      active-track-height: 10px,
+      inactive-track-height: 10px,
+
+      handle-color: black,
+      hover-state-layer-color: none,
+      focus-state-layer-color: none,
+      focus-handle-color: black,
+      active-track-color: #0000004d,
+      inactive-track-color: white,
+    )
+  );
+
+  ::ng-deep .mdc-slider__track {
+    border: 1px solid #064e3b;
+    overflow: hidden;
+    border-radius: 5px;
+  }
+}

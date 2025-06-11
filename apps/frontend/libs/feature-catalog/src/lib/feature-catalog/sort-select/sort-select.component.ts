@@ -3,12 +3,18 @@ import {
   Component,
   computed,
   forwardRef,
+  inject,
   input,
   signal,
 } from '@angular/core';
-import { ClickOutsideDirective } from '../directives';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { angle, IconComponent } from '../icon';
+import {
+  angle,
+  IconComponent,
+  SharedIcon,
+  ClickOutsideDirective,
+} from '@anx-store/shared/ui';
+import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 
 export interface SelectOption {
   name: string;
@@ -16,38 +22,36 @@ export interface SelectOption {
 }
 
 @Component({
-  selector: 'shared-select',
-  imports: [ClickOutsideDirective, IconComponent],
-  templateUrl: './select.component.html',
+  selector: 'lib-sort-select',
+  imports: [ClickOutsideDirective, IconComponent, TranslocoDirective],
+  templateUrl: './sort-select.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => SelectComponent),
+      useExisting: forwardRef(() => SortSelectComponent),
       multi: true,
     },
   ],
 })
-export class SelectComponent implements ControlValueAccessor {
+export class SortSelectComponent implements ControlValueAccessor {
   protected readonly isOpen = signal(false);
   protected readonly isDisabled = signal(false);
-  protected readonly value = signal<string>('');
+  protected readonly value = signal<string>('popularity');
   protected readonly selected = computed(() => {
     const option = this.options().find((el) => el.value === this.value());
     return option?.name ?? '';
   });
 
-  protected readonly enableOptions = computed(() => {
-    return this.options().filter((option) => option.value !== this.value());
-  });
+  private readonly translocoService = inject(TranslocoService);
 
-  public readonly options = input.required<SelectOption[]>();
+  public readonly options = input<SelectOption[]>([]);
 
   private onChange?: (value: string) => void;
   private onTouched?: () => void;
 
-  protected readonly angle = angle;
+  protected readonly angle: SharedIcon = angle;
 
   protected selectOption(item: SelectOption): void {
     this.value.set(item.value);
