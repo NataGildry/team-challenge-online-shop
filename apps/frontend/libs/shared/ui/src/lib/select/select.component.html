@@ -1,7 +1,7 @@
-<div class="relative inline-block text-left">
+<div class="relative inline-block text-left tracking-bodyLetter">
   <button
     type="button"
-    class="inline-flex w-full justify-center items-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm text-gray-900 shadow-xs ring-inset uppercase disabled:bg-gray-200 disabled:text-gray-400 enabled:hover:bg-gray-50"
+    class="inline-flex w-full justify-center items-center gap-x-1.5 rounded-md px-3 py-2 text-sm text-gray-900 shadow-xs ring-inset uppercase disabled:bg-gray-200 disabled:text-gray-400 enabled:hover:bg-gray-100"
     id="menu-button"
     aria-expanded="true"
     aria-haspopup="true"
@@ -14,7 +14,7 @@
 
   @if (isOpen()) {
   <div
-    class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white ring-1 shadow-lg ring-black/5 focus:outline-hidden"
+    class="absolute right-3 z-10 w-15 flex items-center h-8 origin-top-right rounded-full overflow-hidden bg-white ring-1 shadow-lg ring-black/5 focus:outline-hidden"
     role="menu"
     aria-orientation="vertical"
     aria-labelledby="menu-button"
@@ -26,7 +26,7 @@
       sharedClickOutside
       (clickOutside)="isOpen.set(false)"
     >
-      @for (item of options(); track $index) {
+      @for (item of availableOptions(); track $index) {
       <li
         class="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-50 uppercase"
         role="menuitem"
