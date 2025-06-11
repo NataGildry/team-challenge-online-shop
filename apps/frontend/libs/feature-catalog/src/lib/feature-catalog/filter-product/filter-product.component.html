@@ -1,0 +1,112 @@
+<div *transloco="let t; scope: 'catalog'">
+  <div class="border-b border-slate-200 tracking-bodyLetter text-baseSize">
+    @let keyCategories = 'Categories';
+    <button
+      class="w-full flex justify-between items-center py-5 text-slate-800 h-[72px] font-semibold"
+      (click)="toggleAccordion(keyCategories)"
+    >
+      <span class="uppercase tracking-bodyLetter">
+        {{ t('catalog.filtersGroup.categories') }}</span
+      >
+      @if (filterSections()[keyCategories].opened){
+      <shared-icon [svg]="minus.svg" />
+      } @else {
+      <shared-icon [svg]="plus.svg" />
+      }
+    </button>
+    @if (filterSections()[keyCategories].opened) {
+
+    <ul class="flex flex-col gap-[14px] mb-5">
+      @for (item of categoriesList; track $index) {
+      <li class="flex justify-between tracking-bodyLetter">
+        <span>{{ t('catalog.categoryFilters.' + item.name) }}</span
+        ><span>{{ item.amount }}</span>
+      </li>
+      }
+    </ul>
+
+    }
+  </div>
+
+  <div class="border-b border-slate-200">
+    @let keyColor = 'Color';
+    <button
+      class="w-full flex justify-between items-center py-5 text-slate-800 h-[72px] font-semibold text-baseSize"
+      (click)="toggleAccordion(keyColor)"
+    >
+      <span class="uppercase tracking-bodyLetter">
+        {{ t('catalog.filtersGroup.color') }}</span
+      >
+
+      @if (filterSections()[keyColor].opened){
+      <shared-icon [svg]="minus.svg" />
+      } @else {
+      <shared-icon [svg]="plus.svg" />
+      }
+    </button>
+    @if (filterSections()[keyColor].opened) {
+    <div class="mb-5">
+      <shared-color-picker
+        [colorList]="colorList"
+        [formControl]="colorsControl"
+      />
+    </div>
+    }
+  </div>
+
+  <div class="border-b border-slate-200 tracking-bodyLetter">
+    @let keyUpholsteryMaterial = 'UpholsteryMaterial';
+    <button
+      class="w-full flex justify-between items-center py-5 text-slate-800 h-[72px] font-semibold text-baseSize"
+      (click)="toggleAccordion(keyUpholsteryMaterial)"
+    >
+      <span class="uppercase tracking-bodyLetter">
+        {{ t('catalog.filtersGroup.material') }}</span
+      >
+
+      @if (filterSections()[keyUpholsteryMaterial].opened){
+      <shared-icon [svg]="minus.svg" />
+      } @else {
+      <shared-icon [svg]="plus.svg" />
+      }
+    </button>
+    @if (filterSections()[keyUpholsteryMaterial].opened) {
+    <ul class="flex flex-col gap-[14px] mb-5">
+      @for (item of materialList; track $index) {
+      <li class="flex justify-between tracking-bodyLetter">
+        <span>{{ t('catalog.materials.' + item.name) }}</span
+        ><span>{{ item.amount }}</span>
+      </li>
+      }
+    </ul>
+    }
+  </div>
+
+  <div class="border-b border-slate-200 tracking-bodyLetter">
+    @let keyPrice = 'Price';
+    <button
+      class="w-full flex justify-between items-center py-5 text-slate-800 h-[72px] font-semibold text-baseSize"
+      (click)="toggleAccordion(keyPrice)"
+    >
+      <span class="uppercase tracking-bodyLetter">
+        {{ t('catalog.filtersGroup.price') }}</span
+      >
+
+      @if (filterSections()[keyPrice].opened){
+      <shared-icon [svg]="minus.svg" />
+      } @else {
+      <shared-icon [svg]="plus.svg" />
+      }
+    </button>
+    @if (filterSections()[keyPrice].opened) {
+    <div class="mb-5">
+      <shared-price-range
+        [min]="10"
+        [max]="1700"
+        [initialLower]="500"
+        [initialHigher]="900"
+      />
+    </div>
+    }
+  </div>
+</div>

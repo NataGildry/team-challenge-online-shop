@@ -1,0 +1,58 @@
+<router-outlet />
+<div
+  *transloco="let t; scope: 'catalog'"
+  class="max-w-app flex justify-between flex-wrap pt-11"
+>
+  <h1
+    class="w-full tracking-widerHeading font-bold uppercase font-Montserrat leading-[60px] mb-5 text-[2.5rem]"
+  >
+    {{ t('catalog.headers.catalog') }}
+  </h1>
+  <aside class="block w-[247px] mr-2">
+    <lib-filter-product />
+  </aside>
+
+  <section class="pt-3">
+    <div class="flex justify-between">
+      <ul
+        class="flex justify-start gap-2 items-center flex-wrap max-w-[650px] text-baseSize tracking-bodyLetter"
+      >
+        <li>
+          <span class="capitalize font-bold mr-[8px]">{{
+            t('catalog.controls.remove') | capitalizeFirstWord
+          }}</span>
+        </li>
+        @for (filter of selectedFilters; track $index) {
+        <li>
+          <span class="flex items-center gap-2 bg-white px-3 py-2 rounded-xl">
+            {{ filter }}
+            <span class="cursor-pointer">
+              <shared-icon [svg]="crossIcon.svg" />
+            </span>
+          </span>
+        </li>
+        }
+      </ul>
+      <div class="mt-2">
+        <lib-sort-select [options]="sortOptions" />
+      </div>
+    </div>
+
+    @if (products$ | async; as products ) { @if(isLoading()) {
+    <div class="flex justify-center py-20">
+      <shared-spinner />
+    </div>
+    } @else{
+    <div class="flex gap-5 flex-wrap max-w-[896px] pt-10 pb-10">
+      @for (item of products; track $index) {
+      <shared-small-card [product]="item" />
+      }
+    </div>
+    } } @let pages = totalPage$ | async; @if (pages !== null) {
+    <lib-catalog-pagination
+      [totalPages]="pages"
+      (pageChanged)="changetPage($event)"
+    />
+    }
+  </section>
+</div>

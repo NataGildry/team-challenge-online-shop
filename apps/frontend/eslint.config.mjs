@@ -1,5 +1,5 @@
 import nx from '@nx/eslint-plugin';
-import ts from '@typescript-eslint/parser';
+import eslintPluginImport from 'eslint-plugin-import';
 
 export default [
   ...nx.configs['flat/base'],
@@ -10,7 +10,6 @@ export default [
   },
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
-    // Override or add rules here
     rules: {
       '@nx/enforce-module-boundaries': [
         'error',
@@ -34,27 +33,15 @@ export default [
   },
   {
     files: ['**/*.ts', '**/*.tsx'],
+    plugins: {
+      import: eslintPluginImport,
+    },
     languageOptions: {
-      parser: ts,
       parserOptions: {
-        project: 'tsconfig.base.json',
-        sourceType: 'module',
+        projectService: true,
       },
     },
     rules: {
-      '@nx/enforce-module-boundaries': [
-        'error',
-        {
-          enforceBuildableLibDependency: true,
-          allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?js$'],
-          depConstraints: [
-            {
-              sourceTag: '*',
-              onlyDependOnLibsWithTags: ['*'],
-            },
-          ],
-        },
-      ],
       '@typescript-eslint/consistent-type-assertions': [
         'error',
         {
@@ -62,10 +49,10 @@ export default [
         },
       ],
       '@typescript-eslint/no-explicit-any': ['error'],
-      '@typescript-eslint/no-unused-vars': ['error'],
       '@typescript-eslint/explicit-module-boundary-types': ['error'],
       '@typescript-eslint/explicit-function-return-type': 'error',
       '@typescript-eslint/explicit-member-accessibility': 'error',
+      '@typescript-eslint/no-non-null-assertion': 'error',
       '@typescript-eslint/member-ordering': [
         'error',
         {
@@ -89,20 +76,25 @@ export default [
         'error',
         { allowTernary: true },
       ],
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+        },
+      ],
+      'import/first': 'error',
+      'import/newline-after-import': 'error',
+      'import/no-cycle': 'error',
+      'import/no-duplicates': 'error',
+      'import/no-self-import': 'error',
+      'import/no-useless-path-segments': 'error',
     },
-  },
-  {
-    files: [
-      '**/*.ts',
-      '**/*.tsx',
-      '**/*.cts',
-      '**/*.mts',
-      '**/*.js',
-      '**/*.jsx',
-      '**/*.cjs',
-      '**/*.mjs',
-    ],
-    // Override or add rules here
-    rules: {},
+    settings: {
+      'import/parsers': { '@typescript-eslint/parser': ['.ts', '.tsx'] },
+      'import/resolver': {
+        typescript: true,
+      },
+    },
   },
 ];

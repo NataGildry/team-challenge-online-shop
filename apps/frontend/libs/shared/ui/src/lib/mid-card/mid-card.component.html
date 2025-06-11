@@ -1,0 +1,19 @@
+<div
+  class="bg-white w-[590px] h-[479px] relative overflow-hidden flex rounded-[50px] shadow-card"
+>
+  <img
+    src="{{ dataCard().imgLink }}"
+    alt="chair image"
+    class="h-full mx-auto"
+  />
+  <div
+    class="absolute bg-white flex h-[95px] flex justify-center items-center gap-4 shadow-card w-[363px] rounded-br-[50px] cursor-pointer"
+  >
+    <h3 class="font-bold text-h3Size tracking-wider1">
+      {{ dataCard().title }}
+    </h3>
+    <span class="text-red-500 rotate-[40deg]">
+      <shared-icon color="black" [svg]="arrow.svg"
+    /></span>
+  </div>
+</div>

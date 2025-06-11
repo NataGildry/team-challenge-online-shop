@@ -1,0 +1,120 @@
+<div *transloco="let t; scope: 'home'" class="flex flex-col gap-[140px] m-auto">
+  <section class="flex">
+    <div class="w-[700px] flex-2 mt-[155px]">
+      <h1
+        class="uppercase tracking-widerHeading font-bold font-[Montserrat] leading-[60px] mb-5 text-[2.5rem]"
+      >
+        {{ t('home.headers.comfort') }}
+      </h1>
+      <p
+        class="text-baseSize w-[509px] tracking-bodyLetter leading-[24px] mb-[30px]"
+      >
+        Upholstered furniture that combines style and quality for your home.
+        Enjoy hassle-free delivery and professional assembly, making the process
+        effortless. Take advantage of special offers to create the perfect
+        living space.
+      </p>
+      <shared-button [label]="t('home.controls.shop_now')" />
+    </div>
+
+    <div class="w-[590px] overflow-hidden hidden xl:block">
+      <div class="w-[700px] ml-[-8px] mt-[20px]">
+        <img src="https://i.imgur.com/H0iKI72.png" alt="chair image" />
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="block max-w-app flex justify-between flex-wrap"
+    *ngIf="$products | async as products"
+  >
+    <div class="w-[284px]">
+      <h2
+        class="uppercase text-h2 font-bold tracking-widerHeading font-Montserrat pr-5 mb-7 leading-[46px]"
+      >
+        {{ t('home.headers.latest') }}
+      </h2>
+      <p class="tracking-bodyLetter text-baseSize leading-[24px] mb-8">
+        Discover our latest collection, featuring stylish and modern furniture
+        designed to elevate your space. Crafted with high-quality materials,
+        these pieces bring both comfort and elegance to your home.
+      </p>
+      <shared-button [label]="t('home.controls.see_more')" [color]="'black'" />
+    </div>
+    @for (item of products; track $index) {
+    <shared-small-card [product]="item" />
+    }
+  </section>
+
+  <section class="max-w-app">
+    <shared-large-card />
+  </section>
+
+  <section class="max-w-app flex flex-wrap justify-between gap-4">
+    <h2
+      class="uppercase text-h2 w-full font-bold tracking-widerHeading font-Montserrat pr-[70%] mb-3 leading-[46px]"
+    >
+      {{ t('home.headers.discover') }}
+    </h2>
+    @for (item of cardItems; track $index) {
+    <shared-mid-card [dataCard]="item" />
+    }
+  </section>
+
+  <section class="max-w-app flex flex-wrap justify-between items-center">
+    <div class="w-[692px] h-[415px] flex flex-wrap gap-8 justify-between pr-11">
+      <h2
+        class="uppercase text-h2 w-[690px] font-bold tracking-widerHeading font-Montserrat mb-[-2px]"
+      >
+        {{ t('home.headers.choose') }}
+      </h2>
+      <div class="w-[284px]">
+        <h3 class="font-bold text-h3Size tracking-bodyLetter capitalize">
+          High-Quality materials
+        </h3>
+        <p class="tracking-bodyLetter text-baseSize leading-[24px] mt-3">
+          Our furniture is crafted from durable, premium materials designed to
+          last, ensuring that every piece stands the test of time while
+          maintaining its beauty.
+        </p>
+      </div>
+      <div class="w-[284px]">
+        <h3 class="font-bold text-h3Size tracking-bodyLetter capitalize">
+          Delivery & Assembly
+        </h3>
+        <p class="tracking-bodyLetter text-baseSize leading-[24px] mt-3">
+          We offer hassle-free delivery and professional assembly services, so
+          you can enjoy your new furniture without any effort or stress on your
+          part.
+        </p>
+      </div>
+      <div class="w-[284px]">
+        <h3 class="font-bold text-h3Size tracking-bodyLetter capitalize">
+          Personalized Experience
+        </h3>
+        <p class="tracking-bodyLetter text-baseSize leading-[24px] mt-3">
+          Our team provides personalized recommendations to help you choose the
+          perfect furniture pieces that suit your home’s style and needs.
+        </p>
+      </div>
+      <div class="w-[284px]">
+        <h3 class="font-bold text-h3Size tracking-bodyLetter capitalize">
+          Offers & Discounts
+        </h3>
+        <p class="tracking-bodyLetter text-baseSize leading-[24px] mt-3">
+          Take advantage of special deals and discounts on top-quality
+          furniture, allowing you to upgrade your home at an affordable price.
+        </p>
+      </div>
+    </div>
+    <div class="w-[500px] hidden xl:block">
+      <div class="w-[642px] h-[503px] rounded-cardRadius overflow-hidden ml-3">
+        <img
+          src="https://i.imgur.com/kIZY5bh.jpeg"
+          alt="chair image"
+          class="w-full h-full object-cover object-bottom"
+        />
+      </div>
+    </div>
+  </section>
+</div>

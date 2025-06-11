@@ -1,0 +1,49 @@
+<div
+  *transloco="let t; scope: 'catalog'"
+  class="relative inline-block text-left text-baseSize w-[206px]"
+>
+  <button
+    type="button"
+    class="inline-flex w-full justify-between items-center gap-x-1.5 rounded-2xl h-[48px] bg-white px-6 text-gray-900 shadow-xs ring-inset disabled:bg-gray-200 disabled:text-gray-400 hover:bg-gray-50 tracking-bodyLetter shadow-card"
+    id="menu-button"
+    aria-expanded="true"
+    aria-haspopup="true"
+    (click)="isOpen.set(!isOpen())"
+    [disabled]="isDisabled()"
+  >
+    {{ t('catalog.sort.' + selected()) }}
+    <span [class.rotate-180]="isOpen()"><shared-icon [svg]="angle.svg" /></span>
+  </button>
+
+  @if (isOpen()) {
+  <div
+    class="absolute right-0 z-10 mt-2 w-[206px] origin-top-right rounded-2xl bg-white ring-1 shadow-lg ring-black/5 focus:outline-hidden tracking-bodyLetter overflow-hidden"
+    role="menu"
+    aria-orientation="vertical"
+    aria-labelledby="menu-button"
+    tabindex="-1"
+  >
+    <ul
+      class="py-1"
+      role="none"
+      sharedClickOutside
+      (clickOutside)="isOpen.set(false)"
+    >
+      @for (item of options(); track $index) {
+      <li
+        class="block px-4 py-2 text-gray-700 cursor-pointer hover:bg-gray-50 tracking-bodyLetter pl-6"
+        [class.font-bold]="item.value === value()"
+        role="menuitem"
+        tabindex="0"
+        id="$index"
+        (click)="selectOption(item)"
+        (keydown.enter)="selectOption(item)"
+      >
+        {{ t('catalog.sort.' + item.name) }}
+      </li>
+      <hr [class.hidden]="$index === 2" class="border border mx-6" />
+      }
+    </ul>
+  </div>
+  }
+</div>

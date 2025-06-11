@@ -1,0 +1,28 @@
+<div class="flex flex-col max-w-app m-auto" *transloco="let t">
+  <div class="flex flex-row text-sm py-8 tracking-widerText">
+    <div class="basis-1/4 flex items-center">
+      <a [routerLink]="'/home'">
+        <img src="assets/logo.png" alt="logo image"
+      /></a>
+    </div>
+    <nav
+      class="basis-2/4 flex flex-row gap-9 items-center pl-[26px] text-[15px]"
+    >
+      @for (item of routes; track $index) {
+      <lib-navigation-item
+        [name]="t(item.name) | capitalizeFirstWord"
+        [link]="item.link"
+      />
+      }
+    </nav>
+    <div class="basis-1/4 flex justify-end items-center gap-7">
+      <shared-icon [svg]="iconSearch.svg" />
+      <shared-icon [svg]="iconPerson.svg" />
+      <shared-icon [svg]="iconBasket.svg" />
+      <shared-select
+        [options]="languageOptions"
+        [formControl]="selectLangControl"
+      />
+    </div>
+  </div>
+</div>
