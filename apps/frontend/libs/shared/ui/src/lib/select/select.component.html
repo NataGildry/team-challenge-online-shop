@@ -26,7 +26,7 @@
       sharedClickOutside
       (clickOutside)="isOpen.set(false)"
     >
-      @for (item of enableOptions(); track $index) {
+      @for (item of availableOptions(); track $index) {
       <li
         class="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-50 uppercase"
         role="menuitem"
