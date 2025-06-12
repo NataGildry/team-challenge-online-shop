@@ -99,24 +99,25 @@ export default [
   },
   {
     files: ['**/*.html'],
-    // Override or add rules here
     rules: {
-       '@angular-eslint/template/no-any': 'error',
-    '@angular-eslint/template/banana-in-box': 'error', // Ensures [(expr)] syntax is correct
-    '@angular-eslint/template/cyclomatic-complexity': ['warn', { maxComplexity: 5 }],
-    '@angular-eslint/template/no-negated-async': 'warn',
+      '@angular-eslint/template/no-any': 'error',
+      '@angular-eslint/template/banana-in-box': 'error', // Ensures [(expr)] syntax is correct
+      '@angular-eslint/template/cyclomatic-complexity': [
+        'warn',
+        { maxComplexity: 5 },
+      ],
+      '@angular-eslint/template/no-negated-async': 'warn',
 
-    // Best practices
-    '@angular-eslint/template/conditional-complexity': ['warn', { maxComplexity: 3 }],
-    '@angular-eslint/template/i18n': 'off', // Set to 'error' if using Angular i18n
-    '@angular-eslint/template/no-positive-tabindex': 'warn',
+      '@angular-eslint/template/conditional-complexity': [
+        'warn',
+        { maxComplexity: 3 },
+      ],
+      '@angular-eslint/template/i18n': 'off', // Set to 'error' if using Angular i18n
+      '@angular-eslint/template/no-positive-tabindex': 'warn',
 
-    // Formatting preferences
-    '@angular-eslint/template/prefer-self-closing-tags': 'warn',
-    // '@angular-eslint/template/no-call-expression': 'error', // Prevent function calls in templates
+      '@angular-eslint/template/prefer-self-closing-tags': 'warn',
 
-    // Naming conventions
-    '@angular-eslint/template/prefer-ngsrc': 'warn', // Helps with lazy-loaded images
+      '@angular-eslint/template/prefer-ngsrc': 'warn', // Helps with lazy-loaded images
     },
   },
 ];
