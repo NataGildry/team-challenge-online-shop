@@ -5,6 +5,6 @@ import { ProductFormComponent } from '../product-form/product-form.component';
 @Component({
   selector: 'lib-add-product',
   imports: [ImageInputComponent, ProductFormComponent],
-  templateUrl: './add-product.component.html',
+  templateUrl: './manage-product.component.html',
 })
-export class AddProductComponent {}
+export class ManageProductComponent {}
