@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ImageInputComponent } from '../image-input/image-input';
+import { ProductFormComponent } from '../product-form/product-form.component';
 
 @Component({
   selector: 'lib-add-product',
-  imports: [CommonModule],
+  imports: [ImageInputComponent, ProductFormComponent],
   templateUrl: './add-product.component.html',
-  styleUrl: './add-product.component.css',
 })
 export class AddProductComponent {}
