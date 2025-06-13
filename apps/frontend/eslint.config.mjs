@@ -1,5 +1,6 @@
 import nx from '@nx/eslint-plugin';
 import eslintPluginImport from 'eslint-plugin-import';
+import angularTemplatePlugin from '@angular-eslint/eslint-plugin-template';
 
 export default [
   ...nx.configs['flat/base'],
@@ -99,6 +100,9 @@ export default [
   },
   {
     files: ['**/*.html'],
+    plugins: {
+      '@angular-eslint/template': angularTemplatePlugin,
+    },
     rules: {
       '@angular-eslint/template/no-any': 'error',
       '@angular-eslint/template/banana-in-box': 'error', // Ensures [(expr)] syntax is correct
