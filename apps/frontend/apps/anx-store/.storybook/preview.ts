@@ -9,8 +9,8 @@ import {
 } from '@storybook/angular';
 import { DecoratorFunction, PartialStoryFn } from 'storybook/internal/types';
 import { StoryFnAngularReturnType } from '@storybook/angular/dist/client/types';
+import { Langs, TranslocoRootModule } from '@anx-store/shared/utils';
 
-import { Langs } from '@anx-store/shared/utils';
 import { LocaleManagerComponent } from './i18n-management.component';
 
 type Globals = {
