@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { ButtonComponent } from '@anx-store/shared/ui';
 
 @Component({
   selector: 'lib-feature-admin',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, RouterLink, ButtonComponent],
   templateUrl: './feature-admin.component.html',
 })
 export class FeatureAdminComponent {}
