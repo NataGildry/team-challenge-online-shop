@@ -4,13 +4,5 @@
     "emitDecoratorMetadata": true
   },
   "exclude": ["../**/*.spec.ts"],
-  "include": [
-    "../../../libs/shared/ui/src/lib/**/*.stories.ts",
-    "../../../libs/shared/ui/src/lib/**/*.stories.js",
-    "../../../libs/shared/ui/src/lib/**/*.stories.jsx",
-    "../../../libs/shared/ui/src/lib/**/*.stories.tsx",
-    "../../../libs/shared/ui/src/lib/**/*.stories.mdx",
-    "*.js",
-    "*.ts"
-  ]
+  "include": ["../../../libs/shared/ui/src/lib/**/*.stories.ts", "*.js", "*.ts"]
 }

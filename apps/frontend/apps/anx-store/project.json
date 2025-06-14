@@ -116,7 +116,14 @@
         "port": 4400,
         "configDir": "apps/anx-store/.storybook",
         "browserTarget": "anx-store:build",
-        "compodoc": false
+        "compodoc": false,
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/anx-store/src/assets/i18n",
+            "output": "assets/i18n"
+          }
+        ]
       },
       "configurations": {
         "ci": {

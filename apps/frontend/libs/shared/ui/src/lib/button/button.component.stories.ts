@@ -22,7 +22,7 @@ type Story = StoryObj<ButtonComponent>;
 
 export const Primary: Story = {
   args: {
-    label: 'Click Me',
+    label: 'stories.shared.button.add',
     disabled: false,
     color: 'primary',
   },
@@ -30,16 +30,8 @@ export const Primary: Story = {
 
 export const Black: Story = {
   args: {
-    label: 'Delete',
+    label: 'stories.shared.button.cancel',
     disabled: false,
     color: 'black',
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    label: 'Disabled',
-    disabled: true,
-    color: 'primary',
   },
 };
