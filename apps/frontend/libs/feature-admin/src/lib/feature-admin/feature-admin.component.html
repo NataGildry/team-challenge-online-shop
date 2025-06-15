@@ -1,6 +1,53 @@
 <router-outlet />
-<shared-button
-  [label]="'Add New Item'"
-  [color]="'black'"
-  [routerLink]="'/admin/add-product'"
-/>
+
+<!-- <h1 class="w-full">dashboard</h1> -->
+<div class="max-w-app flex justify-between flex-wrap pt-11">
+  <h1
+    class="w-full tracking-widerHeading font-bold uppercase font-Montserrat leading-[60px] mb-5 text-[2.5rem]"
+  >
+    dashboard
+  </h1>
+  <aside class="w-[244px] border-r-2 pb-8">
+    <ul class="flex flex-col gap-8">
+      <li
+        class="capitalize flex justify-start gap-5 items-center cursor-pointer hover:border-l-4"
+      >
+        <span class="w-7 flex justify-center"
+          ><shared-icon [svg]="dashboardIcon.svg" /></span
+        >dashboard
+      </li>
+      <li
+        class="capitalize flex justify-start items-center gap-5 cursor-pointer hover:border-l-4"
+      >
+        <span class="w-7 flex justify-center"
+          ><shared-icon [svg]="productBasketIcon.svg" /></span
+        >product
+      </li>
+      <li
+        class="capitalize flex justify-start gap-5 items-center cursor-pointer hover:border-l-4"
+      >
+        <span class="w-7 flex justify-center"
+          ><shared-icon [svg]="questionMarkIcon.svg" /></span
+        >help
+      </li>
+
+      <hr class="border-t-2 mr-10" />
+
+      <li
+        class="uppercase flex justify-start gap-5 items-center cursor-pointer hover:border-l-4"
+      >
+        <span class="w-7 flex justify-center"
+          ><shared-icon [svg]="exitIcon.svg" /></span
+        >exit
+      </li>
+    </ul>
+  </aside>
+
+  <section class="px-10">
+    <shared-button
+      [label]="'Add New Item'"
+      [color]="'black'"
+      [routerLink]="'/admin/add-product'"
+    />
+  </section>
+</div>
