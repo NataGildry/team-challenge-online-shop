@@ -30,7 +30,7 @@ export class IconComponent {
 
   private changeColor(color: string, svg: string): string {
     return svg
-      .replace(/fill="white"/g, `fill="${color}"`)
-      .replace(/stroke="white"/g, `stroke="${color}"`);
+      .replace(/fill="[^"]*"/g, `fill="${color}"`)
+      .replace(/stroke="[^"]*"/g, `stroke="${color}"`);
   }
 }
