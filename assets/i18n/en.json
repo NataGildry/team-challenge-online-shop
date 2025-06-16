@@ -18,13 +18,5 @@
     "rights": "all rights reserved",
     "terms_conditions": "terms & conditions",
     "privacy_policy": "privacy policy"
-  },
-  "stories": {
-    "shared": {
-      "button": {
-        "add": "add",
-        "cancel": "cancel"
-      }
-    }
   }
 }
