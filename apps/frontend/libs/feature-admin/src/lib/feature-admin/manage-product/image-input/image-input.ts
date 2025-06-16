@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IconButtonComponent , plus } from '@anx-store/shared/ui';
+import { IconButtonComponent, plus } from '@anx-store/shared/ui';
 
 @Component({
   selector: 'lib-image-input',

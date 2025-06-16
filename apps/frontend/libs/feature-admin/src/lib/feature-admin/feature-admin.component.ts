@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { angle, ButtonComponent, IconComponent ,
+import {
+  IconComponent,
   dashboard,
   questionMark,
   exit,
@@ -9,13 +10,15 @@ import { angle, ButtonComponent, IconComponent ,
 
 @Component({
   selector: 'lib-feature-admin',
-  imports: [RouterOutlet, RouterLink, ButtonComponent, IconComponent],
+  imports: [RouterOutlet, IconComponent, RouterLink],
   templateUrl: './feature-admin.component.html',
 })
 export class FeatureAdminComponent {
-  protected readonly dashboardIcon = dashboard;
-  protected readonly productBasketIcon = iconBasket;
-  protected readonly questionMarkIcon = questionMark;
   protected readonly exitIcon = exit;
-  protected readonly angleIcon = angle;
+
+  protected readonly layouts = [
+    { name: 'dashboard', icon: dashboard, linkTo: 'dashboard' },
+    { name: 'product', icon: iconBasket, linkTo: 'product' },
+    { name: 'help', icon: questionMark, linkTo: 'help' },
+  ];
 }

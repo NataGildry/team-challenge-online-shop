@@ -1,1 +1,2 @@
-export { featureAdminRoutes } from './lib/feature-admin.routes';
+export { adminRoutes } from './lib/admin.routes';
+export { FeatureAdminComponent } from './lib/feature-admin/feature-admin.component';
