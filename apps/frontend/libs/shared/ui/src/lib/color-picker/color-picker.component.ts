@@ -53,4 +53,8 @@ export class ColorPickerComponent implements ControlValueAccessor {
   public setDisabledState(isDisabled: boolean): void {
     this.isDisabled.set(isDisabled);
   }
+
+  protected isChecked(hex: string): boolean {
+    return this.value().includes(hex);
+  }
 }
