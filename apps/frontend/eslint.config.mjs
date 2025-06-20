@@ -104,6 +104,17 @@ export default [
       '@angular-eslint/template': angularTemplatePlugin,
     },
     rules: {
+      '@angular-eslint/template/alt-text': 'error',
+      '@angular-eslint/template/elements-content': 'error',
+      '@angular-eslint/template/click-events-have-key-events': 'error',
+      '@angular-eslint/template/mouse-events-have-key-events': 'error',
+      '@angular-eslint/template/interactive-supports-focus': 'error',
+      '@angular-eslint/template/label-has-associated-control': 'error',
+      '@angular-eslint/template/no-autofocus': 'error',
+      '@angular-eslint/template/no-distracting-elements': 'error',
+      '@angular-eslint/template/role-has-required-aria': 'error',
+      '@angular-eslint/template/table-scope': 'error',
+      '@angular-eslint/template/valid-aria': 'error',
       '@angular-eslint/template/no-any': 'error',
       '@angular-eslint/template/banana-in-box': 'error', // Ensures [(expr)] syntax is correct
       '@angular-eslint/template/cyclomatic-complexity': [
@@ -111,16 +122,13 @@ export default [
         { maxComplexity: 5 },
       ],
       '@angular-eslint/template/no-negated-async': 'warn',
-
       '@angular-eslint/template/conditional-complexity': [
         'warn',
         { maxComplexity: 3 },
       ],
       '@angular-eslint/template/i18n': 'off', // Set to 'error' if using Angular i18n
       '@angular-eslint/template/no-positive-tabindex': 'warn',
-
       '@angular-eslint/template/prefer-self-closing-tags': 'warn',
-
       '@angular-eslint/template/prefer-ngsrc': 'warn', // Helps with lazy-loaded images
     },
   },

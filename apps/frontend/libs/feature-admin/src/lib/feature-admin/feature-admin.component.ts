@@ -1,9 +1,25 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import {
+  IconComponent,
+  dashboard,
+  questionMark,
+  exit,
+  iconBasket,
+} from '@anx-store/shared/ui';
+import { TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
   selector: 'lib-feature-admin',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, IconComponent, RouterLink, TranslocoDirective],
   templateUrl: './feature-admin.component.html',
 })
-export class FeatureAdminComponent {}
+export class FeatureAdminComponent {
+  protected readonly exitIcon = exit;
+
+  protected readonly layouts = [
+    { name: 'dashboard', icon: dashboard, linkTo: 'dashboard' },
+    { name: 'products', icon: iconBasket, linkTo: 'products' },
+    { name: 'help', icon: questionMark, linkTo: 'help' },
+  ];
+}

@@ -36,6 +36,11 @@
             "glob": "**/*",
             "input": "libs/feature-catalog/src/lib/i18n",
             "output": "assets/i18n/catalog"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/feature-admin/src/lib/i18n",
+            "output": "assets/i18n/admin"
           }
         ],
         "styles": [

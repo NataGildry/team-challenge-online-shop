@@ -19,18 +19,25 @@ export class IconComponent {
 
   public readonly svg = input.required<string>();
   public readonly color = input<string>('');
+  public readonly height = input<string>('');
 
   protected readonly sanitizedSvg = computed<SafeHtml>(() => {
-    const finalSvg = this.color()
-      ? this.changeColor(this.color(), this.svg())
-      : this.svg();
+    let finalSvg = this.svg();
+    if (this.color()) finalSvg = this.changeColor(this.color(), this.svg());
+    if (this.height()) finalSvg = this.changeHeigh(this.height(), finalSvg);
 
     return this.sanitizer.bypassSecurityTrustHtml(finalSvg);
   });
 
   private changeColor(color: string, svg: string): string {
     return svg
-      .replace(/fill="white"/g, `fill="${color}"`)
-      .replace(/stroke="white"/g, `stroke="${color}"`);
+      .replace(/fill="[^"]*"/g, `fill="${color}"`)
+      .replace(/stroke="[^"]*"/g, `stroke="${color}"`);
+  }
+
+  private changeHeigh(height: string, svg: string): string {
+    return svg
+      .replace(/width="[^"]*"/g, `width="${height}"`)
+      .replace(/height="[^"]*"/g, `height="${height}"`);
   }
 }
