@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
 import { ManageProductComponent } from './feature-admin/manage-product/manage-product.component';
-import { ProductLayoutComponent } from './feature-admin/product-layout/product-layout.component';
+import { ProductLayoutComponent } from './feature-admin/products-layout/products-layout.component';
 
 export const adminFeatureRoutes: Route[] = [
   {
@@ -10,9 +10,9 @@ export const adminFeatureRoutes: Route[] = [
         (m) => m.FeatureAdminComponent
       ),
     children: [
-      { path: 'product', component: ProductLayoutComponent },
-      { path: 'product/add-product', component: ManageProductComponent },
-      { path: 'product/edit-product/:id', component: ManageProductComponent },
+      { path: 'products', component: ProductLayoutComponent },
+      { path: 'products/add-product', component: ManageProductComponent },
+      { path: 'products/edit-product/:id', component: ManageProductComponent },
     ],
   },
 ];

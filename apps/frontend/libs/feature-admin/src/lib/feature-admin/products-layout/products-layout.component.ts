@@ -6,6 +6,6 @@ import { TranslocoDirective } from '@jsverse/transloco';
 @Component({
   selector: 'lib-product-layout',
   imports: [ButtonComponent, RouterLink, TranslocoDirective],
-  templateUrl: './product-layout.component.html',
+  templateUrl: './products-layout.component.html',
 })
 export class ProductLayoutComponent {}

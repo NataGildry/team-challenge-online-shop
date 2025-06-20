@@ -19,7 +19,7 @@ export class FeatureAdminComponent {
 
   protected readonly layouts = [
     { name: 'dashboard', icon: dashboard, linkTo: 'dashboard' },
-    { name: 'product', icon: iconBasket, linkTo: 'product' },
+    { name: 'products', icon: iconBasket, linkTo: 'products' },
     { name: 'help', icon: questionMark, linkTo: 'help' },
   ];
 }
