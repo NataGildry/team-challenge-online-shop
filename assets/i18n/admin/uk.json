@@ -1,7 +1,7 @@
 {
   "layouts": {
     "dashboard": "панель керування",
-    "product": "продукт",
+    "products": "продукти",
     "help": "допомога"
   },
   "controls": {
