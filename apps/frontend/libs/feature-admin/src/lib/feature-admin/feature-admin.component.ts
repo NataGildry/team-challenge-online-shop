@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import {
   IconComponent,
@@ -7,7 +7,7 @@ import {
   exit,
   iconBasket,
 } from '@anx-store/shared/ui';
-import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
+import { TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
   selector: 'lib-feature-admin',
@@ -15,7 +15,6 @@ import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
   templateUrl: './feature-admin.component.html',
 })
 export class FeatureAdminComponent {
-  private readonly transloco = inject(TranslocoService);
   protected readonly exitIcon = exit;
 
   protected readonly layouts = [

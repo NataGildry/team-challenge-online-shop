@@ -2,7 +2,7 @@ import { Route } from '@angular/router';
 import { ManageProductComponent } from './feature-admin/manage-product/manage-product.component';
 import { ProductLayoutComponent } from './feature-admin/product-layout/product-layout.component';
 
-export const adminRoutes: Route[] = [
+export const adminFeatureRoutes: Route[] = [
   {
     path: 'admin',
     loadComponent: () =>

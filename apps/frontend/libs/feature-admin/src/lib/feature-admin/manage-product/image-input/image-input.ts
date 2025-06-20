@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   cross,
   IconButtonComponent,
@@ -6,7 +6,7 @@ import {
   plus,
   IconComponent,
 } from '@anx-store/shared/ui';
-import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
+import { TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
   selector: 'lib-image-input',
@@ -14,8 +14,6 @@ import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
   imports: [IconButtonComponent, IconComponent, TranslocoDirective],
 })
 export class ImageInputComponent {
-  private readonly transloco = inject(TranslocoService);
-
   protected plusIcon = plus;
   protected imgIcon = image;
   protected crossIcon = cross;
