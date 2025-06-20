@@ -1,0 +1,14 @@
+{
+  "layouts": {
+    "dashboard": "dashboard",
+    "product": "product",
+    "help": "help"
+  },
+  "controls": {
+    "exit": "exit",
+    "add_new_item": "add new item"
+  },
+  "form": {
+    "links_to_images": "links to image"
+  }
+}
