@@ -1,0 +1,14 @@
+{
+  "layouts": {
+    "dashboard": "панель керування",
+    "product": "продукт",
+    "help": "допомога"
+  },
+  "controls": {
+    "exit": "вихід",
+    "add_new_item": "додати продукт"
+  },
+  "form": {
+    "links_to_images": "посилання на зображення"
+  }
+}

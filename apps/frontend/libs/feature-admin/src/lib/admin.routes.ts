@@ -4,7 +4,7 @@ import { ProductLayoutComponent } from './feature-admin/product-layout/product-l
 
 export const adminRoutes: Route[] = [
   {
-    path: '',
+    path: 'admin',
     loadComponent: () =>
       import('./feature-admin/feature-admin.component').then(
         (m) => m.FeatureAdminComponent

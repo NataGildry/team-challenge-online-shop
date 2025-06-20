@@ -1,5 +1,7 @@
-<shared-button
-  [label]="'Add New Item'"
-  [color]="'black'"
-  [routerLink]="'add-product'"
-/>
+<div *transloco="let t; scope: 'admin'">
+  <shared-button
+    [label]="t('admin.controls.add_new_item')"
+    [color]="'black'"
+    [routerLink]="'add-product'"
+  />
+</div>
