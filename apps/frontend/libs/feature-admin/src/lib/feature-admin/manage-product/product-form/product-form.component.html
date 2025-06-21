@@ -1,5 +1,7 @@
 <div class="m-auto">
-  <h1>information</h1>
+  <h1 class="text-h2 uppercase tracking-widerHeading font-bold font-Montserrat">
+    information
+  </h1>
   <form action="" [formGroup]="form">
     <div class="flex flex-col">
       <label for="name">name of item</label>
@@ -35,12 +37,12 @@
 
     <div class="flex flex-col">
       <span>status</span>
-      <lib-select [options]="statusOptions" />
+      <shared-select [options]="statusOptions" />
     </div>
 
     <div class="flex flex-col">
       <span>category</span>
-      <lib-select [options]="categoryOptions" />
+      <shared-select [options]="categoryOptions" />
     </div>
 
     <div class="tracking-bodyLetter">
@@ -75,7 +77,7 @@
 
     <div class="flex flex-col">
       <span>material</span>
-      <lib-select [options]="materialOptions" />
+      <shared-select [options]="materialOptions" />
     </div>
 
     <div class="flex flex-col">

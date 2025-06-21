@@ -5,12 +5,12 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { SelectComponent } from './select/select.component';
 import {
   ColorPickerComponent,
   IconComponent,
   FabricColors,
   angle,
+  SelectComponent,
 } from '@anx-store/shared/ui';
 import { NgClass } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
