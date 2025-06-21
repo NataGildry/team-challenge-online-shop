@@ -1,1 +1,91 @@
-<p>product-form works!</p>
+<div class="m-auto">
+  <h1>information</h1>
+  <form action="" [formGroup]="form">
+    <div class="flex flex-col">
+      <label for="name">name of item</label>
+      <input id="name" type="text" class="rounded-full border h-12 px-6" />
+    </div>
+
+    <div class="flex">
+      <div class="flex flex-col flex-1">
+        <label for="price" class="capitalize">price</label>
+        <input
+          id="price"
+          type="number"
+          class="rounded-full border h-12 input-no-spinner px-6"
+        />
+      </div>
+      <div class="flex flex-col flex-1">
+        <label for="quantity" class="capitalize">quantity</label>
+        <input
+          id="quantity"
+          type="number"
+          class="rounded-full border h-12 input-no-spinner px-6"
+        />
+      </div>
+      <div class="flex flex-col flex-1">
+        <label for="sku" class="capitalize">sku</label>
+        <input
+          id="sku"
+          type="number"
+          class="rounded-full border h-12 input-no-spinner px-6"
+        />
+      </div>
+    </div>
+
+    <div class="flex flex-col">
+      <span>status</span>
+      <lib-select [options]="statusOptions" />
+    </div>
+
+    <div class="flex flex-col">
+      <span>category</span>
+      <lib-select [options]="categoryOptions" />
+    </div>
+
+    <div class="tracking-bodyLetter">
+      <span>colors</span>
+      <button
+        class="w-full flex justify-between items-center py-3 px-6 mb-2 text-slate-800 text-baseSize border rounded-full bg-white"
+        (click)="toggleAccordion()"
+        type="button"
+      >
+        <span class="uppercase tracking-bodyLetter">
+          @for (item of selectedColors(); track $index) {
+          <span class="capitalize">{{ item }}&nbsp;&nbsp; </span>
+          }
+        </span>
+
+        <span [ngClass]="isColorPickerOpen() ? 'rotate-180' : ''">
+          <shared-icon [svg]="angleIcon.svg" />
+        </span>
+      </button>
+
+      @if(isColorPickerOpen()) {
+
+      <div class="px-6 bg-white rounded-2xl py-5">
+        <shared-color-picker
+          [colorList]="colorsList"
+          formControlName="colorControl"
+        />
+      </div>
+
+      }
+    </div>
+
+    <div class="flex flex-col">
+      <span>material</span>
+      <lib-select [options]="materialOptions" />
+    </div>
+
+    <div class="flex flex-col">
+      <label for="description">description</label>
+      <textarea
+        id="description"
+        type="text"
+        rows="2"
+        class="rounded-2xl border py-3 px-6"
+      ></textarea>
+    </div>
+  </form>
+</div>
