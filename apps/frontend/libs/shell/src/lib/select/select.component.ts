@@ -4,12 +4,14 @@ import {
   computed,
   forwardRef,
   input,
-  OnInit,
   signal,
 } from '@angular/core';
-import { ClickOutsideDirective } from '../directives';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { angle, IconComponent } from '../icon';
+import {
+  angle,
+  ClickOutsideDirective,
+  IconComponent,
+} from '@anx-store/shared/ui';
 
 export interface SelectOption {
   name: string;
@@ -17,7 +19,7 @@ export interface SelectOption {
 }
 
 @Component({
-  selector: 'shared-select',
+  selector: 'lib-select',
   imports: [ClickOutsideDirective, IconComponent],
   templateUrl: './select.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -30,7 +32,7 @@ export interface SelectOption {
     },
   ],
 })
-export class SelectComponent implements ControlValueAccessor, OnInit {
+export class SelectComponent implements ControlValueAccessor {
   protected readonly isOpen = signal(false);
   protected readonly isDisabled = signal(false);
   protected readonly value = signal<string>('');
@@ -39,16 +41,16 @@ export class SelectComponent implements ControlValueAccessor, OnInit {
     return option?.name ?? '';
   });
 
-  public readonly options = input.required<SelectOption[]>();
+  protected readonly availableOptions = computed(() => {
+    return this.options().filter((option) => option.value !== this.value());
+  });
 
-  protected readonly angleIcon = angle;
+  public readonly options = input.required<SelectOption[]>();
 
   private onChange?: (value: string) => void;
   private onTouched?: () => void;
 
-  public ngOnInit(): void {
-    this.value.set(this.options()[0].value);
-  }
+  protected readonly angle = angle;
 
   protected selectOption(item: SelectOption): void {
     this.value.set(item.value);

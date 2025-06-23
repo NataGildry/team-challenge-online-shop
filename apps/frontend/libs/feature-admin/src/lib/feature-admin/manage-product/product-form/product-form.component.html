@@ -4,7 +4,7 @@
   </h1>
   <form action="" [formGroup]="form">
     <div class="flex flex-col">
-      <label for="name">name of item</label>
+      <label for="name">{{ 'name of item' | capitalizeFirstWord }} </label>
       <input id="name" type="text" class="rounded-full border h-12 px-6" />
     </div>
 
@@ -48,7 +48,7 @@
     <div class="tracking-bodyLetter">
       <span>colors</span>
       <button
-        class="w-full flex justify-between items-center py-3 px-6 mb-2 text-slate-800 text-baseSize border rounded-full bg-white"
+        class="w-full flex justify-between items-center py-3 px-6 mb-2 text-slate-800 text-baseSize border rounded-full bg-white hover:bg-gray-100"
         (click)="toggleAccordion()"
         type="button"
       >

@@ -16,6 +16,7 @@ import { NgClass } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { tap } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { CapitalizeFirstWordPipe } from '@anx-store/shared/utils';
 
 @Component({
   selector: 'lib-product-form',
@@ -25,6 +26,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     IconComponent,
     NgClass,
     ReactiveFormsModule,
+    CapitalizeFirstWordPipe,
   ],
   templateUrl: './product-form.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
