@@ -18,5 +18,13 @@
     "rights": "всі права захищені",
     "terms_conditions": "умови та положення",
     "privacy_policy": "політика конфіденційності"
+  },
+  "stories": {
+    "shared": {
+      "button": {
+        "add": "додати",
+        "cancel": "скасувати"
+      }
+    }
   }
 }
