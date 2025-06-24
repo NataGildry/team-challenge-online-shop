@@ -9,6 +9,16 @@
     "add_new_item": "додати продукт"
   },
   "form": {
+    "description": "опис",
+    "material": "матеріал",
+    "colors": "кольори",
+    "category": "категорія",
+    "status": "статус",
+    "sku": "артикул",
+    "quantity": "кількість",
+    "price": "ціна",
+    "information": "інформація",
+    "name_of_item": "назва товару",
     "links_to_images": "посилання на зображення"
   }
 }

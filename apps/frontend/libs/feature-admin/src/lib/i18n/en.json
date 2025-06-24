@@ -9,6 +9,16 @@
     "add_new_item": "add new item"
   },
   "form": {
+    "description": "description",
+    "material": "upholstery material",
+    "colors": "colors",
+    "category": "category",
+    "status": "status",
+    "sku": "sku",
+    "quantity": "quantity",
+    "price": "price",
+    "information": "information",
+    "name_of_item": "Name of item",
     "links_to_images": "links to image"
   }
 }

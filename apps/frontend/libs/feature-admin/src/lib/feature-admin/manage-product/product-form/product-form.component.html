@@ -1,16 +1,26 @@
-<div class="m-auto">
-  <h1 class="text-h2 uppercase tracking-widerHeading font-bold font-Montserrat">
-    information
+<div *transloco="let t; scope: 'admin'" class="m-auto">
+  <h1
+    class="text-h2 uppercase tracking-widerHeading font-bold font-Montserrat mb-5"
+  >
+    {{ t('admin.form.information') }}
   </h1>
-  <form action="" [formGroup]="form">
+  <form
+    action=""
+    [formGroup]="form"
+    class="flex flex-col gap-4 tracking-bodyLetter"
+  >
     <div class="flex flex-col">
-      <label for="name">{{ 'name of item' | capitalizeFirstWord }} </label>
+      <label class="mb-1" for="name"
+        >{{ t('admin.form.name_of_item') | capitalizeFirstWord }}
+      </label>
       <input id="name" type="text" class="rounded-full border h-12 px-6" />
     </div>
 
-    <div class="flex">
+    <div class="flex gap-5">
       <div class="flex flex-col flex-1">
-        <label for="price" class="capitalize">price</label>
+        <label for="price" class="capitalize mb-1">{{
+          t('admin.form.price')
+        }}</label>
         <input
           id="price"
           type="number"
@@ -18,7 +28,9 @@
         />
       </div>
       <div class="flex flex-col flex-1">
-        <label for="quantity" class="capitalize">quantity</label>
+        <label for="quantity font-Montserrat" class="capitalize mb-1">{{
+          t('admin.form.quantity')
+        }}</label>
         <input
           id="quantity"
           type="number"
@@ -26,7 +38,9 @@
         />
       </div>
       <div class="flex flex-col flex-1">
-        <label for="sku" class="capitalize">sku</label>
+        <label for="sku" class="capitalize mb-1">{{
+          t('admin.form.sku')
+        }}</label>
         <input
           id="sku"
           type="number"
@@ -36,19 +50,19 @@
     </div>
 
     <div class="flex flex-col">
-      <span>status</span>
+      <span class="capitalize mb-1">{{ t('admin.form.status') }}</span>
       <shared-select [options]="statusOptions" />
     </div>
 
     <div class="flex flex-col">
-      <span>category</span>
+      <span class="capitalize mb-1">{{ t('admin.form.category') }}</span>
       <shared-select [options]="categoryOptions" />
     </div>
 
     <div class="tracking-bodyLetter">
-      <span>colors</span>
+      <span class="capitalize">{{ t('admin.form.colors') }}</span>
       <button
-        class="w-full flex justify-between items-center py-3 px-6 mb-2 text-slate-800 text-baseSize border rounded-full bg-white hover:bg-gray-100"
+        class="w-full flex justify-between items-center py-3 px-6 mb-2 mt-1 text-slate-800 text-baseSize border rounded-full bg-white hover:bg-gray-100"
         (click)="toggleAccordion()"
         type="button"
       >
@@ -76,12 +90,14 @@
     </div>
 
     <div class="flex flex-col">
-      <span>material</span>
+      <span class="capitalize mb-1">{{ t('admin.form.material') }}</span>
       <shared-select [options]="materialOptions" />
     </div>
 
     <div class="flex flex-col">
-      <label for="description">description</label>
+      <label class="capitalize mb-1" for="description">{{
+        t('admin.form.description')
+      }}</label>
       <textarea
         id="description"
         type="text"
