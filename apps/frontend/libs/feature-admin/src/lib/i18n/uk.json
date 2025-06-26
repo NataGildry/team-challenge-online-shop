@@ -2,7 +2,8 @@
   "layouts": {
     "dashboard": "панель керування",
     "products": "продукти",
-    "help": "допомога"
+    "help": "допомога",
+    "add_item": "додати продукт"
   },
   "controls": {
     "exit": "вихід",

@@ -2,7 +2,8 @@
   "layouts": {
     "dashboard": "dashboard",
     "products": "products",
-    "help": "help"
+    "help": "help",
+    "add_item": "add item"
   },
   "controls": {
     "exit": "exit",

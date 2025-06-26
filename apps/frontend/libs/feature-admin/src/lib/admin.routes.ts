@@ -9,12 +9,11 @@ export const adminFeatureRoutes: Route[] = [
       import('./feature-admin/feature-admin.component').then(
         (m) => m.FeatureAdminComponent
       ),
-    data: { title: 'dashboard' },
+
     children: [
       {
         path: 'products',
         component: ProductLayoutComponent,
-        data: { title: 'products' },
       },
       { path: 'products/add-product', component: ManageProductComponent },
       { path: 'products/edit-product/:id', component: ManageProductComponent },
