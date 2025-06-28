@@ -36,7 +36,7 @@ import { TranslocoDirective } from '@jsverse/transloco';
 export class ProductFormComponent {
   private readonly destroyRef = inject(DestroyRef);
 
-  protected readonly selectedColors = signal<string[]>(['color']);
+  protected readonly selectedColors = signal<string[]>([]);
   protected readonly angleIcon = angle;
 
   protected isColorPickerOpen = signal<boolean>(false);

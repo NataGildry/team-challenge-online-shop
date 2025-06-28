@@ -13,7 +13,12 @@
       <label class="mb-1" for="name"
         >{{ t('admin.form.name_of_item') | capitalizeFirstWord }}
       </label>
-      <input id="name" type="text" class="rounded-full border h-12 px-6" />
+      <input
+        id="name"
+        type="text"
+        class="rounded-full border h-12 px-6"
+        [placeholder]="t('admin.form.enter_name_of_item') | capitalizeFirstWord"
+      />
     </div>
 
     <div class="flex gap-5">
@@ -25,6 +30,7 @@
           id="price"
           type="number"
           class="rounded-full border h-12 input-no-spinner px-6"
+          [placeholder]="t('admin.form.enter_price') | capitalizeFirstWord"
         />
       </div>
       <div class="flex flex-col flex-1">
@@ -35,6 +41,7 @@
           id="quantity"
           type="number"
           class="rounded-full border h-12 input-no-spinner px-6"
+          placeholder="0"
         />
       </div>
       <div class="flex flex-col flex-1">
@@ -45,6 +52,9 @@
           id="sku"
           type="number"
           class="rounded-full border h-12 input-no-spinner px-6"
+          [placeholder]="
+            t('admin.form.unique_identifier') | capitalizeFirstWord
+          "
         />
       </div>
     </div>
@@ -66,9 +76,13 @@
         (click)="toggleAccordion()"
         type="button"
       >
-        <span class="uppercase tracking-bodyLetter">
+        <span class="tracking-bodyLetter">
           @for (item of selectedColors(); track $index) {
           <span class="capitalize">{{ item }}&nbsp;&nbsp; </span>
+          } @if(!selectedColors().length){
+          <span class="opacity-50">{{
+            t('admin.form.select_availabe_colors') | capitalizeFirstWord
+          }}</span>
           }
         </span>
 
@@ -101,8 +115,8 @@
       <textarea
         id="description"
         type="text"
-        rows="2"
-        class="rounded-2xl border py-3 px-6"
+        class="rounded-3xl border py-3 px-6 min-h-[85px]"
+        [placeholder]="t('admin.form.description') | capitalizeFirstWord"
       ></textarea>
     </div>
   </form>
