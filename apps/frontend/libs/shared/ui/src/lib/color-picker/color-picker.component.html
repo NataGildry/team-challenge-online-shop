@@ -1,4 +1,4 @@
-<ul class="flex gap-3 flex-wrap h-[116px] w-[148px]">
+<ul class="flex gap-3 flex-wrap">
   @for (item of colorList(); track $index) {
   <li class="w-5 h-5">
     <div
@@ -12,6 +12,7 @@
         type="checkbox"
         class="sr-only peer"
         (change)="selectColor(item.hexCode)"
+        [checked]="isChecked(item.hexCode)"
       />
       <label
         for="cb-{{ $index }}"
