@@ -1,11 +1,17 @@
+using AutoMapper;
 using FakedOutShop.Application.Abstractions;
 using FakedOutShop.Application.Models.Services;
+using FakedOutShop.Application.Options;
+using FakedOutShop.Application.Profiles;
 using FakedOutShop.Domain.Interfaces;
-using FakedOutShop.Infrastructure.Cosmos;
-using FakedOutShop.Infrastructure.Repositories;
+using FakedOutShop.Domain;
+using FakedOutShop.Domain.Entities;
+using FakedOutShop.Domain.Repositories;
+using FakedOutShop.Infrastructure.Roles;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 
 namespace FakedOutShop.Infrastructure
 {
@@ -13,14 +19,27 @@ namespace FakedOutShop.Infrastructure
   {
     public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
     {
-      services.Configure<CosmosOptions>(configuration.GetSection("CosmosDb"));
+      services.AddDbContext<ApplicationDbContext>(options =>
+        options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
 
-      CosmosClientProvider.ProvideCosmosClient(services, configuration);
+      services.AddIdentity<User, IdentityRole>()
+        .AddEntityFrameworkStores<ApplicationDbContext>()
+        .AddDefaultTokenProviders();
 
-      services.AddScoped<IUserService, UserService>();
       services.AddScoped<IUserRepository, UserRepository>();
+      services.AddScoped<IAuthService, AuthService>();
+      services.AddScoped<ITokenService, TokenService>();
+      services.AddScoped<IUserManagerWrapper, UserManagerWrapper>();
+
+      services.Configure<JwtOptions>(configuration.GetSection("Jwt"));
+
+      services.AddAutoMapper(typeof(MappingProfile).Assembly);
 
       return services;
+    }
+    public static async Task InitializeRolesAsync(IServiceProvider serviceProvider)
+    {
+      await RoleInitializer.InitializeAsync(serviceProvider);
     }
   }
 }
