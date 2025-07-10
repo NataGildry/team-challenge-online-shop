@@ -4,11 +4,7 @@
   >
     {{ t('admin.form.information') }}
   </h1>
-  <form
-    action=""
-    [formGroup]="form"
-    class="flex flex-col gap-4 tracking-bodyLetter"
-  >
+  <form [formGroup]="form" class="flex flex-col gap-4 tracking-bodyLetter">
     <div class="flex flex-col">
       <label class="mb-1" for="name"
         >{{ t('admin.form.name_of_item') | capitalizeFirstWord }}

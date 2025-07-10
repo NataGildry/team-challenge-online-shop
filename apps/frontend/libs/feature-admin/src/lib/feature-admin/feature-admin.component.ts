@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
   NavigationEnd,
@@ -25,7 +25,6 @@ export type layoutKeys = 'dashboard' | 'products' | 'add_item';
 })
 export class FeatureAdminComponent {
   private readonly router = inject(Router);
-  private readonly destroyRef = inject(DestroyRef);
   protected readonly exitIcon = exit;
 
   protected currentLayout: layoutKeys = 'dashboard';
@@ -55,7 +54,7 @@ export class FeatureAdminComponent {
             }
           }
         }),
-        takeUntilDestroyed(this.destroyRef)
+        takeUntilDestroyed()
       )
       .subscribe();
   }

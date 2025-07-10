@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  DestroyRef,
-  inject,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import {
   ColorPickerComponent,
   IconComponent,
@@ -34,8 +28,10 @@ import { TranslocoDirective } from '@jsverse/transloco';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductFormComponent {
-  private readonly destroyRef = inject(DestroyRef);
-
+  private get colorControl(): FormControl {
+    // eslint-disable-next-line
+    return this.form.get('colorControl') as FormControl;
+  }
   protected readonly selectedColors = signal<string[]>([]);
   protected readonly angleIcon = angle;
 
@@ -70,13 +66,12 @@ export class ProductFormComponent {
   }));
 
   protected form = new FormGroup({
-    colorControl: new FormControl(),
+    colorControl: new FormControl<string[]>([]),
   });
 
   public constructor() {
-    this.form
-      .get('colorControl')
-      ?.valueChanges.pipe(
+    this.colorControl.valueChanges
+      .pipe(
         tap((colors: string[]) => {
           const newColors = colors.map(
             (hex: string) =>
@@ -86,7 +81,7 @@ export class ProductFormComponent {
             newColors.filter((el) => typeof el === 'string')
           );
         }),
-        takeUntilDestroyed(this.destroyRef)
+        takeUntilDestroyed()
       )
       .subscribe();
   }
