@@ -29,8 +29,7 @@ import { TranslocoDirective } from '@jsverse/transloco';
 })
 export class ProductFormComponent {
   private get colorControl(): FormControl {
-    // eslint-disable-next-line
-    return this.form.get('colorControl') as FormControl;
+    return this.form.controls.color;
   }
   protected readonly selectedColors = signal<string[]>([]);
   protected readonly angleIcon = angle;
@@ -66,7 +65,7 @@ export class ProductFormComponent {
   }));
 
   protected form = new FormGroup({
-    colorControl: new FormControl<string[]>([]),
+    color: new FormControl<string[]>([]),
   });
 
   public constructor() {
