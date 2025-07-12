@@ -1,1 +1,119 @@
-<p>product-form works!</p>
+<div *transloco="let t; scope: 'admin'" class="m-auto">
+  <h1
+    class="text-h2 uppercase tracking-widerHeading font-bold font-Montserrat mb-5"
+  >
+    {{ t('admin.form.information') }}
+  </h1>
+  <form [formGroup]="form" class="flex flex-col gap-4 tracking-bodyLetter">
+    <div class="flex flex-col">
+      <label class="mb-1" for="name"
+        >{{ t('admin.form.name_of_item') | capitalizeFirstWord }}
+      </label>
+      <input
+        id="name"
+        type="text"
+        class="rounded-full border h-12 px-6"
+        [placeholder]="t('admin.form.enter_name_of_item') | capitalizeFirstWord"
+      />
+    </div>
+
+    <div class="flex gap-5">
+      <div class="flex flex-col flex-1">
+        <label for="price" class="capitalize mb-1">{{
+          t('admin.form.price')
+        }}</label>
+        <input
+          id="price"
+          type="number"
+          class="rounded-full border h-12 input-no-spinner px-6"
+          [placeholder]="t('admin.form.enter_price') | capitalizeFirstWord"
+        />
+      </div>
+      <div class="flex flex-col flex-1">
+        <label for="quantity" class="capitalize mb-1">{{
+          t('admin.form.quantity')
+        }}</label>
+        <input
+          id="quantity"
+          type="number"
+          class="rounded-full border h-12 input-no-spinner px-6"
+          placeholder="0"
+        />
+      </div>
+      <div class="flex flex-col flex-1">
+        <label for="sku" class="capitalize mb-1">{{
+          t('admin.form.sku')
+        }}</label>
+        <input
+          id="sku"
+          type="number"
+          class="rounded-full border h-12 input-no-spinner px-6"
+          [placeholder]="
+            t('admin.form.unique_identifier') | capitalizeFirstWord
+          "
+        />
+      </div>
+    </div>
+
+    <div class="flex flex-col">
+      <span class="capitalize mb-1">{{ t('admin.form.status') }}</span>
+      <shared-select [options]="statusOptions" />
+    </div>
+
+    <div class="flex flex-col">
+      <span class="capitalize mb-1">{{ t('admin.form.category') }}</span>
+      <shared-select [options]="categoryOptions" />
+    </div>
+
+    <div class="tracking-bodyLetter">
+      <span class="capitalize">{{ t('admin.form.colors') }}</span>
+      <button
+        class="w-full flex justify-between items-center py-3 px-6 mb-2 mt-1 text-slate-800 text-baseSize border rounded-full bg-white hover:bg-gray-100"
+        (click)="toggleAccordion()"
+        type="button"
+      >
+        <span class="tracking-bodyLetter">
+          @for (item of selectedColors(); track $index) {
+          <span class="capitalize">{{ item }}&nbsp;&nbsp; </span>
+          } @if(!selectedColors().length){
+          <span class="opacity-50">{{
+            t('admin.form.select_availabe_colors') | capitalizeFirstWord
+          }}</span>
+          }
+        </span>
+
+        <span [ngClass]="isColorPickerOpen() ? 'rotate-180' : ''">
+          <shared-icon [svg]="angleIcon.svg" />
+        </span>
+      </button>
+
+      @if(isColorPickerOpen()) {
+
+      <div class="px-6 bg-white rounded-2xl py-5">
+        <shared-color-picker
+          [colorList]="colorsList"
+          formControlName="colorControl"
+        />
+      </div>
+
+      }
+    </div>
+
+    <div class="flex flex-col">
+      <span class="capitalize mb-1">{{ t('admin.form.material') }}</span>
+      <shared-select [options]="materialOptions" />
+    </div>
+
+    <div class="flex flex-col">
+      <label class="capitalize mb-1" for="description">{{
+        t('admin.form.description')
+      }}</label>
+      <textarea
+        id="description"
+        type="text"
+        class="rounded-3xl border py-3 px-6 min-h-[85px]"
+        [placeholder]="t('admin.form.description') | capitalizeFirstWord"
+      ></textarea>
+    </div>
+  </form>
+</div>

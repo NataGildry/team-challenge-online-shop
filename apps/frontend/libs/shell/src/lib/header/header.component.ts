@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { NavigationItemComponent } from '../navigation-item/navigation-item.component';
 import {
-  SelectComponent,
   IconComponent,
   iconBasket,
   iconPerson,
@@ -18,6 +17,7 @@ import {
 import { tap } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
+import { SelectComponent } from '../select/select.component';
 
 @Component({
   selector: 'lib-header',

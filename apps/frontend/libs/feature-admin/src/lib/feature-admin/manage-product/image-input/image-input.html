@@ -1,14 +1,22 @@
-<div *transloco="let t; scope: 'admin'" class="font-Montserrat">
-  <h2 class="uppercase font-bold tracking-widerHeading text-h2">
+<div *transloco="let t; scope: 'admin'">
+  <h2
+    class="uppercase font-bold tracking-widerHeading text-h2 mb-6 font-Montserrat"
+  >
     {{ t('admin.form.links_to_images') }}
   </h2>
   <ul class="w-full">
+    @for (item of images(); track $index) {
     <li class="flex flex-col relative">
-      <label for="imgUrl">Image 1</label>
+      <label for="imgUrl">Image {{ $index + 1 }}</label>
       <div class="flex gap-4 w-12 items-center absolute top-11 right-11">
         <shared-icon [svg]="imgIcon.svg" />
-        <span class="cursor-pointer">
-          <shared-icon [svg]="crossIcon.svg" [height]="'19'" />
+        <span
+          class="cursor-pointer"
+          (click)="removeImage($index)"
+          (keypress.enter)="removeImage($index)"
+          tabindex="0"
+        >
+          <shared-icon [svg]="crossIcon.svg" height="19" />
         </span>
       </div>
       <input
@@ -16,10 +24,19 @@
         type="text"
         class="h-14 rounded-full border mt-1 mb-4 pl-6"
         placeholder="Add link"
+        [disabled]="$index + 1 !== images().length"
       />
-      <span class="m-auto">
+    </li>
+    }
+    <div class="w-full flex items-center">
+      <span
+        class="m-auto rounded-full border cursor-wait"
+        (click)="addImageInput()"
+        (keypress.enter)="addImageInput()"
+        tabindex="0"
+      >
         <shared-icon-button [svgIcon]="plusIcon.svg" [iconColor]="'white'" />
       </span>
-    </li>
+    </div>
   </ul>
 </div>
