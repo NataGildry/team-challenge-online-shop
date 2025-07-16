@@ -1,7 +1,7 @@
-<div class="relative inline-block text-left tracking-bodyLetter">
+<div class="w-full inline-block text-left tracking-bodyLette relative">
   <button
     type="button"
-    class="inline-flex w-full justify-center items-center gap-x-1.5 rounded-md px-3 py-2 text-sm text-gray-900 shadow-xs ring-inset uppercase disabled:bg-gray-200 disabled:text-gray-400 enabled:hover:bg-gray-100"
+    class="inline-flex w-full justify-between items-center gap-x-1.5 rounded-full px-6 py-3 text-baseSize text-gray-900 border shadow-xs ring-inset disabled:bg-gray-200 disabled:text-gray-400 enabled:hover:bg-gray-100 bg-white"
     id="menu-button"
     aria-expanded="true"
     aria-haspopup="true"
@@ -9,26 +9,27 @@
     [disabled]="isDisabled()"
   >
     {{ selected() }}
-    <shared-icon [svg]="angle.svg" />
+    <shared-icon [svg]="angleIcon.svg" />
   </button>
 
   @if (isOpen()) {
   <div
-    class="absolute right-3 z-10 w-15 flex items-center h-8 origin-top-right rounded-full overflow-hidden bg-white ring-1 shadow-lg ring-black/5 focus:outline-hidden"
+    class="absolute mt-2 z-10 w-full flex items-center origin-top-right rounded-2xl overflow-hidden bg-white ring-1 shadow-lg ring-black/5 focus:outline-hidden"
     role="menu"
     aria-orientation="vertical"
     aria-labelledby="menu-button"
     tabindex="-1"
   >
     <ul
-      class="py-1"
+      class="py-1 w-full"
       role="none"
       sharedClickOutside
       (clickOutside)="isOpen.set(false)"
     >
-      @for (item of availableOptions(); track $index) {
+      @for (item of options(); track $index) {
       <li
-        class="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-50 uppercase"
+        class="block px-6 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-50"
+        [class.font-bold]="item.value === value()"
         role="menuitem"
         tabindex="-1"
         id="$index"
@@ -37,6 +38,10 @@
       >
         {{ item.name }}
       </li>
+      <hr
+        [class.hidden]="$index + 1 === options().length"
+        class="border border mx-6"
+      />
       }
     </ul>
   </div>

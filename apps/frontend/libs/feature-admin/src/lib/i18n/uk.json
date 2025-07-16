@@ -1,0 +1,29 @@
+{
+  "layouts": {
+    "dashboard": "панель керування",
+    "products": "продукти",
+    "help": "допомога",
+    "add_item": "додати продукт"
+  },
+  "controls": {
+    "exit": "вихід",
+    "add_new_item": "додати продукт"
+  },
+  "form": {
+    "description": "опис",
+    "material": "матеріал",
+    "colors": "кольори",
+    "select_availabe_colors": "оберіть доступні кольорі",
+    "category": "категорія",
+    "status": "статус",
+    "sku": "артикул",
+    "unique_identifier": "унікальний ідентифікатор",
+    "quantity": "кількість",
+    "price": "ціна",
+    "enter_price": "введіть ціну",
+    "information": "інформація",
+    "name_of_item": "назва товару",
+    "enter_name_of_item": "введіть назву продукту",
+    "links_to_images": "посилання на зображення"
+  }
+}

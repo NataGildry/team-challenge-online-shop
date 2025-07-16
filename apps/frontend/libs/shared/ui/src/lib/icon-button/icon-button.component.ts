@@ -8,5 +8,6 @@ import { IconComponent } from '../icon/icon.component';
 })
 export class IconButtonComponent {
   public readonly svgIcon = input.required<string>();
+  public readonly iconColor = input<string>('');
   public readonly disabled = input(false);
 }

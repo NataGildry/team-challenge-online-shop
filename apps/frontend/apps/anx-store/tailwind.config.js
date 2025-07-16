@@ -15,6 +15,7 @@ module.exports = {
       },
       fontFamily: {
         Montserrat: ['Montserrat', 'sans-serif'],
+        Lato: ['Lato', 'sans-serif'],
       },
       fontSize: {
         baseSize: 'var(--app-font-size-base)',

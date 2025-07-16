@@ -1,0 +1,29 @@
+{
+  "layouts": {
+    "dashboard": "dashboard",
+    "products": "products",
+    "help": "help",
+    "add_item": "add item"
+  },
+  "controls": {
+    "exit": "exit",
+    "add_new_item": "add new item"
+  },
+  "form": {
+    "description": "description",
+    "material": "upholstery material",
+    "colors": "colors",
+    "select_availabe_colors": "select available colors",
+    "category": "category",
+    "status": "status",
+    "sku": "sku",
+    "unique_identifier": "unique identifier",
+    "quantity": "quantity",
+    "price": "price",
+    "enter_price": "enter price",
+    "information": "information",
+    "name_of_item": "Name of item",
+    "enter_name_of_item": "enter name of item",
+    "links_to_images": "links to image"
+  }
+}
