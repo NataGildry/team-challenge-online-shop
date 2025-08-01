@@ -1,11 +1,14 @@
 using FakedOutShop.Domain.Entities;
-
-namespace FakedOutShop.Domain.Interfaces;
-
-public interface IUserRepository
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
+namespace FakedOutShop.Domain.Interfaces
 {
-  Task<User> GetByEmailAsync(string email);
-  Task<bool> IsEmailUniqueAsync(string email);
-  Task AddAsync(User user);
+  public interface IUserRepository
+  {
+    Task<User> FindByEmailAsync(string email);
+    Task<IdentityResult> CreateUserAsync(User user, string password);
+    Task<IdentityResult> AddToRoleAsync(User user, string role);
+    Task<bool> IsInRoleAsync(User user, string role);
+    Task<bool> IsPasswordValid(User user, string password);
+  }
 }
-

@@ -1,46 +1,44 @@
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
 using FakedOutShop.Application.Abstractions;
-using FakedOutShop.Domain.Entities;
+using FakedOutShop.Application.DTOs;
+using FluentResults;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
-namespace FakedOutShop.Api.Controllers
+namespace FakedOutShop.API.Controllers
 {
   [ApiController]
-  [Route("api/[controller]")]
+  [Route("api/user")]
   public class UserController : ControllerBase
   {
-    private readonly IUserService _userService;
+    private readonly IAuthService _authService;
 
-    public UserController(IUserService userService)
+    public UserController(IAuthService authService)
     {
-      _userService = userService;
+      _authService = authService;
     }
 
-    [HttpGet("{email}")]
-    public async Task<IActionResult> GetByEmailAsync(string email)
+    [HttpPost("register")]
+    public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
     {
-      var user = await _userService.GetByEmailAsync(email);
-      return user != null ? Ok(user) : NotFound();
+      var result = await _authService.RegisterUserAsync(registerDto);
+      if (result.IsFailed)
+      {
+        return BadRequest(new { Errors = result.Errors });
+      }
+      return Ok(new { Message = "Account successfully created. Please log in" });
     }
 
-    [HttpPost]
-    public async Task<IActionResult> AddAsync([FromBody] User user)
+    [HttpPost("login")]
+    public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
     {
-      if (user == null)
+      var result = await _authService.LoginUserAsync(loginDto);
+      if (result.IsFailed)
       {
-        return BadRequest("User  cannot be null.");
+        return Unauthorized(new { Errors = result.Errors });
       }
-
-      try
-      {
-        await _userService.AddAsync(user);
-        return CreatedAtAction(nameof(GetByEmailAsync), new { email = user.Email }, user);
-      }
-      catch (InvalidOperationException)
-      {
-        return Conflict("Email is already in use.");
-      }
+      return Ok(new { Token = result.Value });
     }
   }
 }
+
 
