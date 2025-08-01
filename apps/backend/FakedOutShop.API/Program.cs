@@ -26,11 +26,8 @@ builder.Services.AddCors(options =>
   options.AddPolicy("AllowLocalhost", builder =>
   {
     builder.WithOrigins(
-        // 👇 Docker
         "http://localhost",
-        // 👇 Angular
         "http://localhost:4200",
-        // 👇 Swagger UI (Docker)
         "http://localhost:8080"
       )
       .AllowAnyHeader()
@@ -68,8 +65,7 @@ using (var scope = app.Services.CreateScope())
     }
   }
 }
-// ⚠️ Swagger is enabled for all environments for testing purposes,
-// ⚠️ since we currently don't have a dedicated production environment.
+
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseDeveloperExceptionPage();
